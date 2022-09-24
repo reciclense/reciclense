@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = express.Router();
-const cookieParser = require('cooki-parser');
+//const cookieParser = require('cooki-parser');
 const cors = require('cors');
+
+const testeTabela = require('./src/models/db');
+
 
 router.get('/', function(req,res){
 
@@ -13,8 +16,8 @@ router.get('/', function(req,res){
 
 app.use('/', router);
 app.use(cors());
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.json());
 app.listen(process.env.port || 3000);
 
-console.log('Funcionou');
+
