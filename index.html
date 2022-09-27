@@ -9,8 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/src/assets/css/menu.css" rel="stylesheet">
-    <link href="../assets/css/cadastro.css" rel="stylesheet">
+    <link href="src/assets/css/menu.css" rel="stylesheet">
+    <link href="src/assets/css/index.css" rel="stylesheet">
+    <link href="src/assets/css/variaveis.css" rel="stylesheet">
 
     <title>Reciclense - Home Page</title>
       
@@ -20,7 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
           <a class="navbar-brand" href="#">
-              <img src="/src/assets/img/logo.svg" alt="" width="250" height="77" class="d-inline-block align-text-top"/>
+              <img src="src/assets/img/logo.svg" alt="" width="250" height="77" class="d-inline-block align-text-top"/>
           </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,7 +35,10 @@
               <a class="nav-link" href="#">Quem Somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Como Funciona</a>
+              <a class="nav-link" href="#como-funciona">Como Funciona</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contato</a>
@@ -44,6 +48,110 @@
       </div>
     </nav>
 
+    <main>
+
+
+      <!--Como Funciona-->
+      <div id="como-funciona">
+          <!--Container-->
+          <div id="container">
+              <!--Linha-->
+              <div class="row">
+                  <!--Coluna-->
+                  <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <div class="card" style="width: 25rem;">
+                         <div class="card-body">
+                        <p class="card-text">Você solicita uma coleta informando 
+                          a frequencia e o material deixado</p>
+                        <img class="card-img-top" src="src/assets/icons/como-funciona-1.png" alt="Card image cap"> 
+                      </div>
+                    </div>
+                  </div>
+                  <!--Coluna-->
+                  <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <div class="card" style="width: 25rem;">
+                      <div class="card-body">
+                        <p class="card-text">A cooperativa busca as solicitações da região e passa o roteiro para o catador</p>
+                        <img class="card-img-top" src="src/assets/icons/como-funciona-2.png" alt="Card image cap">
+                      </div>
+                    </div>
+                  </div>
+                  <!--Coluna-->
+                  <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <div class="card" style="width: 25rem;">
+                      <div class="card-body">
+                        <p class="card-text">O catador recolhe o material no endereço informado</p>
+                        <img class="card-img-top" src="src/assets/icons/como-funciona-3.png" alt="Card image cap">
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+      <!--Materiais Recicláveis-->
+      <div id="materiais-reciclaveis">
+          <!--Container-->
+          <div class="container">
+              <!--Linha-->
+              <div class="row justify-content-center">
+                <!--Coluna-->
+                  <div class="col-12">
+                    <h3>Materiais Recicláveis</h3>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                    <div class="card" id="card-1" style="width: 18rem;">
+                      <img class="card-img-top" src="src/assets/img/mat-reciclavel-plastico.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h4>Plástico</h4>
+                        <p class="card-text">Sacola, Garrafa Pet, Galões, Tampinhas de garrafa, Copos Descartáveis...</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                    <div class="card" id="card-2" style="width: 18rem;">
+                      <img class="card-img-top" src="src/assets/img/mat-reciclavel-metal.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h4>Metal</h4>
+                        <p class="card-text">Latinhas de bebidas e condimentos, desodorante, talheres de metal...</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                    <div class="card" id="card-3" style="width: 18rem;">
+                      <img class="card-img-top" src="src/assets/img/mat-reciclavel-papel.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h4>Papel</h4>
+                        <p class="card-text">Folhas, Jornais, Caixas de Leite, Caixas de Papelão...</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                    <div class="card" id="card-4" style="width: 18rem;">
+                      <img class="card-img-top" src="src/assets/img/mat-reciclavel-vidro.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h4>Vidro</h4>
+                        <p class="card-text">Garrafa de Vidro, Potes, Vasos, Pratos...</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a href="/"> reciclense.com.br</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
