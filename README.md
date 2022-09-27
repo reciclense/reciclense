@@ -17,6 +17,9 @@ Instalar todas as dependencias indicada pelo package.json
 Criar o arquivo package.
 ### npm init
 
+## npm install bootstrap@v5.2.1
+Instalar bootstrap
+
 ### npm install express
 Gerencia as requisições, rotas e URLs, entre outra funcionalidades.
 
