@@ -1,0 +1,77 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* Como Funciona */
+
+div#como-funciona{
+    background-color: #D9D9D9;
+    margin-bottom: 50px;
+}
+
+div#como-funciona .card-img-top{
+    width: 117px;
+    height: 117px;
+    margin-top: 5px;
+}
+
+.card{
+    border: none;
+}
+
+div#como-funciona .card{
+    text-align: center;
+    background-color: #D9D9D9;
+    margin-top: 20px;
+}
+
+div#como-funciona .card-text{
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--corTexto3);
+}
+
+/* Materiais Recicláveis */
+
+div#materiais-reciclaveis , .card{
+    margin-bottom: 50px;
+}
+div#materiais-reciclaveis h3{
+    font-weight: 400;
+    font-size: 50px;
+    color: var(--corTexto1);
+    margin-bottom: 50px;
+}
+
+div#materiais-reciclaveis .card-body h4{
+    font-weight: 400;
+    font-size: 30px;
+}
+
+div#materiais-reciclaveis .card-body{
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+    height: 216px;
+}
+
+#card-1{
+    background-color: #F98715;
+}
+
+#card-2{
+    background-color: #F7CB14;
+}
+
+#card-3{
+    background-color: #516BBF;
+}
+
+#card-4{
+    background-color: #26881B;
+}
+
+footer{
+    background-color: #D9D9D9;
+}
