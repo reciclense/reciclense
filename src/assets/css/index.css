@@ -1,6 +1,45 @@
+/* Gerais */
+
 body{
-    padding: 0;
+
+}
+
+.row{
     margin: 0;
+}
+
+.container{
+    padding: 70px 0;
+}
+
+.btn-primary{
+    background-color: var(--corBotao);
+    --bs-btn-hover-bg: var(--corBotao);
+    --bs-btn-active-bg: var(--corBotao);
+    border: none;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 50px;
+}
+
+div#inicio{
+    background-color: var(--corPadrao);
+    height: 800px;
+}
+
+div#inicio .row{
+    height: 678px;
+}
+
+div#inicio img{
+    
+}
+
+div#inicio h1{
+    color: #ffffff;
+    font-size: 60px;
 }
 
 /* Como Funciona */
@@ -38,8 +77,6 @@ div#materiais-reciclaveis , .card{
     margin-bottom: 50px;
 }
 div#materiais-reciclaveis h3{
-    font-weight: 400;
-    font-size: 50px;
     color: var(--corTexto1);
     margin-bottom: 50px;
 }
@@ -71,6 +108,32 @@ div#materiais-reciclaveis .card-body{
 #card-4{
     background-color: #26881B;
 }
+
+/* Contato */
+
+div#contato{
+    background-color: #00A8E6;
+    padding-bottom: 150px;
+    margin-bottom: 50px;
+}
+
+div#contato .container{
+    padding-top: 35px;
+}
+
+div#contato p {
+    font-size: 20px;
+}
+
+div#contato h3, h4, p{
+    color: #ffffff;
+}
+
+div#contato .form-group, div#contato label{
+    margin-bottom: 10px;
+}
+
+/* Rodapé */
 
 footer{
     background-color: #D9D9D9;
