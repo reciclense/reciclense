@@ -9,6 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link href="src/assets/css/menu.css" rel="stylesheet">
     <link href="src/assets/css/index.css" rel="stylesheet">
     <link href="src/assets/css/variaveis.css" rel="stylesheet">
@@ -18,18 +20,18 @@
 </head>
   <body>
     <!--Navbar geral-->
+    <div class="container-fluid" id="nav-container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
           <a class="navbar-brand" href="#">
-              <img src="src/assets/img/logo.svg" alt="" width="250" height="77" class="d-inline-block align-text-top"/>
+              <img src="src/assets/img/logo.svg" alt="Reciclense" width="200" height="77" class="d-inline-block align-text-top"/>
           </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mr-auto align-items-center">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Início</a>
+              <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Quem Somos</a>
@@ -44,12 +46,27 @@
               <a class="nav-link" href="#">Contato</a>
             </li>
           </ul>
+          <button type="button" id="btn-menu" class="btn btn-primary my-2 my-sm-0">Área do usuário <span class="material-icons">lock</span></button>
         </div>
-      </div>
     </nav>
+  </div>
 
     <main>
-
+      <!--Inicio-->
+      <div id="inicio">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center">
+              <h1>Solicite uma coleta <br>
+                e contribua para o <br>
+                meio ambiente</h1>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+              <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="Mulher realizando coleta seletiva">
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!--Como Funciona-->
       <div id="como-funciona">
@@ -139,6 +156,62 @@
               </div>
           </div>
       </div>
+
+      <!-- Contato -->
+      <div id="contato">
+          <div class="container">
+              <div class="col-md-6">
+                <h3>Contato</h3>
+                <p>Está com dúvidas? entre em contato conosco!</p>
+              </div>
+            <div class="col-md-6">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formContato">
+                Entrar em contato
+              </button>
+            <!-- Modal -->
+            <div class="modal fade" id="formContato" tabindex="-1" role="dialog" aria-labelledby="formContato" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="formTitulo">Preencha o formulário!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Formulário -->
+                    <form>
+                      <div class="form-group">
+                        <label for="formNome">Nome</label>
+                        <input type="text" class="form-control" id="formNome" aria-describedby="nome" placeholder="Insira seu Nome">
+                      </div>
+                      <div class="form-group">
+                        <label for="formEmail">Email</label>
+                        <input type="email" class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="nome@exemplo.com">
+                        <small id="emailHelp" class="form-text text-muted">Não compartilharemos seu e-mail com mais ninguém.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="formAssunto">Assunto</label>
+                        <input type="text" class="form-control" id="formAssunto" aria-describedby="assunto" placeholder="Insira o assunto">
+                      </div>
+                      <div class="form-group">
+                        <label for="formDescricao">Descrição</label>
+                        <textarea class="form-control" id="formDescricao" rows="3"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                      </div>
+                  </div>
+                  </div>
     </main>
 
     <!-- Rodapé -->
