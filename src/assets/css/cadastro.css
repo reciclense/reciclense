@@ -32,11 +32,15 @@ p{
 .container{
     float: right;
 }
-.container1{
-    float: left;
+
+
+.btn-primary{
+    background-color: var(--corBotao);
+    --bs-btn-hover-bg: var(--corBotao);
+    --bs-btn-active-bg: var(--corBotao);
+    border: none;
 }
 
-.btnEntrar{
-    margin-right: 50px;
-    width: 500px;
+.headingCadastro{
+    align-items: center;
 }

@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../assets/css/cadastro.css" rel="stylesheet">
     <link href="../assets/css/menu.css" rel="stylesheet">
     <link href="../assets/css/geral.css" rel="stylesheet">
@@ -22,75 +23,66 @@
 
 </head>
   <body>
-    <!--Navbar geral-->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">
-        <img src="/src/assets/img/logo.svg" alt="" width="250" height="77" class="d-inline-block align-text-top"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#inicio">Início </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Quem somos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Como Funciona</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
-          </li>
-        </ul>
-      </div>
-      <button type="button" class=" btnEntrar btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-        Entrar
-      </button>
-    </nav>
 
     <!--Titulo da pagina-->
     <h1 class="headingCadastro">Cadastre-se</h1>
 
-    <!--Formulário de cadastro-->
-    <form class="container1">
-      <div class="form-group">
-        <label for="exampleInputEmail1" class="headerInput">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
-      </div>
-    </form>
-    <form class="container">
-      <div class="form-group">
-        <label for="exampleInputEmail1" class="headerInput">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1" class="headerInput">Senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha">
-        <label for="exampleInputEmail1" class="headerInput">Tipo de de Usuário</label>
-      </div>
-      
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-          Pessoa Fisíca
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        <label class="form-check-label" for="exampleRadios2">
-          Pessoa Jurídica
-        </label>
-      </div>
-      <div>
-        <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar Conta</button><br>
-          <p>Já possui cadastro?<button class="btnFazerLogin">Fazer Login</button></p>
-      </div>
-    </form>
 
+
+    <!-- Cadastro -->
+    <div id="cadastro">
+      <div class="container">
+        <div class="col-md-6">
+        <!-- Modal -->
+        <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class=" headingCadastro">Cadastre-se</h5>
+
+              </div>
+              <div class="modal-body">
+
+                <!--Formulário de cadastro-->
+                <form class="container">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" class="headerInput">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1" class="headerInput">Senha</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha">
+                    <label for="exampleInputEmail1" class="headerInput">Tipo de de Usuário</label>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Pessoa Fisíca
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Pessoa Jurídica
+                    </label>
+                  </div>
+                  <div>
+                    <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar Conta</button><br>
+                      <p>Já possui cadastro?<button class="btnFazerLogin">Fazer Login</button></p>
+                  </div>
+                </form>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

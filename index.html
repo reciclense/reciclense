@@ -13,6 +13,7 @@
     <link href="src/assets/css/menu.css" rel="stylesheet">
     <link href="src/assets/css/index.css" rel="stylesheet">
     <link href="src/assets/css/geral.css" rel="stylesheet">
+    <script type="text/JavaScript" src="src/assets/js/arquivo.js"></script>
 
     <!--Import fonte padrão-->
     <style>
@@ -24,37 +25,39 @@
 </head>
   <body>
     <!--Navbar geral-->
-    <div class="container-fluid" id="nav-container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="#">
-              <img src="src/assets/img/logo.svg" alt="Reciclense" width="200" height="77" class="d-inline-block align-text-top"/>
-          </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto align-items-center">
-            <li class="nav-item">
-              <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Quem Somos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#como-funciona">Como Funciona</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contato</a>
-            </li>
-          </ul>
-          <button type="button" id="btn-menu" class="btn btn-primary my-2 my-sm-0">Área do usuário <span class="material-icons">lock</span></button>
-        </div>
-    </nav>
-  </div>
-
+    <div class=" divMenu container-fluid" id="nav-container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="src/assets/img/logo.svg" alt="Reciclense" width="200" height="77" class="d-inline-block align-text-top"/>
+            </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Quem Somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#como-funciona">Como Funciona</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contato">Contato</a>
+              </li>
+            </ul>
+            <div id="btnDinamico"></div>
+            <!--<button type="button" id="btn-menu" class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="
+              #formLogin">Área do usuário <span class="material-icons">lock</span></button>-->
+          </div>
+      </nav>
+    </div>
+   
     <main>
       <!--Inicio-->
       <div id="inicio">
@@ -62,7 +65,7 @@
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
               <h1>Solicite uma coleta <br>
-                e contribua para o <br>
+                e contribua com o <br>
                 meio ambiente</h1>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
@@ -81,9 +84,9 @@
                   <!--Coluna-->
                   <div class="col-md-4 d-flex align-items-center justify-content-center">
                     <div class="card" style="width: 25rem;">
-                         <div class="card-body">
+                      <div class="card-body">
                         <p class="card-text">Você solicita uma coleta informando 
-                          a frequencia e o material deixado</p>
+                          a frequência e o material deixado</p>
                         <img class="card-img-top" src="src/assets/icons/como-funciona-1.png" alt="Card image cap"> 
                       </div>
                     </div>
@@ -92,7 +95,7 @@
                   <div class="col-md-4 d-flex align-items-center justify-content-center">
                     <div class="card" style="width: 25rem;">
                       <div class="card-body">
-                        <p class="card-text">A cooperativa busca as solicitações da região e passa o roteiro para o catador</p>
+                        <p class="card-text">A cooperativa busca as solicitações da região e passa o roteiro para o coletor</p>
                         <img class="card-img-top" src="src/assets/icons/como-funciona-2.png" alt="Card image cap">
                       </div>
                     </div>
@@ -101,7 +104,7 @@
                   <div class="col-md-4 d-flex align-items-center justify-content-center">
                     <div class="card" style="width: 25rem;">
                       <div class="card-body">
-                        <p class="card-text">O catador recolhe o material no endereço informado</p>
+                        <p class="card-text">O coletor recolhe o material no endereço informado</p>
                         <img class="card-img-top" src="src/assets/icons/como-funciona-3.png" alt="Card image cap">
                       </div>
                     </div>
@@ -179,9 +182,6 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="formTitulo">Preencha o formulário!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
                   </div>
                   <div class="modal-body">
                     <!-- Formulário -->
@@ -213,10 +213,103 @@
                 </div>
               </div>
             </div>
-                      </div>
-                  </div>
-                  </div>
+          </div>
+        </div>
+      </div>
     </main>
+
+        <!-- Modal Login -->
+        <div id="login">
+          <div class="container">
+            <div class="col-md-6">
+            <!-- Modal -->
+            <div class="modal fade" id="formLogin" tabindex="-1" role="dialog" aria-labelledby="formLogin" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class=" headingLogin">Entrar</h5>
+                  </div>
+                  <div class="modal-body">
+    
+                    <!--Formulário de Login-->
+                    <form class="container">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" class="headerInput">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1" class="headerInput">Senha</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha">
+                      </div>
+                      <div>
+                        <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Entrar</button><br>
+                          <p class="txtCadastrar">Ainda não possui cadastro?<button class="btnCadastrar" data-toggle="modal" data-target="cadastro.html#formCadastro">Cadastre-se</button></p>
+                      </div>
+                    </form>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Modal Cadastro -->
+    <div id="cadastro">
+      <div class="container">
+        <div class="col-md-6">
+        <!-- Modal -->
+        <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class=" headingCadastro">Cadastre-se</h5>
+              </div>
+              <div class="modal-body">
+
+                <!--Formulário de cadastro-->
+                <form class="container">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" class="headerInput">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1" class="headerInput">Senha</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha">
+                    <label for="exampleInputEmail1" class="headerInput">Tipo de de Usuário</label>
+                  </div>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Pessoa Fisíca
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Pessoa Jurídica
+                    </label>
+                  </div>
+                  <div>
+                    <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar Conta</button><br>
+                      <p class="txtLogar">Já possui cadastro?<button class="btnFazerLogin">Fazer Login</button></p>
+                  </div>
+                </form>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Rodapé -->
 <footer class="page-footer font-small blue">

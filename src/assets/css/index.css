@@ -133,6 +133,46 @@ div#contato .form-group, div#contato label{
     margin-bottom: 10px;
 }
 
+/*Modal*/
+.btnCriarConta{
+    background: var(--corBotao);
+    border: var(--corBotao);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btnFazerLogin, .btnCadastrar{
+    color: var(--corBotao);
+    font-weight: bold;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+}
+
+.headerInput{
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+p{
+    font-size: 1.3em;
+
+}
+
+.headingCadastro, .headinLogin{
+    align-items: center;
+}
+
+.txtCadastrar, .txtLogar{
+    color: black;
+}
+
 /* Rodapé */
 
 footer{
