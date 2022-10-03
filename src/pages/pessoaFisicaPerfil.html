@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../assets/css/menu.css" rel="stylesheet">
     <link href="../assets/css/geral.css" rel="stylesheet">
+    <link href="../assets/css/pessoaFisicaPerfil.css" rel="stylesheet">
 
     <!--Import Scripts-->
     <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
@@ -22,7 +23,7 @@
     </style>
 
     <title>Reciclense - Perfil Pessoa Fisíca</title>
-      
+
 </head>
   <body>
     <!--Navbar geral-->
@@ -56,6 +57,82 @@
           </div>
       </nav>
     </div>
+
+    <!--Titulo 1 da página-->
+
+    <h1 class="headingPerfilPessoaFisica">Seus dados</h1>
+    <br>
+
+    <!--Formulário Pessoa Física-->
+
+    <form>
+      <form>
+        <div class="row">
+          <div class="col">
+            <label for="inputName">Nome</label>
+            <input type="text" class="form-control" placeholder="Digite seu Nome">
+          </div>
+          <div class="col">
+            <label for="inputsobrenome">Sobrenome</label>
+            <input type="text" class="form-control" placeholder="Digite seu Sobrenome">
+          </div>
+        </div>
+      </form>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com">
+          </div>
+          <div class="col">
+            <label for="inputPassword4">CPF</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Somente números">
+          </div>
+          <br><br><br><br>
+         
+          <!--Titulo 2 da página-->
+          <h1 style="color: #000;";>Endereço</h1>
+          <br>
+
+          <!--Formulário de Endereco-->
+
+          <form>
+        
+            <div class="form-group">
+              <label for="inputAddress">Rua</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Rua do Recife, nº 0">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Complemento</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, ponto de referência.">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Cidade</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputEstado">Estado</label>
+                <select id="inputEstado" class="form-control">
+                  <option selected>Escolher...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputCEP">CEP</label>
+                <input type="text" class="form-control" id="inputCEP">
+              </div>
+            </div>
+            <br>
+            <!--Botoes-->
+            <div>
+              <button type="button" class="btn btn-success">Salvar</button>
+              <button type="button" class="btn btn-secondary">Editar</button>
+              <button type="button" class="btn btn-secondary">Excluir</button>              
+            </div>
+
+    </form>
+    
 
 
      <!-- Optional JavaScript -->
