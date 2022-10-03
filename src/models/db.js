@@ -9,7 +9,7 @@ sequelize.authenticate()
 .then(()=>{
     console.log("Conexão com o banco de dados realizada com sucesso!");
 }).catch(()=>{
-    console.log("Erro: Conexão com o banco de dados não realizada com sucesso!");
+    console.log("Erro: Conexão com o banco de dados não foi realizada com sucesso!");
 });
 
 module.exports = sequelize;

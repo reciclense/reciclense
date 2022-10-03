@@ -1,6 +1,8 @@
 .btnCriarConta{
     background: var(--corBotao);
     border: var(--corBotao);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btnFazerLogin{
@@ -16,5 +18,29 @@
 .headerInput{
     font-weight: bold;
     text-align: left;
-    margin: 20px 20px 20px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+p{
+    font-size: 1.3em;
+
+}
+
+.container{
+    float: right;
+}
+
+
+.btn-primary{
+    background-color: var(--corBotao);
+    --bs-btn-hover-bg: var(--corBotao);
+    --bs-btn-active-bg: var(--corBotao);
+    border: none;
+}
+
+.headingCadastro{
+    align-items: center;
 }

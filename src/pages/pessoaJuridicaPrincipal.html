@@ -9,40 +9,52 @@
 
     <!-- Bootstrap CSS -->
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../assets/css/menu.css" rel="stylesheet">
-    <link href="../assets/css/variaveis.css" rel="stylesheet">
+    <link href="../assets/css/geral.css" rel="stylesheet">
+    <script type="text/JavaScript" src="../assets/js/arquivo.js"></script>
 
+    <!--Import fonte padrão-->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');    
+    </style>
+    
     <title>Reciclense - Pessoa Jurídica</title>
       
 </head>
   <body>
 
     <!--Navbar geral-->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">
-        <img src="/src/assets/img/logo.svg" alt="" width="250" height="77" class="d-inline-block align-text-top"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class=" divMenu container-fluid" id="nav-container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/img/logo.svg" alt="Reciclense" width="200" height="77" class="d-inline-block align-text-top"/>
+            </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Início </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Quem somos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Como Funciona</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Quem Somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#como-funciona">Como Funciona</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contato">Contato</a>
+              </li>
+            </ul>
+            <div id="btnDinamico"></div>
+          </div>
+      </nav>
+    </div>
 
 
      <!-- Optional JavaScript -->

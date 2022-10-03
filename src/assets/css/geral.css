@@ -1,0 +1,33 @@
+/*Variáveis*/
+:root {
+    --corPadrao: #85B027;
+    --corBotao: #58D644;
+    --corTexto1: #85B027;
+    --corTexto3: #00A8E6;
+    --corHeading: #85B027;
+    --fontePadrao: 'Roboto', sans-serif;
+     
+  }
+
+/*Estilo Geral*/  
+
+body{
+   
+  font-family: var(--fontePadrao);
+}
+
+h1{
+  text-align: center;
+  margin-top: 50px;
+  color: var(--corHeading);
+
+}
+
+.btn-primary{
+  background-color: var(--corBotao);
+  --bs-btn-hover-bg: var(--corBotao);
+  --bs-btn-active-bg: var(--corBotao);
+  border: none;
+}
+
+
