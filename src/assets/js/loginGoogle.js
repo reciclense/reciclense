@@ -1,7 +1,18 @@
 
 function handleCredentialResponse(response) {
-    
-    //console.log("Encoded JWT ID token: " + response.credential);
+
+    const data = jwt_decode(response.credential);
+    console.log(data);
+    window.location.href="http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html";
+    /*fullName.textContent = data.name;
+    sub.textContent = data.sub;
+    given_name.textContent = data.given_name;
+    family_name.textContent = data.family_name;
+    email.textContent = data.email;
+    verifiedEmail.textContent = data.email_verified;
+    picture.setAttribute("src", data.picture);*/
+
+
   }
 
   window.onload = function () {
@@ -22,8 +33,6 @@ function handleCredentialResponse(response) {
       logo_alignment:"left"
  
     });
-
-    //google.accounts.id.prompt(); // also display the One Tap dialog
 
   }
 
