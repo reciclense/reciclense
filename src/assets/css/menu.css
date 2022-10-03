@@ -48,3 +48,14 @@
 #btn-menu span{
     margin-left: 5px;
 }
+
+.divMenu{
+
+    background: white;
+    width: 100%;
+    position: fixed;
+}
+
+.card{
+    position: static;
+}
