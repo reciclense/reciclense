@@ -57,13 +57,30 @@
         <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
-              <h1>Solicite uma coleta <br>
-                e contribua para o <br>
+
+              
+              <h1>Solicite uma coleta
+                e contribua para o
                 meio ambiente</h1>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
               <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="Mulher realizando coleta seletiva">
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quem Somos -->
+      <div id="quem-somos">
+        <div class="container">
+          <div class="row justify-content-between">
+              <div class="col-md-12 col-lg-6">
+                  <h3>Quem somos</h3>
+                  <p>Somos a Reciclense, uma plataforma que permite conectar o cidadão que deseja realizar o descarte consciente de material reciclavel, com o catador que realizará a coleta.</p>
+              </div>
+              <div class="col-md-12 col-lg-4 d-flex justify-content-center">
+                  <img src="src/assets/img/logo-2.svg" alt="Reciclense">
+              </div>
           </div>
         </div>
       </div>
@@ -117,7 +134,7 @@
                   <div class="col-12">
                     <h3>Materiais Recicláveis</h3>
                   </div>
-                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                  <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
                     <div class="card" id="card-1" style="width: 18rem;">
                       <img class="card-img-top" src="src/assets/img/mat-reciclavel-plastico.png" alt="Card image cap">
                       <div class="card-body">
@@ -126,7 +143,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                  <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
                     <div class="card" id="card-2" style="width: 18rem;">
                       <img class="card-img-top" src="src/assets/img/mat-reciclavel-metal.png" alt="Card image cap">
                       <div class="card-body">
@@ -135,7 +152,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                  <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
                     <div class="card" id="card-3" style="width: 18rem;">
                       <img class="card-img-top" src="src/assets/img/mat-reciclavel-papel.png" alt="Card image cap">
                       <div class="card-body">
@@ -144,7 +161,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+                  <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
                     <div class="card" id="card-4" style="width: 18rem;">
                       <img class="card-img-top" src="src/assets/img/mat-reciclavel-vidro.png" alt="Card image cap">
                       <div class="card-body">
@@ -160,28 +177,13 @@
       <!-- Contato -->
       <div id="contato">
           <div class="container">
-              <div class="col-md-6">
-                <h3>Contato</h3>
-                <p>Está com dúvidas? entre em contato conosco!</p>
+            <div class="row justify-content-center">
+              <div class="col-md-12 col-lg-12 text-center">
+                <h4>Está com dúvidas? <br> entre em contato conosco!</h4>
               </div>
-            <div class="col-md-6">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formContato">
-                Entrar em contato
-              </button>
-            <!-- Modal -->
-            <div class="modal fade" id="formContato" tabindex="-1" role="dialog" aria-labelledby="formContato" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="formTitulo">Preencha o formulário!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
+            <div class="col-md-8 col-lg-8">
                     <!-- Formulário -->
-                    <form>
+                    <form id="form-contato">
                       <div class="form-group">
                         <label for="formNome">Nome</label>
                         <input type="text" class="form-control" id="formNome" aria-describedby="nome" placeholder="Insira seu Nome">
@@ -201,17 +203,10 @@
                       </div>
                       <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  </div>
                 </div>
-              </div>
             </div>
-                      </div>
-                  </div>
-                  </div>
+        </div>
+    </div>
     </main>
 
     <!-- Rodapé -->
