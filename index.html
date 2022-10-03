@@ -28,7 +28,7 @@
     </style>
     
     <title>Reciclense - Home Page</title>
-      
+    
 </head>
   <body>
     <!--Navbar geral-->
@@ -64,15 +64,15 @@
           </div>
       </nav>
     </div>
-   
     <main>
       <!--Inicio-->
       <div id="inicio">
         <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
-              <h1>Solicite uma coleta <br>
-                e contribua com o <br>
+              
+              <h1>Solicite uma coleta
+                e contribua para o
                 meio ambiente</h1>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
@@ -81,45 +81,58 @@
           </div>
         </div>
       </div>
-
-      <!--Como Funciona-->
-      <div id="como-funciona">
-          <!--Container-->
-          <div id="container">
-              <!--Linha-->
-              <div class="row">
-                  <!--Coluna-->
-                  <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="card" style="width: 25rem;">
-                      <div class="card-body">
-                        <p class="card-text">Você solicita uma coleta informando 
-                          a frequência e o material deixado</p>
-                        <img class="card-img-top" src="src/assets/icons/como-funciona-1.png" alt="Card image cap"> 
-                      </div>
-                    </div>
-                  </div>
-                  <!--Coluna-->
-                  <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="card" style="width: 25rem;">
-                      <div class="card-body">
-                        <p class="card-text">A cooperativa busca as solicitações da região e passa o roteiro para o coletor</p>
-                        <img class="card-img-top" src="src/assets/icons/como-funciona-2.png" alt="Card image cap">
-                      </div>
-                    </div>
-                  </div>
-                  <!--Coluna-->
-                  <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="card" style="width: 25rem;">
-                      <div class="card-body">
-                        <p class="card-text">O coletor recolhe o material no endereço informado</p>
-                        <img class="card-img-top" src="src/assets/icons/como-funciona-3.png" alt="Card image cap">
-                      </div>
-                    </div>
-                  </div>
-
+      <!-- Quem Somos -->
+      <div id="quem-somos">
+        <div class="container">
+          <div class="row justify-content-between">
+              <div class="col-md-12 col-lg-6">
+                  <h3>Quem somos</h3>
+                  <p>Somos a Reciclense, uma plataforma que permite conectar o cidadão que deseja realizar o descarte consciente de material reciclavel, com o catador que realizará a coleta.</p>
+              </div>
+              <div class="col-md-12 col-lg-4 d-flex justify-content-center">
+                  <img src="src/assets/img/logo 2.png" alt="Reciclense">
               </div>
           </div>
+        </div>
       </div>
+       <!--Como Funciona-->
+       <div id="como-funciona">
+        <!--Container-->
+        <div id="container">
+            <!--Linha-->
+            <div class="row">
+                <!--Coluna-->
+                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                  <div class="card" style="width: 25rem;">
+                       <div class="card-body">
+                      <p class="card-text">Você solicita uma coleta informando 
+                        a frequencia e o material deixado</p>
+                      <img class="card-img-top" src="src/assets/icons/como-funciona-1.png" alt="Card image cap"> 
+                    </div>
+                  </div>
+                </div>
+                <!--Coluna-->
+                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                  <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                      <p class="card-text">A cooperativa busca as solicitações da região e passa o roteiro para o catador</p>
+                      <img class="card-img-top" src="src/assets/icons/como-funciona-2.png" alt="Card image cap">
+                    </div>
+                  </div>
+                </div>
+                <!--Coluna-->
+                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                  <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                      <p class="card-text">O catador recolhe o material no endereço informado</p>
+                      <img class="card-img-top" src="src/assets/icons/como-funciona-3.png" alt="Card image cap">
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
       <!--Materiais Recicláveis-->
       <div id="materiais-reciclaveis">
@@ -173,61 +186,41 @@
 
       <!-- Contato -->
       <div id="contato">
-          <div class="container">
-              <div class="col-md-6">
-                <h3>Contato</h3>
-                <p>Está com dúvidas? entre em contato conosco!</p>
-              </div>
-            <div class="col-md-6">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formContato">
-                Entrar em contato
-              </button>
-            <!-- Modal -->
-            <div class="modal fade" id="formContato" tabindex="-1" role="dialog" aria-labelledby="formContato" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="formTitulo">Preencha o formulário!</h5>
-                  </div>
-                  <div class="modal-body">
-                    <!-- Formulário -->
-                    <form>
-                      <div class="form-group">
-                        <label for="formNome">Nome</label>
-                        <input type="text" class="form-control" id="formNome" aria-describedby="nome" placeholder="Insira seu Nome">
-                      </div>
-                      <div class="form-group">
-                        <label for="formEmail">Email</label>
-                        <input type="email" class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="nome@exemplo.com">
-                        <small id="emailHelp" class="form-text text-muted">Não compartilharemos seu e-mail com mais ninguém.</small>
-                      </div>
-                      <div class="form-group">
-                        <label for="formAssunto">Assunto</label>
-                        <input type="text" class="form-control" id="formAssunto" aria-describedby="assunto" placeholder="Insira o assunto">
-                      </div>
-                      <div class="form-group">
-                        <label for="formDescricao">Descrição</label>
-                        <textarea class="form-control" id="formDescricao" rows="3"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-12 text-center">
+              <h4>Está com dúvidas? <br> entre em contato conosco!</h4>
+            </div>
+          <div class="col-md-8 col-lg-8">
+                  <!-- Formulário -->
+                  <form id="form-contato">
+                    <div class="form-group">
+                      <label for="formNome">Nome</label>
+                      <input type="text" class="form-control" id="formNome" aria-describedby="nome" placeholder="Insira seu Nome">
+                    </div>
+                    <div class="form-group">
+                      <label for="formEmail">Email</label>
+                      <input type="email" class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="nome@exemplo.com">
+                      <small id="emailHelp" class="form-text text-muted">Não compartilharemos seu e-mail com mais ninguém.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="formAssunto">Assunto</label>
+                      <input type="text" class="form-control" id="formAssunto" aria-describedby="assunto" placeholder="Insira o assunto">
+                    </div>
+                    <div class="form-group">
+                      <label for="formDescricao">Descrição</label>
+                      <textarea class="form-control" id="formDescricao" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
     </main>
 
         <!-- Modal Login -->
         <div id="login">
-          <div class="container">
             <div class="col-md-6">
             <!-- Modal -->
             <div class="modal fade" id="formLogin" tabindex="-1" role="dialog" aria-labelledby="formLogin" aria-hidden="true">
@@ -239,7 +232,7 @@
                   <div class="modal-body">
     
                     <!--Formulário de Login-->
-                    <form class="container">
+                    <form>
                       <div class="form-group">
                         <label for="exampleInputEmail1" class="headerInput">Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
@@ -263,12 +256,10 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
       
     <!-- Modal Cadastro -->
     <div id="cadastro">
-      <div class="container">
         <div class="col-md-6">
         <!-- Modal -->
         <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro" aria-hidden="true">
@@ -280,7 +271,7 @@
               <div class="modal-body">
 
                 <!--Formulário de cadastro-->
-                <form class="container">
+                <form>
                   <div class="form-group">
                     <label for="exampleInputEmail1" class="headerInput">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
@@ -316,7 +307,6 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
 
     <!-- Rodapé -->
