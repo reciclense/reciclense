@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(url);
 
     //Usuário logado
-    if(1==1){
+    if(1==2){
 
         //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
         if(url == "http://127.0.0.1:5500/" || url == "http://127.0.0.1:5500/index.html" ){
