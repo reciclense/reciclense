@@ -16,6 +16,11 @@
 
     <!--Import Scripts-->
     <script type="text/JavaScript" src="src/assets/js/btnDinamico.js"></script>
+    <script type="text/JavaScript" src="src/assets/js/loginGoogle.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script scr="https://unpkg.com/jwt"></script>
+    
+
 
     <!--Import fonte padrão-->
     <style>
@@ -245,6 +250,7 @@
                       </div>
                       <div>
                         <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Entrar</button><br>
+                        <div id="btnLoginGoogle"></div> 
                           <p class="txtCadastrar">Ainda não possui cadastro?<button class="btnCadastrar" data-toggle="modal" data-target="cadastro.html#formCadastro">Cadastre-se</button></p>
                       </div>
                     </form>
