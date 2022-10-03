@@ -22,19 +22,13 @@ body{
 h3 {
     font-weight: 400;
     font-size: 50px;
+    color: var(--corPadrao);
 }
+
+/* Inicio */
 
 div#inicio{
     background-color: var(--corPadrao);
-    height: 800px;
-}
-
-div#inicio .row{
-    height: 678px;
-}
-
-div#inicio img{
-    
 }
 
 div#inicio h1{
@@ -42,11 +36,19 @@ div#inicio h1{
     font-size: 60px;
 }
 
+/* Quem Somos */
+
+div#quem-somos p{
+    color: var(--corPadrao);
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
 /* Como Funciona */
 
 div#como-funciona{
     background-color: #D9D9D9;
-    margin-bottom: 50px;
 }
 
 div#como-funciona .card-img-top{
@@ -66,7 +68,7 @@ div#como-funciona .card{
 }
 
 div#como-funciona .card-text{
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     color: var(--corTexto3);
 }
@@ -74,7 +76,7 @@ div#como-funciona .card-text{
 /* Materiais Recicláveis */
 
 div#materiais-reciclaveis , .card{
-    margin-bottom: 50px;
+
 }
 div#materiais-reciclaveis h3{
     color: var(--corTexto1);
@@ -113,26 +115,36 @@ div#materiais-reciclaveis .card-body{
 
 div#contato{
     background-color: #00A8E6;
-    padding-bottom: 150px;
-    margin-bottom: 50px;
-}
-
-div#contato .container{
-    padding-top: 35px;
+    padding-bottom: 100px;
 }
 
 div#contato p {
     font-size: 20px;
 }
 
-div#contato h3, h4, p{
+div#contato h4 {
+    font-size: 60px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+div#contato h3, h4, p, div#contato label, .text-muted{
     color: #ffffff;
+    
+}
+
+div#contato .text-muted{
+    color: #ffffff!important;
 }
 
 div#contato .form-group, div#contato label{
     margin-bottom: 10px;
 }
 
+#form-contato button{
+    width: 100%;
+    margin-top: 5px;
+}
 /*Modal*/
 .btnCriarConta{
     background: var(--corBotao);
@@ -150,15 +162,12 @@ div#contato .form-group, div#contato label{
     cursor:pointer;
     overflow: hidden; 
 }
-
 .headerInput{
     font-weight: bold;
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
-
 
 p{
     font-size: 1.3em;
@@ -177,4 +186,75 @@ p{
 
 footer{
     background-color: #D9D9D9;
+}
+
+/* Responsivo */
+@media(max-width:768px){
+
+    /* geral */
+    .container{
+        padding: 20px 0;
+    }
+
+    /* inicio */
+    div#inicio h1{
+        color: #ffffff;
+        font-size: 40px;
+    }
+
+    /* titulo */
+    
+    h3 {
+        font-size: 40px;
+    }
+
+    div#materiais-reciclaveis h3{
+        margin-bottom: 20px;
+    }
+
+    /* card */
+
+    div#como-funciona .card-text{
+        font-size: 11px;
+    }
+
+    div#como-funciona .card-img-top{
+        width: 80px;
+        height: 80px;
+        margin-top: 5px;
+    }
+
+    p.card-text{
+        font-size: 14px;
+    }
+
+    div#materiais-reciclaveis .card-body h4{
+        font-size: 25px;
+    }
+
+    div#materiais-reciclaveis .card-body{
+        height: 150px;
+    }
+
+    /* Contato */
+    div#contato p {
+        font-size: 15px;
+    }
+
+    div#contato h4 {
+        font-size: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    /* Quem Somos */
+    div#quem-somos p{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    div#quem-somos img{
+        width: 250px
+    }
+
 }
