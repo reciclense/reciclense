@@ -98,3 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
 }, false);
+
+ function chamarModalCadastro() {
+    $("#formCadastro").modal({
+        show: true
+      });
+};
+

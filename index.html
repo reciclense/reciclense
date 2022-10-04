@@ -18,10 +18,8 @@
     <script type="text/JavaScript" src="src/assets/js/btnDinamico.js"></script>
     <script type="text/JavaScript" src="src/assets/js/loginGoogle.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script scr="https://unpkg.com/jwt"></script>
-    
-
-
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+  
     <!--Import fonte padrão-->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');    
@@ -59,8 +57,6 @@
               </li>
             </ul>
             <div id="btnDinamico"></div>
-            <!--<button type="button" id="btn-menu" class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="
-              #formLogin">Área do usuário <span class="material-icons">lock</span></button>-->
           </div>
       </nav>
     </div>
@@ -97,8 +93,8 @@
       </div>
        <!--Como Funciona-->
        <div id="como-funciona">
-        <!--Container-->
-        <div id="container">
+          <!--Container-->
+          <div id="container">
             <!--Linha-->
             <div class="row">
                 <!--Coluna-->
@@ -129,7 +125,7 @@
                     </div>
                   </div>
                 </div>
-
+              
             </div>
         </div>
     </div>
@@ -226,31 +222,35 @@
             <div class="modal fade" id="formLogin" tabindex="-1" role="dialog" aria-labelledby="formLogin" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class=" headingLogin">Entrar</h5>
-                  </div>
                   <div class="modal-body">
-    
                     <!--Formulário de Login-->
                     <form>
                       <div class="form-group">
-                        <label for="exampleInputEmail1" class="headerInput">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
+                        <div class="modal-footer">
+                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h4 class="headingLogin">Entrar</h4>
+                        <label for="exampleInputEmail1" class="headerInput">Email:</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email" required>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1" class="headerInput">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha">
+                        <label for="exampleInputPassword1" class="headerInput">Senha:</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha" required>
                       </div>
                       <div>
                         <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Entrar</button><br>
-                        <div id="btnLoginGoogle"></div> 
-                          <p class="txtCadastrar">Ainda não possui cadastro?<button class="btnCadastrar" data-toggle="modal" data-target="cadastro.html#formCadastro">Cadastre-se</button></p>
+                        <p class="text-center" style="color:#000;">ou</p>
+                        <div class="">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+                              <div id="btnLoginGoogle"></div> 
+                            </div>
+                          </div>
+                        </div>
+                        <p class="txtCadastrar text-center">Ainda não possui cadastro?<button class="btnCadastrar" onclick="chamarModalCadastro()">Cadastre-se</button></p>
                       </div>
-                    </form>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                    </form>       
                   </div>
                 </div>
               </div>
@@ -265,25 +265,26 @@
         <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class=" headingCadastro">Cadastre-se</h5>
-              </div>
               <div class="modal-body">
 
                 <!--Formulário de cadastro-->
                 <form>
+                  <div class="modal-footer">
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
                   <div class="form-group">
+                    <h4 class=" headingCadastro">Cadastre-se</h4>
                     <label for="exampleInputEmail1" class="headerInput">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu email" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1" class="headerInput">Senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha" required>
                     <label for="exampleInputEmail1" class="headerInput">Tipo de de Usuário</label>
                   </div>
                   
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked> 
                     <label class="form-check-label" for="exampleRadios1">
                       Pessoa Fisíca
                     </label>
@@ -296,13 +297,9 @@
                   </div>
                   <div>
                     <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar Conta</button><br>
-                      <p class="txtLogar">Já possui cadastro?<button class="btnFazerLogin">Fazer Login</button></p>
+                    <p class="txtLogar text-center">Já possui cadastro?<button class="btnFazerLogin" onclick="chamarModalLogin()">Fazer Login</button></p>
                   </div>
                 </form>
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
               </div>
             </div>
           </div>
