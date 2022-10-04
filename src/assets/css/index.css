@@ -4,14 +4,6 @@ body{
 
 }
 
-.row{
-    margin: 0;
-}
-
-.container{
-    padding: 70px 0;
-}
-
 .btn-primary{
     background-color: var(--corBotao);
     --bs-btn-hover-bg: var(--corBotao);

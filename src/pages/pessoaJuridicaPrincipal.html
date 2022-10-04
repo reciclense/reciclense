@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../assets/css/menu.css" rel="stylesheet">
     <link href="../assets/css/geral.css" rel="stylesheet">
+    <link href="../assets/css/pessoaJuridicaPrincipal.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <!--Import Scripts-->
     <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
@@ -27,7 +29,7 @@
   <body>
 
     <!--Navbar geral-->
-    <div class=" divMenu container-fluid" id="nav-container">
+    <div class="divMenu container-fluid" id="nav-container">
       <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">
                 <img src="../assets/img/logo.svg" alt="Reciclense" width="200" height="77" class="d-inline-block align-text-top"/>
@@ -57,9 +59,74 @@
           </div>
       </nav>
     </div>
+    <main>
 
+    <!-- Barra de Pesquisa -->
+    <div id="pesquisar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <h1>Pesquise por uma solicitação</h1>
+          </div>
+          <div class="col-md-12">
+                <form class="form-inline d-flex form-pesquisa">
+                <input class="form-control mr-sm-2 ipt-pesquisa" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0 btn-pesquisa d-flex align-items-center" type="submit"><span class="material-symbols-outlined">
+                  search</span></button>
+                  <button type="button" class="btn btn-filtro d-flex align-items-center"><span class="material-symbols-outlined">
+                    tune</span></button>
+              </form>
+              
+        </div>
+
+        
+        <table class="table tbl-pesquisa">
+          <thead>
+            <tr>
+              <th scope="col">Endereço</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">UF</th>
+              <th scope="col">Material</th>
+              <th scope="col">Solicitante</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Av Caxangá</th>
+              <td>Recife</td>
+              <td>Pernambuco</td>
+              <td>Metal</td>
+              <td>Everton</td>
+            </tr>
+            <tr>
+              <th scope="row">Av Caxangá</th>
+              <td>Recife</td>
+              <td>Pernambuco</td>
+              <td>Papel</td>
+              <td>Magnum</td>
+            </tr>
+            <tr>
+              <th scope="row">Av Caxangá</th>
+              <td>Recife</td>
+              <td>Pernambuco</td>
+              <td>Plástico</td>
+              <td>Vinicius</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="col-md-12 d-flex justify-content-end">
+          <button type="button" class="btn btn-primary btn-relatorio">Gerar Relatório</button>
+        </div>
+      </div>
+      
+    </div>
+  
+  </div>
+    
+  </main>
     <!-- Rodapé -->
-<footer class="page-footer font-small blue">
+<footer class="page-footer font-small blue navbar-fixed-bottom">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
