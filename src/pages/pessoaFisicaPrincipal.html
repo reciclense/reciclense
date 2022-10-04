@@ -16,7 +16,7 @@
     
     <!--Import Scripts-->
     <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-
+  
     <!--Import fonte padrão-->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');    
@@ -78,6 +78,53 @@
         </div>
       </div>
     </main>
+
+      <!-- Modal Colicitar Coleta -->
+      <div id="solicitarColeta">
+        <div class="col-md-6">
+            <!-- Modal -->
+            <div class="modal fade" id="formSolicitarColeta" tabindex="-1" role="dialog" aria-labelledby="formSolicitarColeta" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <!--Formulário de Solicitação de coleta-->
+                    <form>
+                      <div class="form-group">
+                        <div class="modal-footer">
+                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h4 class="headings">Solicitar Coleta</h4>
+                        <label for="exampleInputData" class="headerInput">Data:</label>
+                        <input type="date" class="form-control" id="exampleInputData" aria-describedby="emailHelp" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputHorario" class="headerInput">Horário:</label>
+                        <input type="time" class="form-control" id="exampleInputHorario" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputTipoMaterial" class="headerInput">Tipo de Material:</label>
+                        <select class="form-control" id="submit">
+                          <option value="1">Plástico</option>
+                          <option value="2">Papel</option>
+                          <option value="3">Vidro</option>
+                          <option value="4">Metal</option>
+                        </select> 
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputObservacoes" class="headerInput">Observações:</label>
+                        <textarea class="form-control" id="exampleInputObservacoes" required></textarea>
+                      </div>
+                      <div>
+                        <button type="textarea" class=" btnSolicitarColeta form-control btn btn-primary">Solicitar</button><br>
+                      </div>
+                    </div>
+                    </form>       
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
     
 <!-- Rodapé -->
 <footer class="page-footer font-small blue">
