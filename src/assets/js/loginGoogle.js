@@ -1,4 +1,5 @@
 
+/*Login Google*/
 function handleCredentialResponse(response) {
 
     const data = jwt_decode(response.credential);
@@ -24,15 +25,11 @@ function handleCredentialResponse(response) {
 
     google.accounts.id.renderButton(
       document.getElementById("btnLoginGoogle"),
-      { theme: "filled_black", 
+      { theme: "outline", 
       size:"medium", 
       type:"standard",
       shape:"rectangular",
-
       locale:"pt-BR",
       logo_alignment:"left"
- 
     });
-
   }
-

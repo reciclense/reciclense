@@ -145,7 +145,9 @@ div#contato .form-group, div#contato label{
     width: 100%;
     margin-top: 5px;
 }
+
 /*Modal*/
+
 .btnCriarConta{
     background: var(--corBotao);
     border: var(--corBotao);
@@ -162,6 +164,7 @@ div#contato .form-group, div#contato label{
     cursor:pointer;
     overflow: hidden; 
 }
+
 .headerInput{
     font-weight: bold;
     text-align: left;
@@ -174,14 +177,33 @@ p{
 
 }
 
-.headingCadastro, .headinLogin{
-    align-items: center;
+.headingCadastro, .headingLogin{
+    color: var(--corPadrao);
+    text-align: center;
+    font-family: var(--fontePadrao);
+
+    font-weight: bold;
 }
 
 .txtCadastrar, .txtLogar{
+    margin: 20px;
     color: black;
+    font-size: 1em;
 }
 
+div#login .btnFecharModalLogin, .modal-footer{
+    justify-content: end;
+    border:none;
+}
+
+.btn-close{
+    position: absolute;
+}
+
+.form-check{
+    display:inline-block;
+    margin-right: 30px;
+}
 /* Rodapé */
 
 footer{
@@ -257,4 +279,11 @@ footer{
         width: 250px
     }
 
+}
+
+@media(max-width:425px) {
+    .txtCadastrar, .txtLogar{
+        font-size: 0.9em;
+    }
+    
 }
