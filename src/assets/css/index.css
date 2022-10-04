@@ -4,14 +4,6 @@ body{
 
 }
 
-.row{
-    margin: 0;
-}
-
-.container{
-    padding: 70px 0;
-}
-
 .btn-primary{
     background-color: var(--corBotao);
     --bs-btn-hover-bg: var(--corBotao);
@@ -163,8 +155,8 @@ div#contato .form-group, div#contato label{
     border: none;
     cursor:pointer;
     overflow: hidden; 
-}
-
+  }
+  
 .headerInput{
     font-weight: bold;
     text-align: left;
@@ -183,12 +175,6 @@ p{
     font-family: var(--fontePadrao);
 
     font-weight: bold;
-}
-
-.txtCadastrar, .txtLogar{
-    margin: 20px;
-    color: black;
-    font-size: 1em;
 }
 
 div#login .btnFecharModalLogin, .modal-footer{
