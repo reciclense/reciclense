@@ -36,6 +36,12 @@ h1{
   border: none;
 }
 
+/* Rodapé */
+
+.footer-copyright {
+  background-color: #d9d9d9;
+}
+
 
 .headings{
   color: var(--corPadrao);
