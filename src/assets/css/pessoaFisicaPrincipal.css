@@ -18,3 +18,16 @@
 	padding: 8px;
 	background: #ffffff;
 }
+
+.btnSolicitarColeta{
+    margin-top: 20px;
+}
+
+.btn-close{
+    position: absolute;
+}
+
+.modal-footer{
+    justify-content: end;
+    border:none;
+}

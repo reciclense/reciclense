@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
             button.className = 'btn btn-primary';
     
             button.onclick = function () {
-                window.location.href="http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html"
+                $("#formSolicitarColeta").modal({
+                    show: true
+                  });
             };
 
             

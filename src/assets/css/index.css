@@ -157,13 +157,6 @@ div#contato .form-group, div#contato label{
     overflow: hidden; 
   }
   
-.headerInput{
-    font-weight: bold;
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 p{
     font-size: 1.3em;
 
