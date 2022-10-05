@@ -1,25 +1,28 @@
 /* Barra de navegação */
 
-#container{
+#container {
     overflow: hidden;
-  }
+}
 
-.nav-item{
+.nav-item {
     margin-right: 30px;
 }
-.nav-link{
+
+.nav-link {
     font-size: 20px;
     font-weight: 500;
     color: black;
 }
-.nav-link:hover{
-   color:var(--corBotao) ;
+
+.nav-link:hover {
+    color: var(--corBotao);
 }
 
-.nav-link:focus{
-    color:var(--corBotao) ;
+.nav-link:focus {
+    color: var(--corBotao);
 }
-.navbar{
+
+.navbar {
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -30,11 +33,11 @@
     padding-bottom: 0;
 }
 
-.navbar-brand{
+.navbar-brand {
     padding: 0;
 }
 
-#btn-menu{
+#btn-menu {
     --bs-btn-padding-x: 1rem;
     --bs-btn-padding-x: 5rem;
     white-space: nowrap;
@@ -45,16 +48,16 @@
     display: flex;
 }
 
-#btn-menu span{
+#btn-menu span {
     margin-left: 5px;
 }
 
-.divMenu{
+.divMenu {
     background: white;
     width: 100%;
     /* position: fixed;*/
 }
 
-.card{
+.card {
     position: static;
 }
