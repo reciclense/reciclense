@@ -56,3 +56,17 @@
 .btn-filtro span {
     font-size: 30px;
 }
+
+/*Modal Cadastrar Coletor*/
+.btnCadastrarColetor {
+    margin-top: 20px;
+}
+
+.btn-close {
+    position: absolute;
+}
+
+.modal-footer {
+    justify-content: end;
+    border: none;
+}
