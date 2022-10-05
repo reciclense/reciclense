@@ -60,13 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
             button.innerHTML = 'Solicitar Coleta';
             button.className = 'btn btn-primary';
 
-            button.onclick = function () {
-                $("#formSolicitarColeta").modal({
-                    show: true
-                });
-            };
-
-
             //Caso esteja na tela pessoaJurídicaPrincipal o nome do botão será : 'Buscar Coleta'
         } else {
 
@@ -74,11 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
             button.innerHTML = 'Cadastrar Coletor';
             button.className = 'btn btn-primary';
 
-            button.onclick = function () {
+            /*button.onclick = function () {
                 $("#formCadastrarColetor").modal({
                     show: true
                 });
-            };
+            };*/
 
         }
 
@@ -89,21 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
         button.innerHTML = 'Entrar';
         button.className = 'btn btn-primary';
 
-        button.onclick = function () {
-            $("#formLogin").modal({
-                show: true
-            });
-        };
-
     }
 
     var btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
 }, false);
-
-function chamarModalCadastro() {
-    $("#formCadastro").modal({
-        show: true
-    });
-};
 

@@ -59,7 +59,7 @@
             <a class="nav-link" href="#contato">Contato</a>
           </li>
         </ul>
-        <div id="btnDinamico"></div>
+        <div id="btnDinamico"  data-bs-toggle="modal" data-bs-target="#formLogin"></div>
       </div>
     </nav>
   </div>
@@ -272,7 +272,7 @@
                     </div>
                   </div>
                   <p class="btnTxt text-center">Ainda não possui cadastro?<button class="btnCadastrar"
-                      onclick="chamarModalCadastro()">Cadastre-se</button></p>
+                    data-bs-toggle="modal" data-bs-target="#formCadastro">Cadastre-se</button></p>
                 </div>
             </div>
             </form>
@@ -327,7 +327,7 @@
                 <div>
                   <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar Conta</button><br>
                   <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin"
-                      onclick="chamarModalLogin()">Fazer Login</button></p>
+                    data-bs-toggle="modal" data-bs-target="#formLogin">Fazer Login</button></p>
                 </div>
               </form>
             </div>
