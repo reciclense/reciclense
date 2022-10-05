@@ -17,14 +17,23 @@ h3 {
 
 /* Inicio */
 
-div#inicio {
-    background-color: var(--corPadrao);
+
+.carousel-caption h1{
+    /*position: absolute;
+    bottom: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    color: #ffffff;*/
 }
 
-div#inicio h1 {
-    color: #ffffff;
-    font-size: 60px;
+.carousel-caption img{
+    /*position: absolute;
+    bottom: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;*/
 }
+
+
 
 /* Quem Somos */
 
