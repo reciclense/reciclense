@@ -1,14 +1,5 @@
 /* Gerais */
 
-body {}
-
-.btn-primary {
-    background-color: var(--corBotao);
-    --bs-btn-hover-bg: var(--corBotao);
-    --bs-btn-active-bg: var(--corBotao);
-    border: none;
-}
-
 h3 {
     font-weight: 400;
     font-size: 50px;
@@ -17,23 +8,66 @@ h3 {
 
 /* Inicio */
 
+/* Slide 1 */
 
-.carousel-caption h1{
-    /*position: absolute;
-    bottom: 5rem;
-    padding-bottom: 5rem;
+div#slide-1 .carousel-caption h5{
+   color: #ffffff;
+   text-align: left;
+   font-size: 40px;
+   margin-left: 50px;
+}
+
+div#slide-1{
+    height: 455px;
+    background-image: url("../img/slide-1.jpg");
+}
+
+div#slide-1 .row{
+    height: 100%;
+}
+
+div#slide-1 #bg-slide-1{
+    background-color: #2a02f2;
+}
+
+div#slide-1 h5{
+    color: #ffffff;
+    font-size: 3rem;
+    padding: 0px 50px;
+}
+
+div#slide-1 img{
+    width: 60%;
+}
+
+div#slide-1 .btn-slide1 {
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+/* Slide 2 */
+
+div#slide-2 {
+    background-color: #2a02f2;
+    color: #ffffff;
+    height: 455px;
+}
+
+div#slide-2 h5{
+    font-size: 3rem;
+}
+
+/* Slide 3 */
+
+div#slide-3 .carousel-caption h5{
+    color: #ffffff;
     text-align: center;
-    color: #ffffff;*/
-}
+    font-size: 2rem;
+ }
 
-.carousel-caption img{
-    /*position: absolute;
-    bottom: 5rem;
-    padding-bottom: 5rem;
-    text-align: center;*/
-}
-
-
+ div#slide-3 .carousel-caption{
+    text-shadow: 2px 2px 4px black;
+ }
 
 /* Quem Somos */
 
