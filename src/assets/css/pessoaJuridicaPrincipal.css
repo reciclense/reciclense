@@ -1,0 +1,76 @@
+.form-pesquisa {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-pesquisa {
+    border-radius: 0px 10px 10px 0px;
+    border-left: none;
+    background-color: #D9D9D9;
+    border: none;
+    color: var(--corBotao);
+}
+
+.btn-pesquisa:hover {
+    background-color: var(--corBotao) !important;
+    color: #ffffff !important;
+}
+
+.ipt-pesquisa {
+    border-radius: 10px 0px 0px 10px;
+    background-color: #D9D9D9;
+    border: none;
+
+}
+
+.ipt-pesquisa:focus {
+
+    border: none;
+    box-shadow: 0 0 0 2 #4e1414;
+}
+
+.ipt-pesquisa:active {
+
+    border: none;
+    box-shadow: 0 0 0 0 #D9D9D9;
+}
+
+.btn-relatorio {
+    padding: 1px 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.btn-filtro {
+    background: none;
+    border: none;
+    color: var(--corBotao);
+    padding: 5px 5px;
+}
+
+.btn-filtro:hover {
+    color: var(--corBotao) !important;
+}
+
+.btn-filtro span {
+    font-size: 30px;
+}
+
+/*Modal Cadastrar Coletor*/
+.btnCadastrarColetor {
+    margin-top: 20px;
+}
+
+.btn-close {
+    position: absolute;
+}
+
+.modal-footer {
+    justify-content: end;
+    border: none;
+}
+
+#headingPesquiseSolicitacao{
+    margin-bottom: 50px;
+}

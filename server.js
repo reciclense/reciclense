@@ -8,7 +8,7 @@ const cors = require('cors');
 const testeTabela = require('./src/models/db');
 
 
-router.get('/', function(req,res){
+router.get('/', function (req, res) {
 
     res.sendFile(path.join(__dirname + '/index.html'));
 

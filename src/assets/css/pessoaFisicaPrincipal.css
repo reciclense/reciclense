@@ -1,0 +1,32 @@
+.btnExcluir {
+    background-color: red;
+}
+
+.cardMinhasSolicitacoes {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+.btn-custom {
+    padding: 1px 15px 3px 2px;
+    border-radius: 50px;
+}
+
+.btn-icon {
+    padding: 8px;
+    background: #ffffff;
+}
+
+.btnSolicitarColeta {
+    margin-top: 20px;
+}
+
+.btn-close {
+    position: absolute;
+}
+
+.modal-footer {
+    justify-content: end;
+    border: none;
+}

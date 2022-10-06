@@ -1,27 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../assets/css/menu.css" rel="stylesheet">
+  <link href="../assets/css/geral.css" rel="stylesheet">
+  <link href="../assets/css/pessoaFisicaPerfil.css" rel="stylesheet">
 
-    <title>Reciclense - Perfil Pessoa Fisíca</title>
-      
+  <!--Import Scripts-->
+  <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+
+  <!--Import fonte padrão-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  </style>
+
+  <title>Reciclense - Perfil Pessoa Fisíca</title>
+
 </head>
-  <body>
 
-    <h1>Hello, world!</h1>
+<body>
+  <!--Navbar geral-->
+  <div class=" divMenu container-fluid" id="nav-container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/img/logo.svg" alt="Reciclense" width="200" height="77"
+          class="d-inline-block align-text-top" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Quem Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#como-funciona">Como Funciona</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+        </ul>
+        <div id="btnDinamico"></div>
+      </div>
+    </nav>
+  </div>
 
+  <!--Titulo 1 da página-->
 
-     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  <h1 class="headingPerfilPessoaFisica">Seus dados</h1>
+  <br>
+
+  <!--Formulário Pessoa Física-->
+
+  <form>
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="inputName">Nome</label>
+          <input type="text" class="form-control" placeholder="Digite seu Nome">
+        </div>
+        <div class="col">
+          <label for="inputsobrenome">Sobrenome</label>
+          <input type="text" class="form-control" placeholder="Digite seu Sobrenome">
+        </div>
+      </div>
+    </form>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com">
+      </div>
+      <div class="col">
+        <label for="inputPassword4">CPF</label>
+        <input type="password" class="form-control" id="inputPassword4" placeholder="Somente números">
+      </div>
+      <br><br><br><br>
+
+      <!--Titulo 2 da página-->
+      <h1 style="color: #000;" ;>Endereço</h1>
+      <br>
+
+      <!--Formulário de Endereco-->
+
+      <form>
+
+        <div class="form-group">
+          <label for="inputAddress">Rua</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Rua do Recife, nº 0">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Complemento</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, ponto de referência.">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Cidade</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputEstado">Estado</label>
+            <select id="inputEstado" class="form-control">
+              <option selected>Escolher...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputCEP">CEP</label>
+            <input type="text" class="form-control" id="inputCEP">
+          </div>
+        </div>
+        <br>
+        <!--Botoes-->
+        <div>
+          <button type="button" class="btn btn-success">Salvar</button>
+          <button type="button" class="btn btn-secondary">Editar</button>
+          <button type="button" class="btn btn-secondary">Excluir</button>
+        </div>
+
+      </form>
+
+      <!-- Rodapé -->
+      <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+          <a href="/"> reciclense.com.br</a>
+        </div>
+
+      </footer>
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

@@ -1,0 +1,46 @@
+.btnCriarConta {
+    background: var(--corBotao);
+    border: var(--corBotao);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btnFazerLogin {
+    color: var(--corBotao);
+    font-weight: bold;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.headerInput {
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+p {
+    font-size: 1.3em;
+
+}
+
+.container {
+    float: right;
+}
+
+
+.btn-primary {
+    background-color: var(--corBotao);
+    --bs-btn-hover-bg: var(--corBotao);
+    --bs-btn-active-bg: var(--corBotao);
+    border: none;
+}
+
+.headingCadastro {
+    align-items: center;
+}

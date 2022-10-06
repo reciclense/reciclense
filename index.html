@@ -1,28 +1,382 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="src/assets/css/menu.css" rel="stylesheet">
+  <link href="src/assets/css/index.css" rel="stylesheet">
+  <link href="src/assets/css/geral.css" rel="stylesheet">
 
-    <title>Reciclense - Home Page</title>
-      
+  <!--Import Scripts-->
+  <script type="text/JavaScript" src="src/assets/js/btnDinamico.js"></script>
+  <script type="text/JavaScript" src="src/assets/js/loginGoogle.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+  <!--Import fonte padrão-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  </style>
+
+  <title>Reciclense - Home Page</title>
+
 </head>
-  <body>
 
-    <h1>Hello, world!</h1>
+<body>
+  <!--Navbar geral-->
+  <div class="divMenu container-fluid sticky-top" id="nav-container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="src/assets/img/logo.svg" alt="Reciclense" width="200" height="77"
+          class="d-inline-block align-text-top" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Quem Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#como-funciona">Como Funciona</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+        </ul>
+        <div id="btnDinamico" data-bs-toggle="modal" data-bs-target="#formLogin"></div>
+      </div>
+    </nav>
+  </div>
+  <main>
+      <!--Inicio-->
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="src/assets/img/slide-1.jpg" class="d-block w-100" alt="...">
+            <!-- <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                  <h1>Solicie uma coleta e contribua para o meio ambiente</h1>
+              </div>
+              <div class="col-md-6">
+                <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="...">
+              </div>
+            </div> -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Solicite uma coleta e contribua</h5>
+              <!--<img src="src/assets/img/solicite-1.png" class="img-fluid" alt="Responsive image">-->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/assets/img/slide-2.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/assets/img/slide-3.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
-
-     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <!-- Quem Somos -->
+    <div id="quem-somos">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-md-12 col-lg-6">
+            <h3>Quem somos</h3>
+            <p>Somos a Reciclense, uma plataforma que permite conectar o cidadão que deseja realizar o descarte
+              consciente de material reciclavel, com o catador que realizará a coleta.</p>
+          </div>
+          <div class="col-md-12 col-lg-4 d-flex justify-content-center">
+            <img src="src/assets/img/logo-2.svg" alt="Reciclense">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Como Funciona-->
+    <div id="como-funciona">
+      <!--Container-->
+      <div id="container">
+        <!--Linha-->
+        <div class="row">
+          <!--Coluna-->
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div class="card" style="width: 25rem;">
+              <div class="card-body">
+                <p class="card-text">Você solicita uma coleta informando
+                  a frequencia e o material deixado</p>
+                <img class="card-img-top" src="src/assets/icons/como-funciona-1.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+          <!--Coluna-->
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div class="card" style="width: 25rem;">
+              <div class="card-body">
+                <p class="card-text">A cooperativa busca as solicitações da região e passa o roteiro para o catador</p>
+                <img class="card-img-top" src="src/assets/icons/como-funciona-2.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+          <!--Coluna-->
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div class="card" style="width: 25rem;">
+              <div class="card-body">
+                <p class="card-text">O catador recolhe o material no endereço informado</p>
+                <img class="card-img-top" src="src/assets/icons/como-funciona-3.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--Materiais Recicláveis-->
+    <div id="materiais-reciclaveis">
+      <!--Container-->
+      <div class="container">
+        <!--Linha-->
+        <div class="row justify-content-center">
+          <!--Coluna-->
+          <div class="col-12">
+            <h3>Materiais Recicláveis</h3>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-1" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-plastico.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Plástico</h4>
+                <p class="card-text">Sacola, Garrafa Pet, Galões, Tampinhas de garrafa, Copos Descartáveis...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-2" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-metal.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Metal</h4>
+                <p class="card-text">Latinhas de bebidas e condimentos, desodorante, talheres de metal...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-3" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-papel.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Papel</h4>
+                <p class="card-text">Folhas, Jornais, Caixas de Leite, Caixas de Papelão...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-4" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-vidro.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Vidro</h4>
+                <p class="card-text">Garrafa de Vidro, Potes, Vasos, Pratos...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contato -->
+
+    <div id="contato">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-12 text-center">
+            <h4>Está com dúvidas? <br> entre em contato conosco!</h4>
+          </div>
+          <div class="col-md-8 col-lg-8">
+            <!-- Formulário -->
+            <form id="form-contato">
+              <div class="form-group">
+                <label for="formNome">Nome</label>
+                <input type="text" class="form-control" id="formNome" aria-describedby="nome"
+                  placeholder="Insira seu Nome">
+              </div>
+              <div class="form-group">
+                <label for="formEmail">Email</label>
+                <input type="email" class="form-control" id="formEmail" aria-describedby="emailHelp"
+                  placeholder="nome@exemplo.com">
+                <small id="emailHelp" class="form-text text-muted">Não compartilharemos seu e-mail com mais
+                  ninguém.</small>
+              </div>
+              <div class="form-group">
+                <label for="formAssunto">Assunto</label>
+                <input type="text" class="form-control" id="formAssunto" aria-describedby="assunto"
+                  placeholder="Insira o assunto">
+              </div>
+              <div class="form-group">
+                <label for="formDescricao">Descrição</label>
+                <textarea class="form-control" id="formDescricao" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Login -->
+  <div id="login">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formLogin" tabindex="-1" role="dialog" aria-labelledby="formLogin" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <!--Formulário de Login-->
+              <form>
+                <div class="form-group">
+                  <div class="modal-footer">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h4 class="headings">Entrar</h4>
+                  <label for="exampleInputEmail1" class="headerInput">Email:</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Informe seu email" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" class="headerInput">Senha:</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha"
+                    required>
+                </div>
+                <div>
+                  <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Entrar</button><br>
+                  <p class="text-center" style="color:#000;">ou</p>
+                  <div class="">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+                        <div id="btnLoginGoogle"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="btnTxt text-center">Ainda não possui cadastro?<button class="btnCadastrar"
+                    data-bs-toggle="modal" data-bs-target="#formCadastro">Cadastre-se</button></p>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal Cadastro -->
+  <div id="cadastro">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+
+              <!--Formulário de cadastro-->
+              <form>
+                <div class="modal-footer">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-group">
+                  <h4 class=" headings">Cadastre-se</h4>
+                  <label for="exampleInputEmail1" class="headerInput">Email</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Informe seu email" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" class="headerInput">Senha</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha"
+                    required>
+                  <label for="exampleInputEmail1" class="headerInput">Tipo de de Usuário</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                    checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                    Pessoa Fisíca
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                  <label class="form-check-label" for="exampleRadios2">
+                    Pessoa Jurídica
+                  </label>
+                </div>
+                <div>
+                  <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar Conta</button><br>
+                  <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin"
+                    data-bs-toggle="modal" data-bs-target="#formLogin">Fazer Login</button></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="page-footer font-small blue">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+        <a href="/"> reciclense.com.br</a>
+      </div>
+
+    </footer>
+    <!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+       crossorigin="anonymous"></script>
+</body>
+
 </html>
