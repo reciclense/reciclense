@@ -12,8 +12,11 @@
 /*Estilo Geral*/
 
 body {
-
   font-family: var(--fontePadrao);
+}
+
+main {
+  min-height: 100vh;
 }
 
 .row {
@@ -38,12 +41,11 @@ h1 {
 
 /* Rodapé */
 
-.footer-copyright {
+.rodape {
   background-color: #d9d9d9;
-  position: static;
   height: 60px;
-  bottom: 0;
   width: 100%;
+  margin-top: 50px;
 
 }
 

@@ -48,13 +48,32 @@ div#slide-1 .btn-slide1 {
 /* Slide 2 */
 
 div#slide-2 {
-    background-color: #2a02f2;
     color: #ffffff;
     height: 455px;
+    background-image: url("../img/slide-1.jpg");
+}
+
+div#slide-2 #bg-slide-2 {
+    background-color: #2a02f2;
+}
+
+div#slide-2 .row{
+    height: 100%;
 }
 
 div#slide-2 h5{
+    color: #ffffff;
     font-size: 3rem;
+    padding: 0px 50px;
+}
+
+div#slide-2 img{
+    width: 60%;
+}
+
+div#slide-2 .btn-slide2 {
+
+    margin-top: 10px;
 }
 
 /* Slide 3 */
@@ -66,7 +85,7 @@ div#slide-3 .carousel-caption h5{
  }
 
  div#slide-3 .carousel-caption{
-    text-shadow: 2px 2px 4px black;
+    text-shadow: 2px 2px 5px black;
  }
 
 /* Quem Somos */
@@ -108,9 +127,6 @@ div#como-funciona .card-text {
 
 /* Materiais Recicláveis */
 
-div#materiais-reciclaveis,
-.card {}
-
 div#materiais-reciclaveis h3 {
     color: var(--corTexto1);
     margin-bottom: 50px;
@@ -123,7 +139,7 @@ div#materiais-reciclaveis .card-body h4 {
 
 div#materiais-reciclaveis .card-body {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 1rem;
     color: #ffffff;
     height: 216px;
 }
@@ -240,6 +256,9 @@ footer {
 }
 
 /* Responsivo */
+
+/* Tablet */
+
 @media(max-width:768px) {
 
     /* geral */
@@ -309,6 +328,8 @@ footer {
     }
 
 }
+
+/* Celular */
 
 @media(max-width:425px) {
 

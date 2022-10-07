@@ -59,7 +59,7 @@
             <a class="nav-link" href="#contato">Contato</a>
           </li>
         </ul>
-        <div id="btnDinamico" data-bs-toggle="modal" data-bs-target="#formLogin"></div>
+        <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#formLogin"></div>
       </div>
     </nav>
   </div>
@@ -81,36 +81,21 @@
               <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="...">
             </div>
             <div id="bg-slide-1" class="col-md-6 d-flex align-items-center align-content-center flex-wrap">
-              <h5>Solicite uma coleta e <br> contribua para o meio ambiente</h5>
+              <h5>Solicite uma coleta e <br> contribua com o meio ambiente</h5>
               <button type="button" class="btn-slide1 btn btn-primary">Solicite uma coleta</button>
             </div>
           </div>
-          <!--
-          <img src="src/assets/img/slide-1.jpg" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <div class="row align-items-center">
-              <div class="col-6 d-flex justify-content-between">
-                <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="...">
-              </div>
-              <div class="col-6 d-flex justify-content-between flex-wrap">
-                <h5>Solicite uma coleta e <br> contribua para o meio ambiente</h5>
-                <button type="button" class="btn-slide1 btn btn-primary">Solicite uma coleta</button>
-              </div>
-            </div>
-
-          </div> -->
         </div>
         <div id="slide-2" class="carousel-item">
-          <div class="row align-items-center">
-            <div class="col-md-6 d-flex justify-content-center">
-              <h5>Precisa de ajuda? <br> Veja nosso tutorial</h5>
+          <div class="row">
+            <div id="bg-slide-2" class="col-md-6 d-flex align-items-center align-content-center justify-content-center flex-wrap">
+              <h5>É de uma cooperativa? <br> Busque por coletas</h5>
+              <button type="button" class="btn-slide2 btn btn-primary">Buscar coleta</button>
             </div>
-            <div class="col-md-6 d-flex justify-content-center">
-              <iframe class="d-block w-100" height="455" src="https://www.youtube.com/embed/q0dJSM-Wjxk"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="...">
             </div>
+            
           </div>
         </div>
         <div id="slide-3" class="carousel-item">
@@ -240,44 +225,6 @@
       </div>
     </div>
 
-    <!-- Contato -->
-
-    <div id="contato">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-12 col-lg-12 text-center">
-            <h4>Está com dúvidas? <br> entre em contato conosco!</h4>
-          </div>
-          <div class="col-md-8 col-lg-8">
-            <!-- Formulário -->
-            <form id="form-contato">
-              <div class="form-group">
-                <label for="formNome">Nome</label>
-                <input type="text" class="form-control" id="formNome" aria-describedby="nome"
-                  placeholder="Insira seu Nome">
-              </div>
-              <div class="form-group">
-                <label for="formEmail">Email</label>
-                <input type="email" class="form-control" id="formEmail" aria-describedby="emailHelp"
-                  placeholder="nome@exemplo.com">
-                <small id="emailHelp" class="form-text text-muted">Não compartilharemos seu e-mail com mais
-                  ninguém.</small>
-              </div>
-              <div class="form-group">
-                <label for="formAssunto">Assunto</label>
-                <input type="text" class="form-control" id="formAssunto" aria-describedby="assunto"
-                  placeholder="Insira o assunto">
-              </div>
-              <div class="form-group">
-                <label for="formDescricao">Descrição</label>
-                <textarea class="form-control" id="formDescricao" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
   <!-- Modal Login -->
@@ -323,7 +270,6 @@
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- Modal Cadastro -->
@@ -378,9 +324,9 @@
         </div>
       </div>
     </div>
-
+</div>
     <!-- Rodapé -->
-    <footer class="page-footer font-small blue">
+    <footer class="rodape">
 
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.

@@ -61,3 +61,22 @@
 .card {
     position: static;
 }
+
+/* Responsivo */
+
+/*Tablet */
+
+@media(max-width:768px) {
+
+    div#btnDinamico {
+        margin-left: -30px;
+        margin-bottom: 20px;
+    }
+
+}
+
+/* Celular */
+
+@media(max-width:425px) { 
+
+}
