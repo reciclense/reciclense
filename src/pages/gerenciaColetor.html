@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://www.w3.org/2000/svg" rel="stylesheet">
+    <link href="../assets/css/menu.css" rel="stylesheet">
+    <link href="../assets/css/geral.css" rel="stylesheet">
+    <link href="../assets/css/gerenciaColetor.css" rel="stylesheet">
+
+    <!--Import Scripts-->
+    <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+    <script type="text/JavaScript" src="../assets/js/geral.js"></script>
+
+    <!--Import fonte padrão-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+
+    <title>Reciclense - Gerencia Coletor</title>
+
+</head>
+
+<body>
+    <!--Navbar geral-->
+    <div class="divMenu container-fluid sticky-top" id="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/img/logo.svg" alt="Reciclense" width="200" height="77"
+                    class="d-inline-block align-text-top" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#como-funciona">Como Funciona</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+                <div id="btnDinamico" data-bs-toggle="modal" data-bs-target="#formLogin"></div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div id="pesquisarColetor">
+            <div class="pesquisarColetor">
+                <h1 class="headings">Gerencia Coletor</h1>
+                <!-- Formulário -->
+                <form id="formGerenciaColetor" class="col-sm-6 col-md-6 col-lg-6">
+                    <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
+                        <label class="headerInput">CPF:</label>
+                        <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaColetor"
+                            aria-describedby="CPF" placeholder="000.000.000-00">
+                    </div>
+                    <div id="divGerenciaColetor" class="col-sm-6 col-md-6 form-group col-lg-6">
+                        <button type="submit" id="btnPesquisarColetor" class="btn btn-primary">Pesquisar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <table class=" table tableGerenciaUsuario">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sobrenome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">Coletor</td>
+                    <td scope="row">Teste</td>
+                    <td scope="row">30131033026</td>
+                    <td scope="row">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditaColetor">Editar
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg> 
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal Gerencia Coletor -->
+        <div id="editaColetor">
+            <div class="col-md-6">
+                <!-- Modal -->
+                <div class="modal fade" id="formEditaColetor" tabindex="-1" role="dialog"
+                    aria-labelledby="formEditaColetor" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <!--Formulário de Edição de coletor-->
+                                <form>
+                                    <div class="form-group">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <h4 class="headings">Gerenciar Coletor</h4>
+                                        <label for="exampleInputNomeColetor" class="headerInput">Nome:</label>
+                                        <input type="text" class="form-control" id="exampleInputData"
+                                            placeholder="Coletor teste" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputSobrenomeColetor" class="headerInput">Sobrenome:</label>
+                                        <input type="text" class="form-control" id="exampleInputHorario"
+                                            placeholder=" da Silva" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputDocumentoColetor" class="headerInput">CPF:</label>
+                                        <input oninput="mascaraCpf(this)" type="text" class="form-control"
+                                            id="exampleInputHorario" placeholder=" 000.000.000-00" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <button type="submit" class=" btnEditarColetor form-control btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                          </svg> Salvar
+                                            
+                                        </button>
+
+                                        <button type="submit"
+                                            class=" btnExcluirColetor form-control btn btn-primary">Excluir</button>
+                                    </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </main>
+
+
+    <!-- Rodapé -->
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+            <a href="/"> reciclense.com.br</a>
+        </div>
+
+    </footer>
+    <!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

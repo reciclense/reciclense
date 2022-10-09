@@ -5,8 +5,7 @@ const router = express.Router();
 //const cookieParser = require('cooki-parser');
 const cors = require('cors');
 
-const testeTabela = require('./src/models/db');
-
+const banco = require('./src/models/db');
 
 router.get('/', function (req, res) {
 
