@@ -1,11 +1,12 @@
 /*Variáveis*/
 :root {
   --corPadrao: #85B027;
+  --corPadrao2: #556D1F;
   --corBotao: #54AE29;
   --corTexto1: #85B027;
   --corTexto3: #00A8E6;
   --corHeading: #85B027;
-  --fontePadrao: 'Roboto', sans-serif;
+  --fontePadrao: 'Roboto', sans-serif; 
 
 }
 

@@ -1,9 +1,9 @@
 /* Gerais */
 
 h3 {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 50px;
-    color: var(--corPadrao);
+    color: var(--corPadrao2);
 }
 
 /* Inicio */
@@ -30,10 +30,13 @@ div#slide-1 #bg-slide-1{
     background-color: #2a02f2;
 }
 
+div#slide-1 .slide-container {
+    padding: 0px 50px;
+}
+
 div#slide-1 h5{
     color: #ffffff;
     font-size: 3rem;
-    padding: 0px 50px;
 }
 
 div#slide-1 img{
@@ -41,7 +44,6 @@ div#slide-1 img{
 }
 
 div#slide-1 .btn-slide1 {
-    margin-left: 50px;
     margin-top: 10px;
 }
 
@@ -64,7 +66,7 @@ div#slide-2 .row{
 div#slide-2 h5{
     color: #ffffff;
     font-size: 3rem;
-    padding: 0px 50px;
+    /*padding: 0px 50px;*/
 }
 
 div#slide-2 img{
@@ -84,8 +86,14 @@ div#slide-3 .carousel-caption h5{
     font-size: 2rem;
  }
 
- div#slide-3 .carousel-caption{
+ div#slide-3 .carousel-caption h5,  div#slide-3 .carousel-caption p{
     text-shadow: 2px 2px 5px black;
+ }
+
+ /* Controles do Slide */
+
+ .carousel-control-next, .carousel-control-prev {
+    width: 10%;
  }
 
 /* Quem Somos */
@@ -128,7 +136,6 @@ div#como-funciona .card-text {
 /* Materiais Recicláveis */
 
 div#materiais-reciclaveis h3 {
-    color: var(--corTexto1);
     margin-bottom: 50px;
 }
 
@@ -267,19 +274,59 @@ footer {
     }
 
     /* inicio */
-    div#inicio h1 {
-        color: #ffffff;
+
+     /* titulo */
+
+     h3 {
         font-size: 40px;
     }
+    
+    /* Slide 1 */
 
-    /* titulo */
+    div#slide-1 .slide-container{
+        text-align: center;
+    }
 
-    h3 {
-        font-size: 40px;
+    div#slide-1 h5 {
+        font-size: 2.5rem;
+    }
+
+    div#slide-1 img {
+        width: 80%;
+    }
+
+    /* Slide 2 */
+
+    div#slide-2 .slide-container{
+        text-align: center;
+        padding: 0px 50px;
+    }
+
+    div#slide-2 h5 {
+        font-size: 2.5rem;
+    }
+
+    /* Slide 3 */
+
+    div#slide-3 .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    div#slide-3 .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    /* Quem Somos */
+    div#quem-somos p {
+        font-size: 20px;
+    }
+
+    div#quem-somos img {
+        width: 250px
     }
 
     div#materiais-reciclaveis h3 {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     /* card */
@@ -295,7 +342,7 @@ footer {
     }
 
     p.card-text {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     div#materiais-reciclaveis .card-body h4 {
@@ -304,6 +351,7 @@ footer {
 
     div#materiais-reciclaveis .card-body {
         height: 150px;
+        text-shadow: 1px 1px 1.5px black;
     }
 
     /* Contato */
@@ -317,21 +365,84 @@ footer {
         margin-bottom: 50px;
     }
 
-    /* Quem Somos */
-    div#quem-somos p {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    div#quem-somos img {
-        width: 250px
-    }
-
 }
 
 /* Celular */
 
 @media(max-width:425px) {
+    
+    /* Inicio */
+
+    h3 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    /* Slide-1 */
+
+    div#slide-1 img {
+        width: 50%;
+    }
+
+    div#slide-1 h5 {
+        font-size: 1.5rem;
+    }
+
+    div#slide-1 .btn-slide1 {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+
+    /* Slide-2 */
+
+    div#slide-2 h5 {
+        font-size: 1.5rem;
+    }
+
+    div#slide-2 .btn-slide2 {
+        font-size: 13px;
+    }
+
+    div#slide-2 img {
+        width: 50%;
+    }
+
+    /* Slide-3 */
+
+    div#slide-3 .carousel-caption p {
+        font-size: 0.8rem;
+    }
+
+    /* Quem Somos */
+
+    div#quem-somos p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    div#quem-somos img {
+        width: 225px;
+    }
+
+    /* Como Funciona */
+
+    div#como-funciona .card-text {
+        font-size: 15px;
+    }
+
+    /* Container */
+
+    .container {
+        padding: 70px 15px!important;
+    }
+
+    /* Materiais Recicláveis */
+
+    div#materiais-reciclaveis .card {
+        width: 15rem!important;
+        margin-bottom: 20px;
+    }
 
     .txtCadastrar,
     .txtLogar {

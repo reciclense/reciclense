@@ -55,7 +55,7 @@
 .divMenu {
     background: white;
     width: 100%;
-    /* position: fixed;*/
+    box-shadow: 1px 0px 15px 5px rgb(0 0 0 / 50%);
 }
 
 .card {
