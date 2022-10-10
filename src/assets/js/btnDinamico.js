@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var button = document.createElement('button');
     var url = window.location.href.toString();
-    console.log(url);
 
     //Usuário logado
     if (1 == 2) {
