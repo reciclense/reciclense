@@ -1,14 +1,18 @@
 .headingPerfilPessoaFisica1 {
-  color: #85b027;
+  color: var(--corPadrao);
   position: static;
   text-align: center;
 }
 .headingPerfilPessoaFisica2 {
-  color: #85b027;
+  color: var(--corPadrao);
   position: static;
   margin-bottom: 30px;
 }
 
 input{
 margin-bottom: 20px;
+}
+
+label{
+  font-weight: bold;
 }

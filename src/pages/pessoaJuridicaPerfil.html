@@ -10,12 +10,14 @@
   <!-- Bootstrap CSS -->
   <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.css">
   <link href="../assets/css/menu.css" rel="stylesheet">
   <link href="../assets/css/geral.css" rel="stylesheet">
   <link href="../assets/css/pessoaJuridicaPerfil.css" rel="stylesheet">
 
   <!--Import Scripts-->
   <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+  <script type="text/JavaScript" src="../assets/js/geral.js"></script>
 
   <!--Import fonte padrão-->
   <style>
@@ -63,94 +65,104 @@
 
   <!--Titulo 1 da página-->
 
-  <h1 class="headingPerfilPessoaJuridica">Dados da Empresa</h1>
-  <br>
+  <div class="container">
+    <h1 class="headings">Perfil</h1>
 
-  <!--Formulário Pessoa Jurídica-->
+    <h2 class="headingPerfilPessoaFisica2">Dados da Empresa</h2>
 
-  <form>
-    <form>
+    <!--Formulário Pessoa Física-->
+
+    <form action="">
       <div class="row">
-        <label for="inputRazaosocial">Razão Social</label>
-        <input type="text" class="form-control" placeholder="Digite seu nome">
+        <div class="col">
+          <label for="inputRazaoSocial">Razão Social:</label>
+          <input type="text" class="form-control" placeholder="Digite a razão social da empresa" />
+        </div>
+        <div class="col">
+          <label for="inputCnpj">CNPJ:</label>
+          <input type="text" oninput="mascaraCnpj(this)" class="form-control" placeholder="Digite o CNPJ da empresa" />
+        </div>
       </div>
-      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputEmail4">Email:</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com" />
+        </div>
+        <div class="col">
+          <label for="inputPassword4">CPF:</label>
+          <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaUser"
+            aria-describedby="CPF" placeholder="000.000.000-00">
+        </div>
       </div>
     </form>
+
+    <!--Titulo 2 da página-->
+
+    <h2 class="headingPerfilPessoaFisica2">Endereço</h2>
+
+    <!--Formulário de Endereco-->
+
+    <form action="">
+      <div class="row">
+        <div class="col">
+          <label for="inputName">Rua:</label>
+          <input type="text" class="form-control" placeholder="Rua do Recife" />
+        </div>
+        <div class="col">
+          <label for="inputsobrenome">Número:</label>
+          <input type="text" class="form-control" placeholder="Número 00" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputName">Complemento:</label>
+          <input type="text" class="form-control" placeholder="Apartamento, ponto de referência." />
+        </div>
+        <div class="col">
+          <label for="inputPassword4">CEP:</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="50000000" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <label for="inputEmail4">Cidade:</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Recife" />
+        </div>
+        <div class="col-sm">
+          <label for="inputEmail4">Estado:</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Pernambuco" />
+        </div>
+    </form>
+
+    <!--Botoes-->
+
+    <div style="text-align: right">
+      <button type="button" class="btn btn-primary i bi-archive"></i> Salvar </button>
+      <button type="button" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
+      <button type="button" class="btn btn-danger i bi-trash3"></i> Excluir </button>
     </div>
-    <div class="row">
-      <div class="col">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com">
+
+    <!-- Rodapé -->
+    <footer class="page-footer font-small blue">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+        <a href="/"> reciclense.com.br</a>
       </div>
-      <div class="col">
-        <label for="inputPassword4">CNPJ</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Somente números">
-      </div>
-      <br><br><br><br>
 
-      <!--Titulo 2 da página-->
-      <h1>Endereço</h1>
-      <br>
+    </footer>
 
-      <!--Formulário de Endereco-->
-
-      <form>
-        <div class="form-group">
-          <label for="inputAddress">Rua</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Rua do Recife, nº 0">
-        </div>
-        <div class="form-group">
-          <label for="inputAddress2">Complemento</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, ponto de referência.">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">Cidade</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputEstado">Estado</label>
-            <select id="inputEstado" class="form-control">
-              <option selected>Escolher...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputCEP">CEP</label>
-            <input type="text" class="form-control" id="inputCEP">
-          </div>
-        </div>
-        <br>
-        <!--Botoes-->
-        <div>
-          <button type="button" class="btn btn-success">Salvar</button>
-          <button type="button" class="btn btn-secondary">Editar</button>
-          <button type="button" class="btn btn-secondary">Excluir</button>
-        </div>
-      </form>
-
-      <!-- Rodapé -->
-      <footer class="rodape">
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
-          <a href="/"> reciclense.com.br</a>
-        </div>
-
-      </footer>
-
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-        crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
