@@ -40,6 +40,28 @@ h1 {
   border: none;
 }
 
+/* Botão Whatsapp*/
+
+.btn-whatsapp {
+  position: fixed;
+  bottom: 65px;
+  right: 30px;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  font-size: 50px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #25D366
+  ;
+}
+
+.btn-whatsapp:hover {
+  bottom: 80px;
+  color: #ffffff;
+  transition-duration: 0.5s;
+}
+
 /* Rodapé */
 
 .rodape {
