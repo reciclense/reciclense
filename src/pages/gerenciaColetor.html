@@ -10,7 +10,8 @@
     <!-- Bootstrap CSS -->
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="http://www.w3.org/2000/svg" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bootstrap-icons.css">
+
     <link href="../assets/css/menu.css" rel="stylesheet">
     <link href="../assets/css/geral.css" rel="stylesheet">
     <link href="../assets/css/gerenciaColetor.css" rel="stylesheet">
@@ -65,58 +66,51 @@
     </div>
 
     <main>
-        <div id="pesquisarColetor">
-            <div class="pesquisarColetor">
+        <div id="pesquisarColetor col-sm-6 col-md-6 col-lg-12">
+            <div class="pesquisarColetor col-sm-6 col-md-6 col-lg-12">
                 <h1 class="headings">Gerencia Coletor</h1>
                 <!-- Formulário -->
-                <form id="formGerenciaColetor" class="col-sm-6 col-md-6 col-lg-6">
+                <form id="formGerenciaColetor" class="col-sm-6 col-md-6 col-lg-6 d-flex">
+                    <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
+                        <label class="headerInput">Nome:</label>
+                        <input type="text" class="form-control" id="formGerenciaColetor" aria-describedby="Nome"
+                            placeholder="Coletor teste">
+                    </div>
                     <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
                         <label class="headerInput">CPF:</label>
                         <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaColetor"
                             aria-describedby="CPF" placeholder="000.000.000-00">
                     </div>
                     <div id="divGerenciaColetor" class="col-sm-6 col-md-6 form-group col-lg-6">
-                        <button type="submit" id="btnPesquisarColetor" class="btn btn-primary" onclick="buscaColetor()">Pesquisar
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                            </svg>
-                        </button>
+                        <button type="submit" id="btnPesquisarColetor" class="btn btn-primary bi bi-search"
+                            onclick="buscaColetor()"> Pesquisar</button>
                     </div>
                 </form>
             </div>
+
+
+            <table class=" table tableGerenciaUsuario">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Coletor</td>
+                        <td scope="row">Teste</td>
+                        <td scope="row">30131033026</td>
+                        <td scope="row">
+                            <button class="btn btn-secondary i bi-pencil-square" data-bs-toggle="modal"
+                                data-bs-target="#formEditaColetor"> Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <table class=" table tableGerenciaUsuario">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Sobrenome</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">Coletor</td>
-                    <td scope="row">Teste</td>
-                    <td scope="row">30131033026</td>
-                    <td scope="row">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditaColetor">Editar
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path
-                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                <path fill-rule="evenodd"
-                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                            </svg>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
         <!-- Modal Gerencia Coletor -->
         <div id="editaColetor">
             <div class="col-md-6">
@@ -150,24 +144,13 @@
                                     </div>
                                     <div>
                                         <button type="submit"
-                                            class=" btnEditarColetor form-control btn btn-primary">Salvar
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-                                            </svg>
-
+                                            class=" btnEditarColetor form-control btn btn-primary i bi-archive">
+                                            Salvar
                                         </button>
 
                                         <button type="submit"
-                                            class=" btnExcluirColetor form-control btn btn-primary">Excluir
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                                <path fill-rule="evenodd"
-                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                            </svg>
+                                            class=" btnExcluirColetor form-control btn btn-danger bi bi-trash3">
+                                            Excluir
                                         </button>
                                     </div>
                                 </form>

@@ -73,12 +73,12 @@ h1 {
 
 }
 
-
 .headings {
   color: var(--corPadrao);
   text-align: center;
   font-family: var(--fontePadrao);
   font-weight: bold;
+  margin-bottom: 70px;
 }
 
 .btnTxt {

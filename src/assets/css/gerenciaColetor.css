@@ -1,10 +1,11 @@
 .pesquisarColetor {
     margin-top: 50px;
     margin-left: 50px;
+    
 }
 
 #btnPesquisarColetor {
-    float: right;
+    margin-top: 54px;
 }
 
 #divGerenciaColetor {
@@ -12,11 +13,13 @@
     padding-bottom: 50px;
 }
 
-
+.teste{
+    margin-right: 10px;
+}
 .tableGerenciaUsuario{
 
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 50px;
 
     width: 500px;
