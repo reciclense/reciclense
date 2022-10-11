@@ -37,7 +37,8 @@ h1 {
   background-color: var(--corBotao);
   --bs-btn-hover-bg: var(--corBotao);
   --bs-btn-active-bg: var(--corBotao);
-  border: none;
+  border-color:var(--corBotao) ;
+  --bs-btn-hover-border-color:var(--corBotao);
 }
 
 /* Botão Whatsapp*/
