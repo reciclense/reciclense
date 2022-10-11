@@ -12,3 +12,7 @@
 input{
 margin-bottom: 20px;
 }
+
+label{
+  font-weight: bold;
+}
