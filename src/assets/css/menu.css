@@ -55,9 +55,28 @@
 .divMenu {
     background: white;
     width: 100%;
-    /* position: fixed;*/
+    box-shadow: 1px 0px 15px 5px rgb(0 0 0 / 50%);
 }
 
 .card {
     position: static;
+}
+
+/* Responsivo */
+
+/*Tablet */
+
+@media(max-width:768px) {
+
+    div#btnDinamico {
+        margin-left: -30px;
+        margin-bottom: 20px;
+    }
+
+}
+
+/* Celular */
+
+@media(max-width:425px) { 
+
 }
