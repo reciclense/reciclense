@@ -37,7 +37,8 @@ h1 {
   background-color: var(--corBotao);
   --bs-btn-hover-bg: var(--corBotao);
   --bs-btn-active-bg: var(--corBotao);
-  border: none;
+  border-color:var(--corBotao) ;
+  --bs-btn-hover-border-color:var(--corBotao);
 }
 
 /* Botão Whatsapp*/
@@ -47,9 +48,9 @@ h1 {
   bottom: 65px;
   right: 30px;
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
-  font-size: 45px;
+  width: 55px;
+  height: 55px;
+  font-size: 36px;
   text-align: center;
   color: #ffffff;
   background-color: #25D366
@@ -72,12 +73,12 @@ h1 {
 
 }
 
-
 .headings {
   color: var(--corPadrao);
   text-align: center;
   font-family: var(--fontePadrao);
   font-weight: bold;
+  margin-bottom: 70px;
 }
 
 .btnTxt {

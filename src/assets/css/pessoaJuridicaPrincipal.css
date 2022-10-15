@@ -36,10 +36,8 @@
 }
 
 .btn-relatorio {
-    padding: 1px 10px;
-    border-radius: 10px;
-    font-size: 15px;
     margin-top: 10px;
+    margin-right: 10px;
 }
 
 .btn-filtro {
