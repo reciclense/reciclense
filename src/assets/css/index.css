@@ -10,23 +10,23 @@ h3 {
 
 /* Slide 1 */
 
-div#slide-1 .carousel-caption h5{
-   color: #ffffff;
-   text-align: left;
-   font-size: 40px;
-   margin-left: 50px;
+div#slide-1 .carousel-caption h5 {
+    color: #ffffff;
+    text-align: left;
+    font-size: 40px;
+    margin-left: 50px;
 }
 
-div#slide-1{
+div#slide-1 {
     height: 455px;
     background-image: url("../img/slide-1.jpg");
 }
 
-div#slide-1 .row{
+div#slide-1 .row {
     height: 100%;
 }
 
-div#slide-1 #bg-slide-1{
+div#slide-1 #bg-slide-1 {
     background-color: #2a02f2;
 }
 
@@ -34,12 +34,12 @@ div#slide-1 .slide-container {
     padding: 0px 50px;
 }
 
-div#slide-1 h5{
+div#slide-1 h5 {
     color: #ffffff;
     font-size: 3rem;
 }
 
-div#slide-1 img{
+div#slide-1 img {
     width: 60%;
 }
 
@@ -59,17 +59,17 @@ div#slide-2 #bg-slide-2 {
     background-color: #2a02f2;
 }
 
-div#slide-2 .row{
+div#slide-2 .row {
     height: 100%;
 }
 
-div#slide-2 h5{
+div#slide-2 h5 {
     color: #ffffff;
     font-size: 3rem;
     /*padding: 0px 50px;*/
 }
 
-div#slide-2 img{
+div#slide-2 img {
     width: 60%;
 }
 
@@ -80,21 +80,23 @@ div#slide-2 .btn-slide2 {
 
 /* Slide 3 */
 
-div#slide-3 .carousel-caption h5{
+div#slide-3 .carousel-caption h5 {
     color: #ffffff;
     text-align: center;
     font-size: 2rem;
- }
+}
 
- div#slide-3 .carousel-caption h5,  div#slide-3 .carousel-caption p{
+div#slide-3 .carousel-caption h5,
+div#slide-3 .carousel-caption p {
     text-shadow: 2px 2px 5px black;
- }
+}
 
- /* Controles do Slide */
+/* Controles do Slide */
 
- .carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
     width: 10%;
- }
+}
 
 /* Quem Somos */
 
@@ -107,19 +109,52 @@ div#quem-somos p {
 
 /* Como Funciona */
 
-/* Como Funciona Slide 1 */
+div#como-funciona {
+    background-color: #D9D9D9;
+}
 
-/* div#como-funciona .container {
-    padding: 0;
-} */
+div#comofunciona-slide .carousel-item {
+    height: 355px;
+    background-color: #D9D9D9;
+}
 
-div#comofunciona-slide .carousel-control-next-icon{
+div#comofunciona-slide .comofunciona-container {
+    height: 100%;
+
+}
+
+div#comofunciona-slide .numero {
+    font-size: 4rem;
+
+}
+
+div#comofunciona-slide h5 {
+    color: var(--corPadrao2);
+    font-size: 3rem;
+    font-weight: 600;
+
+}
+
+div#comofunciona-slide p {
+    color: var(--corPadrao);
+    font-weight: 500;
+    padding: 0 70px;
+}
+
+div#comofunciona-slide img {
+    width: 117px;
+    height: 117px;
+}
+
+/* Controles do Slide */
+
+div#comofunciona-slide .carousel-control-next-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     width: 100%;
     height: 20%
 }
 
-div#comofunciona-slide .carousel-control-prev-icon{
+div#comofunciona-slide .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
     width: 100%;
     height: 20%
@@ -129,70 +164,13 @@ div#comofunciona-slide .carousel-indicators [data-bs-target] {
     background-color: #85B027;
 }
 
-div#comofunciona-slide .carousel-control-next, .carousel-control-prev{
+div#comofunciona-slide .carousel-control-next,
+.carousel-control-prev {
     width: 30%;
-}
-
- div#comofunciona-slide .carousel-item{
-     height: 355px;
-     background-color: #D9D9D9;
- }
-
- div#comofunciona-slide .comofunciona-container{
-    height: 100%;
-
-}
-
-div#comofunciona-slide .numero{
-    font-size: 4rem;
-
-}
-
-
- div#comofunciona-slide h5{
-     color: var(--corPadrao2);
-     font-size: 3rem;
-     font-weight: 600;
-     
- }
-
- div#comofunciona-slide p{
-    color: var(--corPadrao);
-    font-weight: 500;
-    padding: 0 70px;
-}
- 
- div#comofunciona-slide img{
-    width: 117px;
-    height: 117px;
- }
-
-
-
-div#como-funciona {
-    background-color: #D9D9D9;
-}
-
-div#como-funciona .card-img-top {
-    width: 117px;
-    height: 117px;
-    margin-top: 5px;
 }
 
 .card {
     border: none;
-}
-
-div#como-funciona .card {
-    text-align: center;
-    background-color: #D9D9D9;
-    margin-top: 20px;
-}
-
-div#como-funciona .card-text {
-    font-weight: 500;
-    font-size: 20px;
-    color: var(--corTexto3);
 }
 
 /* Materiais Recicláveis */
@@ -338,15 +316,15 @@ footer {
 
     /* inicio */
 
-     /* titulo */
+    /* titulo */
 
-     h3 {
+    h3 {
         font-size: 40px;
     }
-    
+
     /* Slide 1 */
 
-    div#slide-1 .slide-container{
+    div#slide-1 .slide-container {
         text-align: center;
     }
 
@@ -360,7 +338,7 @@ footer {
 
     /* Slide 2 */
 
-    div#slide-2 .slide-container{
+    div#slide-2 .slide-container {
         text-align: center;
         padding: 0px 50px;
     }
@@ -388,21 +366,42 @@ footer {
         width: 250px
     }
 
+    /* Como Funciona */
+
+    div#comofunciona-slide h5 {
+        font-size: 2.2rem;
+    }
+
+    /* Controles do Slide */
+
+    div#comofunciona-slide .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        width: 100%;
+        height: 15%
+    }
+
+    div#comofunciona-slide .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+        width: 100%;
+        height: 15%
+    }
+
+    div#comofunciona-slide .carousel-indicators [data-bs-target] {
+        background-color: #85B027;
+    }
+
+    div#comofunciona-slide .carousel-control-next,
+    .carousel-control-prev {
+        width: 10%;
+    }
+
+    /* Materiais Recicláveis */
+
     div#materiais-reciclaveis h3 {
         margin-bottom: 40px;
     }
 
     /* card */
-
-    div#como-funciona .card-text {
-        font-size: 11px;
-    }
-
-    div#como-funciona .card-img-top {
-        width: 80px;
-        height: 80px;
-        margin-top: 5px;
-    }
 
     p.card-text {
         font-size: 12px;
@@ -432,7 +431,7 @@ footer {
 /* Celular */
 
 @media(max-width:425px) {
-    
+
     /* Inicio */
 
     h3 {
@@ -489,20 +488,34 @@ footer {
 
     /* Como Funciona */
 
-    div#como-funciona .card-text {
-        font-size: 15px;
+    div#comofunciona-slide h5 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    div#comofunciona-slide .numero {
+        font-size: 3rem;
+    }
+
+    div#comofunciona-slide p {
+        text-align: center;
+    }
+
+    div#comofunciona-slide img {
+        width: 100px;
+        height: 100px;
     }
 
     /* Container */
 
     .container {
-        padding: 70px 15px!important;
+        padding: 70px 15px !important;
     }
 
     /* Materiais Recicláveis */
 
     div#materiais-reciclaveis .card {
-        width: 15rem!important;
+        width: 15rem !important;
         margin-bottom: 20px;
     }
 

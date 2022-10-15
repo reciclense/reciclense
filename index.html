@@ -67,7 +67,7 @@
   </div>
   <main>
     <!--Inicio-->
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -77,7 +77,7 @@
           aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div id="slide-1" class="carousel-item active">
+        <div id="slide-1" class="carousel-item">
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <img src="src/assets/img/solicite-1.png" class="img-fluid" alt="...">
@@ -104,7 +104,7 @@
 
           </div>
         </div>
-        <div id="slide-3" class="carousel-item">
+        <div id="slide-3" class="carousel-item active">
           <img src="src/assets/img/slide-3.jpg" height="455" class="d-block w-100" alt="...">
           <div class="carousel-caption d-md-block">
             <h5>No Brasil, apenas 4% de resíduos sólidos são enviados para a reciclagem</h5>
@@ -143,135 +143,128 @@
       </div>
     </div>
     <!--Como Funciona-->
-
-    <div class="carousel-inner">
-      <div id="comofunciona-slide-1" class="carousel-item active d-flex align-items-center justify-content-center">
-        <div class="row">
-          <div class="col-md-7">
-            <h5>1 Solicite uma coleta</h5>
-            <p>Você solicita uma coleta informando
-              a frequencia e o material deixado</p>
+    <div id="como-funciona">
+        <div id="comofunciona-slide" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#comofunciona-slide" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#comofunciona-slide" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#comofunciona-slide" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
           </div>
-          <div class="col-md-5">
-            <img src="src/assets/icons/como-funciona-1.png" alt="solicitando a coleta">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="comofunciona-container d-flex align-items-center justify-content-center">
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-md-8">
+                    <h5>
+                      <lable class="numero">1.</lable> Solicite uma coleta
+                    </h5>
+                    <p>Você solicita uma coleta informando
+                      a frequencia e o material deixado</p>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <img src="src/assets/icons/como-funciona-1.png" alt="solicitando a coleta">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="comofunciona-container d-flex align-items-center justify-content-center">
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-md-8">
+                    <h5>
+                      <lable class="numero">2.</lable> Solicitação em andamento
+                    </h5>
+                    <p>A cooperativa busca as solicitações da
+                      região e passa o roteiro para o catador</p>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <img src="src/assets/icons/como-funciona-2.png" alt="solicitando a coleta">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="comofunciona-container d-flex align-items-center justify-content-center">
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-md-10">
+                    <h5>
+                      <lable class="numero">3.</lable> Recolhimento do material
+                    </h5>
+                    <p>O catador recolhe o material no
+                      endereço informado</p>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-center">
+                    <img src="src/assets/icons/como-funciona-3.png" alt="solicitando a coleta">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#comofunciona-slide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#comofunciona-slide" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
 
-      <div id="comofunciona-slide" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#comofunciona-slide" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#comofunciona-slide" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#comofunciona-slide" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="comofunciona-container d-flex align-items-center justify-content-center">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-md-8">      
-                    <h5><lable class="numero">1.</lable> Solicite uma coleta</h5>
-                    <p>Você solicita uma coleta informando
-                      a frequencia e o material deixado</p>    
-                </div>
-                <div class="col-md-2">
-                  <img src="src/assets/icons/como-funciona-1.png" alt="solicitando a coleta">
-                </div>
+    <!--Materiais Recicláveis-->
+    <div id="materiais-reciclaveis">
+      <!--Container-->
+      <div class="container">
+        <!--Linha-->
+        <div class="row justify-content-center">
+          <!--Coluna-->
+          <div class="col-12">
+            <h3>Materiais Recicláveis</h3>
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-1" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-plastico.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Plástico</h4>
+                <p class="card-text">Sacola, Garrafa Pet, Galões, Tampinhas de garrafa, Copos Descartáveis...</p>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="comofunciona-container d-flex align-items-center justify-content-center">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-md-8">      
-                    <h5><lable class="numero">2.</lable> Solicitação em andamento</h5>
-                    <p>A cooperativa busca as solicitações da 
-                      região e passa o roteiro para o catador</p>    
-                </div>
-                <div class="col-md-2">
-                  <img src="src/assets/icons/como-funciona-2.png" alt="solicitando a coleta">
-                </div>
+          <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-2" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-metal.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Metal</h4>
+                <p class="card-text">Latinhas de bebidas e condimentos, desodorante, talheres de metal...</p>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="comofunciona-container d-flex align-items-center justify-content-center">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-md-10">      
-                    <h5><lable class="numero">3.</lable> Recolhimento do material</h5>
-                    <p>O catador recolhe o material no 
-                      endereço informado</p>    
-                </div>
-                <div class="col-md-2">
-                  <img src="src/assets/icons/como-funciona-3.png" alt="solicitando a coleta">
-                </div>
+          <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-3" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-papel.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Papel</h4>
+                <p class="card-text">Folhas, Jornais, Caixas de Leite, Caixas de Papelão...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card" id="card-4" style="width: 18rem;">
+              <img class="card-img-top" src="src/assets/img/mat-reciclavel-vidro.png" alt="Card image cap">
+              <div class="card-body">
+                <h4>Vidro</h4>
+                <p class="card-text">Garrafa de Vidro, Potes, Vasos, Pratos...</p>
               </div>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#comofunciona-slide" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#comofunciona-slide" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
-
-
-      <!--Materiais Recicláveis-->
-      <div id="materiais-reciclaveis">
-        <!--Container-->
-        <div class="container">
-          <!--Linha-->
-          <div class="row justify-content-center">
-            <!--Coluna-->
-            <div class="col-12">
-              <h3>Materiais Recicláveis</h3>
-            </div>
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
-              <div class="card" id="card-1" style="width: 18rem;">
-                <img class="card-img-top" src="src/assets/img/mat-reciclavel-plastico.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4>Plástico</h4>
-                  <p class="card-text">Sacola, Garrafa Pet, Galões, Tampinhas de garrafa, Copos Descartáveis...</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
-              <div class="card" id="card-2" style="width: 18rem;">
-                <img class="card-img-top" src="src/assets/img/mat-reciclavel-metal.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4>Metal</h4>
-                  <p class="card-text">Latinhas de bebidas e condimentos, desodorante, talheres de metal...</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
-              <div class="card" id="card-3" style="width: 18rem;">
-                <img class="card-img-top" src="src/assets/img/mat-reciclavel-papel.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4>Papel</h4>
-                  <p class="card-text">Folhas, Jornais, Caixas de Leite, Caixas de Papelão...</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-3 col-lg-3 d-flex align-items-center justify-content-center">
-              <div class="card" id="card-4" style="width: 18rem;">
-                <img class="card-img-top" src="src/assets/img/mat-reciclavel-vidro.png" alt="Card image cap">
-                <div class="card-body">
-                  <h4>Vidro</h4>
-                  <p class="card-text">Garrafa de Vidro, Potes, Vasos, Pratos...</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="btn-whatsapp" href=""><i class="bi bi-whatsapp"></i></a>
-      </button>
+    <a class="btn-whatsapp" href=""><i class="bi bi-whatsapp"></i></a>
+    </button>
 
   </main>
 
