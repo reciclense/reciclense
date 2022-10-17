@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const router = express.Router();
 
 /*Login Google
@@ -20,5 +20,11 @@ router.post('/usuario-google', function(req, res) {
     });
 
 });
+*/
 
-module.exports = router;*/
+/*Validar Login*/
+router.post('/valida-login', function(req, res){
+    res.send("Email: " + req.body.email + "<br>Senha: " + req.body.senha + "<br");
+});
+
+module.exports = router;
