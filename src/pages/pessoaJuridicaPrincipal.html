@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.css">
   <link href="../assets/css/menu.css" rel="stylesheet">
   <link href="../assets/css/geral.css" rel="stylesheet">
   <link href="../assets/css/pessoaJuridicaPrincipal.css" rel="stylesheet">
@@ -60,7 +61,7 @@
             <a class="nav-link" href="#contato">Contato</a>
           </li>
         </ul>
-        <div id="btnDinamico" data-bs-toggle="modal"
+        <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal"
         data-bs-target="#formCadastrarColetor"></div>
       </div>
     </nav>
@@ -125,6 +126,7 @@
 
           <div class="col-md-12 d-flex justify-content-end">
             <button type="button" class="btn btn-primary btn-relatorio">Gerar Relatório</button>
+            <a role="button" class="btn btn-primary btn-relatorio" href="/src/pages/gerenciaColetor.html">Buscar Coletor</a>
           </div>
         </div>
 
@@ -163,7 +165,7 @@
                     placeholder=" 000.000.000-00" required>
                 </div>
                 <div>
-                  <button type="submit" class=" btnCadastrarColetor form-control btn btn-primary">Cadastrar</button><br>
+                  <button type="submit" class=" btnCadastrarColetor form-control btn btn-primary">Cadastrar</button>
                 </div>
             </div>
             </form>
@@ -175,7 +177,7 @@
   </div>
 
   <!-- Rodapé -->
-  <footer class="page-footer font-small blue navbar-fixed-bottom">
+  <footer class="rodape">
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.

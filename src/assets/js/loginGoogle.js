@@ -1,18 +1,29 @@
+//import * as Sequelize from 'sequelize';
+//import * as tabelaUsuario from '/src/models/usuario.js';
 
 /*Login Google*/
-function handleCredentialResponse(response) {
+ function handleCredentialResponse(response) {
 
   const data = jwt_decode(response.credential);
-  console.log(data);
-  window.location.href = "http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html";
+  const tabelaUsuario = require('./src/models/usuario');
+
+  const usuario =  tabelaUsuario.create({
+
+      email: data.email,
+      senha: data.sub,
+      nm_usuario: data.given_name,
+      sobrenome_usuario: data.family_name
+
+  }).then(function () {
+      console.log('Usuário salvo com sucesso! Usuário: ' + usuario);
+  }).catch(function (error) {
+      console.log('Erro ao salvar usuário: ' + error);
+  });
+
   /*fullName.textContent = data.name;
-  sub.textContent = data.sub;
-  given_name.textContent = data.given_name;
-  family_name.textContent = data.family_name;
-  email.textContent = data.email;
   verifiedEmail.textContent = data.email_verified;
   picture.setAttribute("src", data.picture);*/
-
+  // window.location.href = "http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html";
 
 }
 

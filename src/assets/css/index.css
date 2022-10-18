@@ -1,39 +1,102 @@
 /* Gerais */
 
-body {}
-
-.btn-primary {
-    background-color: var(--corBotao);
-    --bs-btn-hover-bg: var(--corBotao);
-    --bs-btn-active-bg: var(--corBotao);
-    border: none;
-}
-
 h3 {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 50px;
-    color: var(--corPadrao);
+    color: var(--corPadrao2);
 }
 
 /* Inicio */
 
+/* Slide 1 */
 
-.carousel-caption h1{
-    /*position: absolute;
-    bottom: 5rem;
-    padding-bottom: 5rem;
+div#slide-1 .carousel-caption h5 {
+    color: #ffffff;
+    text-align: left;
+    font-size: 40px;
+    margin-left: 50px;
+}
+
+div#slide-1 {
+    height: 455px;
+    background-image: url("../img/slide-1.jpg");
+}
+
+div#slide-1 .row {
+    height: 100%;
+}
+
+div#slide-1 #bg-slide-1 {
+    background-color: #2a02f2;
+}
+
+div#slide-1 .slide-container {
+    padding: 0px 50px;
+}
+
+div#slide-1 h5 {
+    color: #ffffff;
+    font-size: 3rem;
+}
+
+div#slide-1 img {
+    width: 60%;
+}
+
+div#slide-1 .btn-slide1 {
+    margin-top: 10px;
+}
+
+/* Slide 2 */
+
+div#slide-2 {
+    color: #ffffff;
+    height: 455px;
+    background-image: url("../img/slide-1.jpg");
+}
+
+div#slide-2 #bg-slide-2 {
+    background-color: #2a02f2;
+}
+
+div#slide-2 .row {
+    height: 100%;
+}
+
+div#slide-2 h5 {
+    color: #ffffff;
+    font-size: 3rem;
+    /*padding: 0px 50px;*/
+}
+
+div#slide-2 img {
+    width: 60%;
+}
+
+div#slide-2 .btn-slide2 {
+
+    margin-top: 10px;
+}
+
+/* Slide 3 */
+
+div#slide-3 .carousel-caption h5 {
+    color: #ffffff;
     text-align: center;
-    color: #ffffff;*/
+    font-size: 2rem;
 }
 
-.carousel-caption img{
-    /*position: absolute;
-    bottom: 5rem;
-    padding-bottom: 5rem;
-    text-align: center;*/
+div#slide-3 .carousel-caption h5,
+div#slide-3 .carousel-caption p {
+    text-shadow: 2px 2px 5px black;
 }
 
+/* Controles do Slide */
 
+.carousel-control-next,
+.carousel-control-prev {
+    width: 10%;
+}
 
 /* Quem Somos */
 
@@ -50,35 +113,69 @@ div#como-funciona {
     background-color: #D9D9D9;
 }
 
-div#como-funciona .card-img-top {
+div#comofunciona-slide .carousel-item {
+    height: 355px;
+    background-color: #D9D9D9;
+}
+
+div#comofunciona-slide .comofunciona-container {
+    height: 100%;
+
+}
+
+div#comofunciona-slide .numero {
+    font-size: 4rem;
+
+}
+
+div#comofunciona-slide h5 {
+    color: var(--corPadrao2);
+    font-size: 3rem;
+    font-weight: 600;
+
+}
+
+div#comofunciona-slide p {
+    color: var(--corPadrao);
+    font-weight: 500;
+    padding: 0 70px;
+}
+
+div#comofunciona-slide img {
     width: 117px;
     height: 117px;
-    margin-top: 5px;
+}
+
+/* Controles do Slide */
+
+div#comofunciona-slide .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    width: 100%;
+    height: 20%
+}
+
+div#comofunciona-slide .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+    width: 100%;
+    height: 20%
+}
+
+div#comofunciona-slide .carousel-indicators [data-bs-target] {
+    background-color: #85B027;
+}
+
+div#comofunciona-slide .carousel-control-next,
+.carousel-control-prev {
+    width: 30%;
 }
 
 .card {
     border: none;
 }
 
-div#como-funciona .card {
-    text-align: center;
-    background-color: #D9D9D9;
-    margin-top: 20px;
-}
-
-div#como-funciona .card-text {
-    font-weight: 500;
-    font-size: 20px;
-    color: var(--corTexto3);
-}
-
 /* Materiais Recicláveis */
 
-div#materiais-reciclaveis,
-.card {}
-
 div#materiais-reciclaveis h3 {
-    color: var(--corTexto1);
     margin-bottom: 50px;
 }
 
@@ -89,9 +186,10 @@ div#materiais-reciclaveis .card-body h4 {
 
 div#materiais-reciclaveis .card-body {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 1rem;
     color: #ffffff;
     height: 216px;
+    text-shadow: 1px 1px 1.5px black;
 }
 
 #card-1 {
@@ -206,6 +304,9 @@ footer {
 }
 
 /* Responsivo */
+
+/* Tablet */
+
 @media(max-width:768px) {
 
     /* geral */
@@ -214,10 +315,6 @@ footer {
     }
 
     /* inicio */
-    div#inicio h1 {
-        color: #ffffff;
-        font-size: 40px;
-    }
 
     /* titulo */
 
@@ -225,24 +322,89 @@ footer {
         font-size: 40px;
     }
 
+    /* Slide 1 */
+
+    div#slide-1 .slide-container {
+        text-align: center;
+    }
+
+    div#slide-1 h5 {
+        font-size: 2.5rem;
+    }
+
+    div#slide-1 img {
+        width: 80%;
+    }
+
+    /* Slide 2 */
+
+    div#slide-2 .slide-container {
+        text-align: center;
+        padding: 0px 50px;
+    }
+
+    div#slide-2 h5 {
+        font-size: 2.5rem;
+    }
+
+    /* Slide 3 */
+
+    div#slide-3 .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    div#slide-3 .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    /* Quem Somos */
+    div#quem-somos p {
+        font-size: 20px;
+    }
+
+    div#quem-somos img {
+        width: 250px
+    }
+
+    /* Como Funciona */
+
+    div#comofunciona-slide h5 {
+        font-size: 2.2rem;
+    }
+
+    /* Controles do Slide */
+
+    div#comofunciona-slide .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        width: 100%;
+        height: 15%
+    }
+
+    div#comofunciona-slide .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2385B027'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+        width: 100%;
+        height: 15%
+    }
+
+    div#comofunciona-slide .carousel-indicators [data-bs-target] {
+        background-color: #85B027;
+    }
+
+    div#comofunciona-slide .carousel-control-next,
+    .carousel-control-prev {
+        width: 10%;
+    }
+
+    /* Materiais Recicláveis */
+
     div#materiais-reciclaveis h3 {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     /* card */
 
-    div#como-funciona .card-text {
-        font-size: 11px;
-    }
-
-    div#como-funciona .card-img-top {
-        width: 80px;
-        height: 80px;
-        margin-top: 5px;
-    }
-
     p.card-text {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     div#materiais-reciclaveis .card-body h4 {
@@ -264,19 +426,98 @@ footer {
         margin-bottom: 50px;
     }
 
+}
+
+/* Celular */
+
+@media(max-width:425px) {
+
+    /* Inicio */
+
+    h3 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    /* Slide-1 */
+
+    div#slide-1 img {
+        width: 50%;
+    }
+
+    div#slide-1 h5 {
+        font-size: 1.5rem;
+    }
+
+    div#slide-1 .btn-slide1 {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+
+    /* Slide-2 */
+
+    div#slide-2 h5 {
+        font-size: 1.5rem;
+    }
+
+    div#slide-2 .btn-slide2 {
+        font-size: 13px;
+    }
+
+    div#slide-2 img {
+        width: 50%;
+    }
+
+    /* Slide-3 */
+
+    div#slide-3 .carousel-caption p {
+        font-size: 0.8rem;
+    }
+
     /* Quem Somos */
+
     div#quem-somos p {
-        font-size: 20px;
+        font-size: 14px;
         text-align: center;
     }
 
     div#quem-somos img {
-        width: 250px
+        width: 225px;
     }
 
-}
+    /* Como Funciona */
 
-@media(max-width:425px) {
+    div#comofunciona-slide h5 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    div#comofunciona-slide .numero {
+        font-size: 3rem;
+    }
+
+    div#comofunciona-slide p {
+        text-align: center;
+    }
+
+    div#comofunciona-slide img {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Container */
+
+    .container {
+        padding: 70px 15px !important;
+    }
+
+    /* Materiais Recicláveis */
+
+    div#materiais-reciclaveis .card {
+        width: 15rem !important;
+        margin-bottom: 20px;
+    }
 
     .txtCadastrar,
     .txtLogar {
