@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const tabelaUsuario = require('/FICR/reciclense/src/models/usuario');
 
 /*Login Google
 router.post('/usuario-google', function(req, res) {
@@ -23,8 +24,33 @@ router.post('/usuario-google', function(req, res) {
 */
 
 /*Validar Login*/
-router.post('/valida-login', function(req, res){
-    res.send("Email: " + req.body.email + "<br>Senha: " + req.body.senha + "<br");
+router.post('/valida-login', async function (req, res) {
+
+    const usuario = await tabelaUsuario.findOne({
+        attributes: ['email', 'senha', 'nm_usuario', 'tp_perfil'],
+        where: {
+            email: req.body.email,
+            senha: req.body.senha
+        }
+    })
+
+    if (usuario == null) {
+
+        return res.status(400).json({
+            usuario
+        });
+
+    } else {
+
+        if (req.body.email == usuario.email && req.body.senha == usuario.senha) {
+
+            return res.status(200).json({
+                sucess: true,
+                tp_perfil: usuario.tp_perfil
+            });
+
+        }
+    }
 });
 
 module.exports = router;
