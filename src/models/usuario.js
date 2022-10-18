@@ -1,7 +1,13 @@
+/*import * as Sequelize from '/node_modules/sequelize/index.js';
+import * as db from '/src/models/db.js';
+import * as tabelaEndereco from '/src/models/endereco.js';
+import * as tabelaCooperativa from '/src/models/cooperativa.js';*/
+
+
 const Sequelize = require('sequelize');//Importanto Sequelize
-const db = require('./db'); //Importando Banco
-const tabelaEndereco = require('./endereco');//Importando tabela endereco
-const tabelaCooperativa = require('./cooperativa');//Importando tabela cooperativa
+const db = require('../models/db'); //Importando Banco
+const tabelaEndereco = require('../models/endereco');//Importando tabela endereco
+const tabelaCooperativa = require('../models/cooperativa');//Importando tabela cooperativa
 
 //Criando tabela usuario
 const tabelaUsuario = db.define('usuario', {
@@ -29,11 +35,11 @@ const tabelaUsuario = db.define('usuario', {
     },
     tp_perfil: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     documento_principal: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
 }, { freezeTableName: true });
 
