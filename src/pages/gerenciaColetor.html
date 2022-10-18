@@ -19,6 +19,10 @@
     <!--Import Scripts-->
     <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
     <script type="text/JavaScript" src="../assets/js/geral.js"></script>
+    <script type="text/JavaScript" src="src/assets/js/loginGoogle.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
 
     <!--Import fonte padrão-->
     <style>
@@ -33,7 +37,7 @@
     <!--Navbar geral-->
     <div class="divMenu container-fluid sticky-top" id="nav-container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/index.html">
                 <img src="../assets/img/logo.svg" alt="Reciclense" width="200" height="77"
                     class="d-inline-block align-text-top" />
             </a>
@@ -45,23 +49,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+                        <a class="nav-link align-text-center" aria-current="page" href="/index.html">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quem Somos</a>
+                        <a class="nav-link" href="/index.html#quem-somos">Quem Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#como-funciona">Como Funciona</a>
+                        <a class="nav-link" href="/index.html#como-funciona">Como Funciona</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+                        <a class="nav-link" href="/index.html#materiais-reciclaveis">Materiais Recicláveis</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
-                <div id="btnDinamico" data-bs-toggle="modal" data-bs-target="#formLogin"></div>
-            </div>
+                <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal"
+                    data-bs-target="#formLogin">
+                </div>
         </nav>
     </div>
 
@@ -163,29 +168,135 @@
 
     </main>
 
-
-    <!-- Rodapé -->
-    <footer class="page-footer font-small blue">
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
-            <a href="/"> reciclense.com.br</a>
+    <!-- Modal Login -->
+    <div id="login">
+        <div class="col-md-6">
+            <!-- Modal -->
+            <div class="modal fade" id="formLogin" tabindex="-1" role="dialog" aria-labelledby="formLogin"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!--Formulário de Login-->
+                            <form action="/usuario/valida-login" method="post">
+                                <div class="form-group">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <h4 class="headings">Entrar</h4>
+                                    <label for="exampleInputEmail1" class="headerInput">Email:</label>
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Informe seu email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="headerInput">Senha:</label>
+                                    <input type="password" name="senha" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Informe sua senha" required>
+                                </div>
+                                <div>
+                                    <button type="submit"
+                                        class=" btnCriarConta  form-control btn btn-primary">Entrar</button><br>
+                                    <p class="text-center" style="color:#000;">ou</p>
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 d-flex justify-content-center">
+                                                <div id="btnLoginGoogle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="btnTxt text-center">Ainda não possui cadastro?<button class="btnCadastrar"
+                                            data-bs-toggle="modal" data-bs-target="#formCadastro">Cadastre-se</button>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </footer>
-    <!-- Footer -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- Modal Cadastro -->
+        <div id="cadastro">
+            <div class="col-md-6">
+                <!-- Modal -->
+                <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-        crossorigin="anonymous"></script>
+                                <!--Formulário de cadastro-->
+                                <form>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-group">
+                                        <h4 class=" headings">Cadastre-se</h4>
+                                        <label for="exampleInputEmail1" class="headerInput">Email</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Informe seu email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1" class="headerInput">Senha</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            placeholder="Informe sua senha" required>
+                                        <label for="exampleInputEmail1" class="headerInput">Tipo de de Usuário</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                            id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Pessoa Fisíca
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"
+                                            id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Pessoa Jurídica
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class=" btnCriarConta  form-control btn btn-primary">Criar
+                                            Conta</button><br>
+                                        <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin"
+                                                data-bs-toggle="modal" data-bs-target="#formLogin">Fazer Login</button>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Rodapé -->
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+                <a href="/"> reciclense.com.br</a>
+            </div>
+
+        </footer>
+        <!-- Footer -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
