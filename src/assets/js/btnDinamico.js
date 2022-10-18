@@ -4,8 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var button = document.createElement('button');
-    var url = window.location.href.toString();
+    let button = document.createElement('button');
+    let url = window.location.href.toString();
 
     //Usuário logado
     if (1 == 2) {
@@ -87,3 +87,37 @@ document.addEventListener('DOMContentLoaded', function () {
     btnDinamico.appendChild(button);
 }, false);
 
+//Autenticação de Login
+document.getElementById('btnEntrar')
+    .addEventListener('click', function () {
+
+        //Pegando valores dos campos email e senha do formulário
+        let email = document.getElementById('exampleInputEmail1').value;
+        let senha = document.getElementById('exampleInputPassword1').value;
+
+        //Configuração da rota
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email,
+                senha
+            })
+        };
+        //Fetch para redirecionar usuário de acordo com o tp_perfil ou apresentar alert 
+        fetch('http://localhost:5500/valida-login', options)
+            .then(response => response.json())
+            .then(response => {
+
+                if (response.usario == null) {
+                    window.alert('Usuário ou senha incorreta!');
+                } else {
+                    if (response.tp_perfil == 'fisica') {
+                        window.location.href = "src/pages/pessoaFisicaPrincipal.html"
+                    } else {
+                        window.location.href = "src/pages/pessoaJuridicaPrincipal.html"
+                    }
+                }
+            })
+            .catch(err => console.error(err));
+    });
