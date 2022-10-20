@@ -33,7 +33,7 @@ router.get('/', function (req, res) {
 });
 
 app.use('/', router);
-app.use('/usuario', rotasUsuario);
+app.use(rotasUsuario);
 app.use(cors());
 //app.use(cookieParser());
 app.use(express.json());
