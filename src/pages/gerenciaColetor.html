@@ -16,10 +16,6 @@
     <link href="../assets/css/geral.css" rel="stylesheet">
     <link href="../assets/css/gerenciaColetor.css" rel="stylesheet">
 
-    <!--Import Scripts-->
-    <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-    <script type="text/JavaScript" src="../assets/js/geral.js"></script>
-
     <!--Import fonte padrão-->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -33,7 +29,7 @@
     <!--Navbar geral-->
     <div class="divMenu container-fluid sticky-top" id="nav-container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/index.html">
                 <img src="../assets/img/logo.svg" alt="Reciclense" width="200" height="77"
                     class="d-inline-block align-text-top" />
             </a>
@@ -45,23 +41,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link align-text-center" aria-current="page" href="#">Início</a>
+                        <a class="nav-link align-text-center" aria-current="page" href="/index.html">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quem Somos</a>
+                        <a class="nav-link" href="/index.html#quem-somos">Quem Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#como-funciona">Como Funciona</a>
+                        <a class="nav-link" href="/index.html#como-funciona">Como Funciona</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#materiais-reciclaveis">Materiais Recicláveis</a>
+                        <a class="nav-link" href="/index.html#materiais-reciclaveis">Materiais Recicláveis</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
-                <div id="btnDinamico" data-bs-toggle="modal" data-bs-target="#formLogin"></div>
-            </div>
+                <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal"
+                    data-bs-target="#formCadastrarColetor">
+                </div>
         </nav>
     </div>
 
@@ -163,7 +160,6 @@
 
     </main>
 
-
     <!-- Rodapé -->
     <footer class="page-footer font-small blue">
 
@@ -173,19 +169,22 @@
         </div>
 
     </footer>
-    <!-- Footer -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-        crossorigin="anonymous"></script>
 </body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+
+<!--Import Scripts-->
+<script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+<script type="text/JavaScript" src="../assets/js/geral.js"></script>
 
 </html>
