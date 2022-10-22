@@ -26,8 +26,6 @@ router.post('/usuario-google', function(req, res) {
 */
 
 /*Validar Login*/
-router.post('/valida-login', function (req, res) {
-    res.send("Email: " + req.body.email + "<br>Senha: " + req.body.senha + "<br");
 
 router.post('/valida-login', async function (req, res) {
 
