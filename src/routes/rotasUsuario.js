@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const tabelaUsuario = require('/FICR/reciclense/src/models/usuario');
+const bcrypt = require('bcrypt');
+
 
 /*Login Google
 router.post('/usuario-google', function(req, res) {
@@ -23,8 +26,77 @@ router.post('/usuario-google', function(req, res) {
 */
 
 /*Validar Login*/
-router.post('/valida-login', function(req, res){
-    res.send("Email: " + req.body.email + "<br>Senha: " + req.body.senha + "<br");
+
+router.post('/valida-login', async function (req, res) {
+
+    const usuario = await tabelaUsuario.findOne({
+        attributes: ['email', 'senha', 'nm_usuario', 'tp_perfil'],
+        where: {
+            email: req.body.email,
+            senha: req.body.senha
+        }
+    });
+
+    if (usuario == null) {
+
+        return res.status(400).json({
+            success:false
+        });
+
+    } else {
+
+        if (req.body.email == usuario.email && req.body.senha == usuario.senha) {
+
+            return res.status(200).json({
+                success: true,
+                tp_perfil: usuario.tp_perfil
+            });
+
+        }
+    }
+
 });
+
+/* Cadastrar Usuário*/
+router.post('/cad-usuario', async function (req, res) {
+    
+    var dados = req.body;
+
+    // Verificando se email ja existe na tabela de Usuários
+    const buscarEmail = await tabelaUsuario.findOne({
+        attributes: ['email'],
+        where: {
+            email: dados.email
+        }
+    });
+
+
+    // Se nenhum email igual for encontrado, irá permitir fazer o login
+    if (buscarEmail != null) {
+
+        return res.status(400).json({
+            success: false
+        });
+
+    } else {
+
+        const senhaCripto = await bcrypt.hash(dados.senha, 8);
+
+        tabelaUsuario.create({
+            email: dados.email,
+            senha: senhaCripto,
+            tp_perfil: dados.tp_perfil
+        }).then(function () {
+            return res.status(200).json({
+                success: true,
+                tp_perfil: dados.tp_perfil
+            });
+        }).catch(function (erro) {
+            return res.status(400).json({
+                success: false
+            });
+        });
+    }
+})
 
 module.exports = router;

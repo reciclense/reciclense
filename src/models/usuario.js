@@ -27,11 +27,11 @@ const tabelaUsuario = db.define('usuario', {
     },
     nm_usuario: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     sobrenome_usuario: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     tp_perfil: {
         type: Sequelize.STRING,

@@ -4,8 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var button = document.createElement('button');
-    var url = window.location.href.toString();
+    let button = document.createElement('button');
+    let url = window.location.href.toString();
 
     //Usuário logado
     if (1 == 2) {
@@ -86,4 +86,3 @@ document.addEventListener('DOMContentLoaded', function () {
     var btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
 }, false);
-
