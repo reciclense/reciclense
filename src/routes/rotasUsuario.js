@@ -35,12 +35,12 @@ router.post('/valida-login', async function (req, res) {
             email: req.body.email,
             senha: req.body.senha
         }
-    })
+    });
 
     if (usuario == null) {
 
         return res.status(400).json({
-            usuario
+            success:false
         });
 
     } else {
@@ -48,7 +48,7 @@ router.post('/valida-login', async function (req, res) {
         if (req.body.email == usuario.email && req.body.senha == usuario.senha) {
 
             return res.status(200).json({
-                sucess: true,
+                success: true,
                 tp_perfil: usuario.tp_perfil
             });
 
