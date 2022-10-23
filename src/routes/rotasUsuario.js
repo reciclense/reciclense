@@ -97,6 +97,13 @@ router.post('/cad-usuario', async function (req, res) {
             });
         });
     }
-})
+});
+
+/* Listar Usuários */
+
+router.get('/listar-usuarios', async function (req, res) {
+    tabelaUsuario.findAll().then(function(tabelaUsuario))
+
+});
 
 module.exports = router;
