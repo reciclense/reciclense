@@ -31,7 +31,10 @@ thead.appendChild(linhaHead);
 
 for (let j = 0, linhaBody = ''; j < dados.length; j++) {
     //console.log(dados[j]);
-    linhaBody = criarTag("tr")
+    linhaBody = criarTag("tr");
+    if ( j % 2 != 0) {
+        linhaBody.setAttribute("class", "table-active");
+    }
     for(let i = 0, cel = ''; i < dados[j].length; i++){
         //console.log(dados[j][i]);
         cel = criarCelula("td", dados[j][i]);
