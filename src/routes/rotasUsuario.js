@@ -2,7 +2,33 @@ const express = require('express');
 const router = express.Router();
 const tabelaUsuario = require('/FICR/reciclense/src/models/usuario');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
+//Configurações
+const {eAdmin} = require('/FICR/reciclense/middlewares/auth');
+
+router.get('/btnDinamico', eAdmin, async (req, res) =>{
+    
+    const usuario = await tabelaUsuario.findOne({
+        attributes: ['tp_perfil'],
+        where: {
+            cd_usuario: req.userId
+        }
+    });
+
+    if (usuario == null) {
+
+        return res.status(400).json({
+            success: false
+        });
+
+    } else {
+        return res.status(200).json({
+            success: true,
+            tp_perfil: usuario.tp_perfil
+        });
+    }
+});
 
 /*Login Google
 router.post('/usuario-google', function(req, res) {
@@ -29,27 +55,39 @@ router.post('/usuario-google', function(req, res) {
 
 router.post('/valida-login', async function (req, res) {
 
+    let dados = req.body;
+
     const usuario = await tabelaUsuario.findOne({
-        attributes: ['email', 'senha', 'nm_usuario', 'tp_perfil'],
+        attributes: ['cd_usuario', 'email', 'senha', 'nm_usuario', 'tp_perfil'],
         where: {
-            email: req.body.email,
-            senha: req.body.senha
+            email: dados.email
         }
     });
 
     if (usuario == null) {
 
         return res.status(400).json({
-            success:false
+            success: false
         });
 
     } else {
 
-        if (req.body.email == usuario.email && req.body.senha == usuario.senha) {
+        if (await bcrypt.compare(dados.senha, usuario.senha)) {
+
+            let token = jwt.sign({ id: usuario.cd_usuario }, "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A", {
+                expiresIn: 1800 //30min
+            });
 
             return res.status(200).json({
                 success: true,
-                tp_perfil: usuario.tp_perfil
+                tp_perfil: usuario.tp_perfil,
+                token
+            });
+
+        } else {
+
+            return res.status(400).json({
+                success: false
             });
 
         }
@@ -59,8 +97,8 @@ router.post('/valida-login', async function (req, res) {
 
 /* Cadastrar Usuário*/
 router.post('/cad-usuario', async function (req, res) {
-    
-    var dados = req.body;
+
+    let dados = req.body;
 
     // Verificando se email ja existe na tabela de Usuários
     const buscarEmail = await tabelaUsuario.findOne({
