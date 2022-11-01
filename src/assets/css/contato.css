@@ -21,10 +21,10 @@ body {
 }
 
 .container .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .container .content .left-side {
   width: 25%;
