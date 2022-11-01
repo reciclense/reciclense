@@ -13,14 +13,14 @@
   <link rel="stylesheet" href="../assets/css/bootstrap-icons.css">
   <link href="../assets/css/menu.css" rel="stylesheet" />
   <link href="../assets/css/geral.css" rel="stylesheet" />
-  <link href="../assets/css/pessoaFisicaPerfil.css" rel="stylesheet" />
+  <link href="../assets/css/contato.css" rel="stylesheet" />
 
   <!--Import fonte padrão-->
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
   </style>
 
-  <title>Reciclense - Perfil Pessoa Fisíca</title>
+  <title>Reciclense - Contato</title>
 </head>
 
 <body>
@@ -60,84 +60,35 @@
   </div>
   <!--Titulo 1 da página-->
 
+  <div class="">
+    <h1 class="headingContato">Contato</h1>
+  </div>
+
+
+  <!--Área do contato-->
+
   <div class="container">
-    <h1 class="headingPerfilPessoaFisica1">Perfil</h1>
-
-    <h2 class="headingPerfilPessoaFisica2">Seus dados</h2>
-
-    <!--Formulário Pessoa Física-->
-
-    <form action="">
-      <div class="row">
-        <div class="col">
-          <label for="inputName">Nome:</label>
-          <input type="text" class="form-control" placeholder="Digite seu Nome" />
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Endereço</div>
+          <div class="text-one">Nome da rua, Número 000 </div>
+          <div class="text-two">Bairro Cidade</div>
         </div>
-        <div class="col">
-          <label for="inputsobrenome">Sobrenome:</label>
-          <input type="text" class="form-control" placeholder="Digite seu Sobrenome" />
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Telefone</div>
+          <div class="text-one">(00) 000000000</div>
+          <div class="text-two">(00) 000000000</div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="inputEmail4">Email:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com" />
-        </div>
-        <div class="col">
-          <label for="inputPassword4">CPF:</label>
-          <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaUser"
-            aria-describedby="CPF" placeholder="000.000.000-00">
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">reciclense.com.br</div>
         </div>
       </div>
-    </form>
-
-    <!--Titulo 2 da página-->
-
-    <h2 class="headingPerfilPessoaFisica2">Endereço</h2>
-
-    <!--Formulário de Endereco-->
-
-    <form action="">
-      <div class="row">
-        <div class="col">
-          <label for="inputName">Rua:</label>
-          <input type="text" class="form-control" placeholder="Rua do Recife" />
-        </div>
-        <div class="col">
-          <label for="inputsobrenome">Número:</label>
-          <input type="text" class="form-control" placeholder="Número 00" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="inputName">Complemento:</label>
-          <input type="text" class="form-control" placeholder="Apartamento, ponto de referência." />
-        </div>
-        <div class="col">
-          <label for="inputPassword4">CEP:</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="50000000" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm">
-          <label for="inputEmail4">Cidade:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Recife" />
-        </div>
-        <div class="col-sm">
-          <label for="inputEmail4">Estado:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Pernambuco" />
-        </div>
-      </div>
-    </form>
-
-    <!--Botoes-->
-
-    <div style="text-align: right">
-      <button type="button" class="btn btn-primary i bi-archive"></i> Salvar </button>
-      <button type="button" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
-      <button type="button" class="btn btn-danger i bi-trash3"></i> Excluir </button>
     </div>
-
   </div>
 
   <!-- Rodapé -->
