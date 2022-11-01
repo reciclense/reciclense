@@ -1,87 +1,80 @@
 
-//    Este arquivo é apenas para que a estrutura de pasta esteja feita ao fazer o commit.
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
     let button = document.createElement('button');
-    let url = window.location.href.toString();
+    let url = window.location.pathname;
 
-    //Usuário logado
-    if (1 == 2) {
+    const storageToken = localStorage.getItem("token");
 
-        //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
-        if (url == "http://127.0.0.1:5500/" || url == "http://127.0.0.1:5500/index.html" || url == "http://localhost:5500/") {
 
-            button.type = 'button';
-            button.innerHTML = 'Área do usuário';
-            button.className = 'btn btn-primary';
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer " + storageToken
+        }
+    };
 
-            button.onclick = function () {
+    fetch('http://localhost:5500/btnDinamico', options)
+        .then(response => response.json())
+        .then(response => {
 
-                /*const Sequelize = require('sequelize');
+            console.log(response);
+            
+            //Usuário logado
+            if (storageToken) {
 
-                const db = require('./db');
+                //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
+                if (url == "/index.html" || url == "/") {
 
-                const tpUsuario = db.define('teste', {
-                    id:{
-                        type: Sequelize.INTEGER,
-                        autoIncrement: true,
-                        allowNull: false,
-                        primaryKey: true
-                    },
-                    text_one:{
-                        type: Sequelize.STRING,
-                        allowNull: false
-                    },
-                    text_on:{
-                        type: Sequelize.STRING,
-                        allowNull: false
-                    }
-                });
+                    button.type = 'button';
+                    button.innerHTML = 'Área do usuário';
+                    button.className = 'btn btn-primary';
 
-                tpUsuario.sync();
+                    button.onclick = function () {
 
-                module.exports = tpUsuario;*/
+                        if (response.tp_perfil == 'fisica') {
+                            window.location.href = "/src/pages/pessoaFisicaPrincipal.html"
+                        } else {
+                            window.location.href = "/src/pages/pessoaJuridicaPrincipal.html"
+                        }
 
-                if (1 == 2) {
-                    window.location.href = "http://127.0.0.1:5500/src/pages/pessoaFisicaPrincipal.html"
+                    };
+
+                    //Caso esteja na tela pessoaFisícaPrincipal o nome do botão será : 'Solicitar Coleta'
+                } else if (url == "/src/pages/pessoaFisicaPrincipal.html") {
+
+                    button.type = 'button';
+                    button.innerHTML = 'Solicitar Coleta';
+                    button.className = 'btn btn-primary';
+
+                    //Caso esteja na tela pessoaJurídicaPrincipal o nome do botão será : 'Buscar Coleta'
                 } else {
-                    window.location.href = "http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html"
+
+                    button.type = 'button';
+                    button.innerHTML = 'Cadastrar Coletor';
+                    button.className = 'btn btn-primary';
+
+                    /*button.onclick = function () {
+                        $("#formCadastrarColetor").modal({
+                            show: true
+                        });
+                    };*/
+
                 }
 
-            };
+                //Usuario deslogado    
+            } else {
 
-            //Caso esteja na tela pessoaFisícaPrincipal o nome do botão será : 'Solicitar Coleta'
-        } else if (url == "http://127.0.0.1:5500/src/pages/pessoaFisicaPrincipal.html") {
+                button.type = 'button';
+                button.innerHTML = 'Entrar';
+                button.className = 'btn btn-primary';
 
-            button.type = 'button';
-            button.innerHTML = 'Solicitar Coleta';
-            button.className = 'btn btn-primary';
+            }
+        })
+        .catch(err => console.error(err));
 
-            //Caso esteja na tela pessoaJurídicaPrincipal o nome do botão será : 'Buscar Coleta'
-        } else {
 
-            button.type = 'button';
-            button.innerHTML = 'Cadastrar Coletor';
-            button.className = 'btn btn-primary';
-
-            /*button.onclick = function () {
-                $("#formCadastrarColetor").modal({
-                    show: true
-                });
-            };*/
-
-        }
-
-        //Usuario deslogado    
-    } else {
-
-        button.type = 'button';
-        button.innerHTML = 'Entrar';
-        button.className = 'btn btn-primary';
-
-    }
 
     var btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
