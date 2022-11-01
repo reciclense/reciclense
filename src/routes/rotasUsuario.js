@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const tabelaUsuario = require('/FICR/reciclense/src/models/usuario');
+const tabelaColeta = require('/FICR/reciclense/src/models/coleta');
+const tabelaEndereco = require('/FICR/reciclense/src/models/endereco');
+const tabelaCidade = require('/FICR/reciclense/src/models/cidade');
+const tabelaEstado = require('/FICR/reciclense/src/models/estado');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -29,6 +33,7 @@ router.get('/btnDinamico', eAdmin, async (req, res) =>{
         });
     }
 });
+
 
 /*Login Google
 router.post('/usuario-google', function(req, res) {
@@ -135,6 +140,50 @@ router.post('/cad-usuario', async function (req, res) {
             });
         });
     }
-})
+});
+
+/* Listar Usuários */
+
+router.get('/listar-coletas', async function (req, res) {
+
+    const coletas = await tabelaColeta.findAll({
+        attributes: ['data', 'horario', 'observacao'],
+        include: [
+            {
+                model: tabelaUsuario,
+                attributes: ['nm_usuario'],
+                include: {
+                    model: tabelaEndereco,
+                    attributes: ['cep', 'nm_bairro', 'nm_logradouro', 'numero', 'nm_complemento'],
+                    include: {
+                        model: tabelaCidade,
+                        attributes: ['nm_cidade'],
+                        include: {
+                            model: tabelaEstado,
+                            attributes: ['sigla_uf']
+                        }
+                    }
+                }
+            }
+        ]
+
+    })
+        .then(function (coletas) {
+            return res.status(200).json({
+                success: true,
+                dados: coletas
+            });
+        }).catch(function (erro) {
+            return res.status(400).json({
+                success: false,
+                messagem: erro.message
+            });
+        });
+
+
+
+});
+
+
 
 module.exports = router;
