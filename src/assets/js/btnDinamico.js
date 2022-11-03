@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
 
     let button = document.createElement('button');
@@ -6,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const storageToken = localStorage.getItem("token");
 
+    console.log("token: " + storageToken);
 
     const options = {
         method: 'GET',
@@ -17,12 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     fetch('http://localhost:5500/btnDinamico', options)
         .then(response => response.json())
-        .then(response => {
+        .then(async response => {
 
             console.log(response);
-            
             //Usuário logado
-            if (storageToken) {
+            if (response.success) {
+
+                var contSessaoExpirada = 0;
+                console.log(contSessaoExpirada);
 
                 //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
                 if (url == "/index.html" || url == "/") {
@@ -31,12 +33,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     button.innerHTML = 'Área do usuário';
                     button.className = 'btn btn-primary';
 
+                    //Função de click para redirecionar para a área do usuário correta
                     button.onclick = function () {
 
                         if (response.tp_perfil == 'fisica') {
-                            window.location.href = "/src/pages/pessoaFisicaPrincipal.html"
+                            window.location.href = "/src/pages/pessoaFisicaPrincipal.html";
                         } else {
-                            window.location.href = "/src/pages/pessoaJuridicaPrincipal.html"
+                            window.location.href = "/src/pages/pessoaJuridicaPrincipal.html";
                         }
 
                     };
@@ -63,7 +66,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 }
 
-                //Usuario deslogado    
+                //Sessão expirada
+            } else if (!response.success && storageToken != null) {
+                console.log(contSessaoExpirada);
+
+                if (contSessaoExpirada == 0) {
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    await Toast.fire({
+                        icon: 'error',
+                        title: 'Sessão expirada!',
+                        text: 'Favor realize o login novamente.'
+                    })
+
+                    contSessaoExpirada = 2;
+
+                    console.log(contSessaoExpirada);
+                    console.log(url);
+
+                    if (url != "/index.html" && url != "/") {
+
+                        window.location.href = "/index.html";
+
+                    }
+
+                }
+
+                button.type = 'button';
+                button.innerHTML = 'Entrar';
+                button.className = 'btn btn-primary';
+
+                //Usuario deslogado
             } else {
 
                 button.type = 'button';

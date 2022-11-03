@@ -1,16 +1,19 @@
+/*Configurações*/
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {eAdmin} = require('/FICR/reciclense/middlewares/auth');
+const acessoToken = "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A";
+
+/*Importação das tabelas*/
 const tabelaUsuario = require('/FICR/reciclense/src/models/usuario');
 const tabelaColeta = require('/FICR/reciclense/src/models/coleta');
 const tabelaEndereco = require('/FICR/reciclense/src/models/endereco');
 const tabelaCidade = require('/FICR/reciclense/src/models/cidade');
 const tabelaEstado = require('/FICR/reciclense/src/models/estado');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
-//Configurações
-const {eAdmin} = require('/FICR/reciclense/middlewares/auth');
-
+/*Rota para validar se usuário está logado*/
 router.get('/btnDinamico', eAdmin, async (req, res) =>{
     
     const usuario = await tabelaUsuario.findOne({
@@ -56,7 +59,7 @@ router.post('/usuario-google', function(req, res) {
 });
 */
 
-/*Validar Login*/
+/*Rota para Validar Login*/
 
 router.post('/valida-login', async function (req, res) {
 
@@ -79,8 +82,8 @@ router.post('/valida-login', async function (req, res) {
 
         if (await bcrypt.compare(dados.senha, usuario.senha)) {
 
-            let token = jwt.sign({ id: usuario.cd_usuario }, "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A", {
-                expiresIn: 1800 //30min
+            let token = jwt.sign({ id: usuario.cd_usuario }, acessoToken, {
+                expiresIn: 45 //30min
             });
 
             return res.status(200).json({
@@ -100,7 +103,7 @@ router.post('/valida-login', async function (req, res) {
 
 });
 
-/* Cadastrar Usuário*/
+/*Rota para Cadastrar Usuário*/
 router.post('/cad-usuario', async function (req, res) {
 
     let dados = req.body;
@@ -142,7 +145,7 @@ router.post('/cad-usuario', async function (req, res) {
     }
 });
 
-/* Listar Usuários */
+/*Rota para Listar Usuários*/
 
 router.get('/listar-coletas', async function (req, res) {
 

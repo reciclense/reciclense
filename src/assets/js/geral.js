@@ -102,6 +102,7 @@ document.getElementById('btnCriarConta')
                             icon: 'success',
                             title: 'Cadastrado com sucesso'
                         })
+
                         // Verificando o tipo de usuário para direcionar para a tela correta
                         if (response.tp_perfil == "fisica") {
                             window.location.href = "src/pages/pessoaFisicaPrincipal.html"
@@ -159,6 +160,7 @@ document.getElementById('btnEntrar')
                         title: 'Logado com sucesso'
                     })
 
+                    //Salvando token no localStorage
                     localStorage.setItem("token", response.token);
 
                     if (response.tp_perfil == 'fisica') {
