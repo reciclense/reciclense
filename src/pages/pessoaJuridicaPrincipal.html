@@ -54,7 +54,7 @@
             <a class="nav-link" href="/index.html#materiais-reciclaveis">Materiais Recicláveis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contato">Contato</a>
+            <a class="nav-link" href="/src/pages/contato.html">Contato</a>
           </li>
         </ul>
         <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal"
@@ -73,8 +73,8 @@
           </div>
           <div class="col-md-12">
             <form class="form-inline d-flex form-pesquisa">
-              <input class="form-control mr-sm-2 ipt-pesquisa" type="search" placeholder="Pesquise aqui"
-                aria-label="Search">
+              <input id="ipt-pesquisa" class="form-control mr-sm-2 ipt-pesquisa" type="search"
+                placeholder="Pesquise aqui" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0 btn-pesquisa d-flex align-items-center"
                 type="submit"><span class="material-symbols-outlined">
                 </span></button>
@@ -86,39 +86,8 @@
           </div>
 
 
-          <table class="table tbl-pesquisa">
-            <thead>
-              <tr>
-                <th scope="col">Endereço</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">UF</th>
-                <th scope="col">Material</th>
-                <th scope="col">Solicitante</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Av Caxangá</th>
-                <td>Recife</td>
-                <td>Pernambuco</td>
-                <td>Metal</td>
-                <td>Everton</td>
-              </tr>
-              <tr>
-                <th scope="row">Av Caxangá</th>
-                <td>Recife</td>
-                <td>Pernambuco</td>
-                <td>Papel</td>
-                <td>Magnum</td>
-              </tr>
-              <tr>
-                <th scope="row">Av Caxangá</th>
-                <td>Recife</td>
-                <td>Pernambuco</td>
-                <td>Plástico</td>
-                <td>Vinicius</td>
-              </tr>
-            </tbody>
+          <table id="tbl-pesquisa" class="table tbl-pesquisa">
+
           </table>
 
           <div class="col-md-12 d-flex justify-content-end">
@@ -194,9 +163,11 @@
   integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
   integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/pessoaJuridica.js"></script>
 
 </html>

@@ -1,4 +1,3 @@
-
 //Mascara para CPF
 function mascaraCpf(i) {
 
@@ -79,10 +78,31 @@ document.getElementById('btnCriarConta')
 
             fetch('http://localhost:5500/cad-usuario', options)
                 .then(response => response.json())
-                .then(response => {
+                .then(async response => {
                     if (response.success == false) {
-                        window.alert('Erro: Usuário ja cadastrado!');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Usuário já cadastrado!'
+                        });
                     } else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        await Toast.fire({
+                            icon: 'success',
+                            title: 'Cadastrado com sucesso'
+                        })
+
                         // Verificando o tipo de usuário para direcionar para a tela correta
                         if (response.tp_perfil == "fisica") {
                             window.location.href = "src/pages/pessoaFisicaPrincipal.html"
@@ -139,6 +159,10 @@ document.getElementById('btnEntrar')
                         icon: 'success',
                         title: 'Logado com sucesso'
                     })
+
+                    //Salvando token no localStorage
+                    localStorage.setItem("token", response.token);
+
                     if (response.tp_perfil == 'fisica') {
                         window.location.href = "src/pages/pessoaFisicaPrincipal.html";
                     } else {

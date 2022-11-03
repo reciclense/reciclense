@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('reciclense', 'admin', 'reciclense', {
-    host: 'reciclense.crzurtgts5qu.sa-east-1.rds.amazonaws.com',
+const sequelize = new Sequelize('heroku_7f13a4e47728432', 'b5248dea236e15', 'a238f0e4', {
+    host: 'us-cdbr-east-06.cleardb.net',
     dialect: 'mysql'
 });
 
