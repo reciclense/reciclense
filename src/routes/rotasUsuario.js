@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {eAdmin} = require('/FICR/reciclense/middlewares/auth');
+const { eAdmin } = require('/FICR/reciclense/middlewares/auth');
 const acessoToken = "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A";
 
 /*Importação das tabelas*/
@@ -14,8 +14,8 @@ const tabelaCidade = require('/FICR/reciclense/src/models/cidade');
 const tabelaEstado = require('/FICR/reciclense/src/models/estado');
 
 /*Rota para validar se usuário está logado*/
-router.get('/btnDinamico', eAdmin, async (req, res) =>{
-    
+router.get('/btnDinamico', eAdmin, async (req, res) => {
+
     const usuario = await tabelaUsuario.findOne({
         attributes: ['tp_perfil'],
         where: {
@@ -38,26 +38,53 @@ router.get('/btnDinamico', eAdmin, async (req, res) =>{
 });
 
 
-/*Login Google
-router.post('/usuario-google', function(req, res) {
+/*Rota para salvar dados do Login com o Google*/
 
-    const data = jwt_decode(res.credential);
+router.post('/usuario-google', async function (req, res) {
 
-    tabelaUsuario.create({
+    let dados = req.body;
 
-        email: data.email,
-        senha: data.sub,
-        nm_usuario: data.given_name,
-        sobrenome_usuario: data.family_name
-
-    }).then(function () {
-        console.log('Usuário salvo com sucesso! Usuário: ' + usuario);
-    }).catch(function (error) {
-        console.log('Erro ao salvar usuário: ' + error);
+    // Verificando se email ja existe na tabela de Usuários
+    const buscarEmail = await tabelaUsuario.findOne({
+        attributes: ['email'],
+        where: {
+            email: dados.email
+        }
     });
 
+    if (buscarEmail != null) {
+
+        return res.status(400).json({
+            success: false
+        });
+
+    } else {
+
+        const senhaCripto = await bcrypt.hash(dados.senha, 8);
+
+        tabelaUsuario.create({
+
+            email: dados.email,
+            senha: senhaCripto,
+            nm_usuario: dados.nome,
+            sobrenome_usuario: dados.sobrenome
+
+        }).then(function () {
+
+            return res.status(200).json({
+                success: true
+            });
+
+        }).catch(function (error) {
+
+            return res.status(400).json({
+                success: false
+            });
+
+        });
+    }
 });
-*/
+
 
 /*Rota para Validar Login*/
 

@@ -34,6 +34,7 @@ function mascaraCnpj(i) {
 /*Cadastrar Usuário*/
 document.getElementById('btnCriarConta')
     .addEventListener('click', function () {
+
         let erro = document.querySelector(".alert");
         let campo = document.getElementById('campo-erro');
         let campoEmail = document.getElementById('cadEmail');
@@ -119,9 +120,11 @@ document.getElementById('btnCriarConta')
 /*Autenticar Usuário*/
 document.getElementById('btnEntrar')
     .addEventListener('click', function () {
+
         //Pegando valores dos campos email e senha do formulário
         let email = document.getElementById('exampleInputEmail1').value;
         let senha = document.getElementById('exampleInputPassword1').value;
+
         //Configuração da rota
         const options = {
             method: 'POST',

@@ -5,22 +5,32 @@
  function handleCredentialResponse(response) {
 
   const data = jwt_decode(response.credential);
-  const tabelaUsuario = require('./src/models/usuario');
 
-  const usuario =  tabelaUsuario.create({
+  const email = data.email;
+  const senha = data.sub;
+  const nome = data.given_name;
+  const sobrenome = data.family_name;
 
-      email: data.email,
-      senha: data.sub,
-      nm_usuario: data.given_name,
-      sobrenome_usuario: data.family_name
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email,
+      senha,
+      nome,
+      sobrenome
+    })
+  };
 
-  }).then(function () {
-      console.log('Usuário salvo com sucesso! Usuário: ' + usuario);
-  }).catch(function (error) {
-      console.log('Erro ao salvar usuário: ' + error);
-  });
+  fetch('http://localhost:5500/usuario-google', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 
-  /*fullName.textContent = data.name;
+  /*console.log('Usuário salvo com sucesso! Usuário: ' + usuario);
+  console.log('Erro ao salvar usuário: ' + error);
+  
+  fullName.textContent = data.name;
   verifiedEmail.textContent = data.email_verified;
   picture.setAttribute("src", data.picture);*/
   // window.location.href = "http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html";
