@@ -39,7 +39,6 @@ router.get('/btnDinamico', eAdmin, async (req, res) => {
 
 
 /*Rota para salvar dados do Login com o Google*/
-
 router.post('/usuario-google', async function (req, res) {
 
     let dados = req.body;
