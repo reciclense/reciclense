@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    fetch('http://localhost:5500/btnDinamico', options)
+    fetch('http://localhost:5500/btn-dinamico', options)
         .then(response => response.json())
         .then(async response => {
 
