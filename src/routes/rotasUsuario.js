@@ -14,7 +14,7 @@ const tabelaCidade = require('/FICR/reciclense/src/models/cidade');
 const tabelaEstado = require('/FICR/reciclense/src/models/estado');
 
 /*Rota para validar se usuário está logado*/
-router.get('/btnDinamico', eAdmin, async (req, res) => {
+router.get('/btn-dinamico', eAdmin, async (req, res) => {
 
     const usuario = await tabelaUsuario.findOne({
         attributes: ['tp_perfil'],
@@ -37,6 +37,31 @@ router.get('/btnDinamico', eAdmin, async (req, res) => {
     }
 });
 
+/*Rota para verificar se o usuario ja logou com o google antes*/
+router.post('/busca-usuario-google', async function (req, res){
+
+    let dados = req.body;
+
+    // Verificando se email ja existe na tabela de Usuários
+    const buscarEmail = await tabelaUsuario.findOne({
+        attributes: ['email'],
+        where: {
+            email: dados.email
+        }
+    });
+
+    if (buscarEmail == null) {
+
+        return res.status(400).json({
+            existeUsuario: false
+        });
+
+    } else {
+        return res.status(200).json({
+            existeUsuario: true
+        });
+    }
+});
 
 /*Rota para salvar dados do Login com o Google*/
 router.post('/usuario-google', async function (req, res) {
@@ -66,12 +91,14 @@ router.post('/usuario-google', async function (req, res) {
             email: dados.email,
             senha: senhaCripto,
             nm_usuario: dados.nome,
-            sobrenome_usuario: dados.sobrenome
+            sobrenome_usuario: dados.sobrenome,
+            tp_perfil: dados.perfil
 
         }).then(function () {
 
             return res.status(200).json({
-                success: true
+                success: true,
+                tp_perfil: dados.perfil
             });
 
         }).catch(function (error) {
@@ -85,7 +112,7 @@ router.post('/usuario-google', async function (req, res) {
 });
 
 
-/*Rota para Validar Login*/
+/*Rota para Autenticar Login*/
 
 router.post('/valida-login', async function (req, res) {
 
