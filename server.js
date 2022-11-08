@@ -1,4 +1,4 @@
-//Constantes
+//Configurações
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -18,7 +18,12 @@ const tabelaMaterial = require('./src/models/material');
 const tabelaColeta = require('./src/models/coleta');
 
 //Importação das rotas
-const rotasUsuario = require('./src/routes/rotasUsuario');
+const rotaValidarLogin = require('./src/routes/validarLogin');
+const rotaListarColetas = require('./src/routes/listarColetas');
+const rotaCadastrarUsuarioGoogle = require('./src/routes/cadastrarUsuarioGoogle');
+const rotaCadastrarUsuario = require('./src/routes/cadastrarUsuario');
+const rotaBuscarUsuarioGoogle = require('./src/routes/buscarUsuarioGoogle');
+const rotaBtnDinamico = require('./src/routes/btnDinamico');
 
 //Configurações
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,7 +38,7 @@ router.get('/', function (req, res) {
 });
 
 app.use('/', router);
-app.use(rotasUsuario);
+app.use(rotaValidarLogin, rotaListarColetas, rotaCadastrarUsuarioGoogle, rotaCadastrarUsuario, rotaBuscarUsuarioGoogle, rotaBtnDinamico);
 app.use(cors());
 //app.use(cookieParser());
 app.use(express.json());

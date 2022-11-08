@@ -1,30 +1,188 @@
-//import * as Sequelize from 'sequelize';
-//import * as tabelaUsuario from '/src/models/usuario.js';
-
 /*Login Google*/
- function handleCredentialResponse(response) {
+function handleCredentialResponse(response) {
 
+  /*Descriptografando objeto respota do gmail*/
   const data = jwt_decode(response.credential);
-  const tabelaUsuario = require('./src/models/usuario');
 
-  const usuario =  tabelaUsuario.create({
+  const email = data.email;
+  const senha = data.sub;
+  const nome = data.given_name;
+  const sobrenome = data.family_name;
+  let perfil = null;
 
-      email: data.email,
-      senha: data.sub,
-      nm_usuario: data.given_name,
-      sobrenome_usuario: data.family_name
+  /*Função para definir qual é o tipo de perfil do usuário*/
+  const salvaTipoPerfil = async () => {
 
-  }).then(function () {
-      console.log('Usuário salvo com sucesso! Usuário: ' + usuario);
-  }).catch(function (error) {
-      console.log('Erro ao salvar usuário: ' + error);
-  });
+    /*Apresentando inputOptions*/
+    const inputOptions = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          'fisica': 'Pessoa Fisíca',
+          'juridica': 'Pessoa Jurídica'
+        })
+      }, 1000)
+    })
 
-  /*fullName.textContent = data.name;
-  verifiedEmail.textContent = data.email_verified;
-  picture.setAttribute("src", data.picture);*/
-  // window.location.href = "http://127.0.0.1:5500/src/pages/pessoaJuridicaPrincipal.html";
+    const { value: tp_perfil } = await Swal.fire({
+      title: 'Escolha um tipo de perfil',
+      input: 'radio',
+      inputOptions: inputOptions,
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Favor escolher um tipo de perfil!'
+        }
+      }
+    })
+    perfil = tp_perfil;
+  }
 
+  /*Requisição para verificar se o email já existe*/
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email
+    })
+  };
+
+  fetch('http://localhost:5500/busca-usuario-google', options)
+    .then(response => response.json())
+    .then(async response => {
+
+      /*Caso não seja o chama a rota de validar login */
+      if (response.existeUsuario) {
+
+        //Configuração da rota
+        const options = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            senha
+          })
+        };
+
+        //Fetch para redirecionar usuário de acordo com o tp_perfil ou apresentar alert 
+        fetch('http://localhost:5500/valida-login', options)
+          .then(response => response.json())
+          .then(async response => {
+            if (response.success == false) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Usuário ou senha incorreta!'
+              });
+            } else {
+              const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+
+              await Toast.fire({
+                icon: 'success',
+                title: 'Logado com sucesso'
+              })
+
+              //Salvando token no localStorage
+              localStorage.setItem("token", response.token);
+
+              if (response.tp_perfil == 'fisica') {
+                window.location.href = "src/pages/pessoaFisicaPrincipal.html";
+              } else {
+                window.location.href = "src/pages/pessoaJuridicaPrincipal.html";
+              }
+            }
+          })
+          .catch(err => console.error(err));
+
+        /*Caso seja o primeiro acesso cadastra as informações na base*/
+      } else {
+
+        /*Chama função para definir o tipo de perfil do usuario*/
+        await salvaTipoPerfil();
+
+        /*Requisição para cadastrar usuario google na base*/
+        const options = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            senha,
+            nome,
+            sobrenome,
+            perfil
+          })
+        };
+
+        fetch('http://localhost:5500/usuario-google', options)
+          .then(response => response.json())
+          .then(response => {
+
+            if (response.success) {
+
+              //Configuração da rota
+              const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  email,
+                  senha
+                })
+              };
+
+              //Fetch para redirecionar usuário de acordo com o tp_perfil ou apresentar alert 
+              fetch('http://localhost:5500/valida-login', options)
+                .then(response => response.json())
+                .then(async response => {
+                  if (response.success == false) {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Usuário ou senha incorreta!'
+                    });
+                  } else {
+                    const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      showConfirmButton: false,
+                      timer: 2000,
+                      timerProgressBar: true,
+                      didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                      }
+                    })
+
+                    await Toast.fire({
+                      icon: 'success',
+                      title: 'Logado com sucesso'
+                    })
+
+                    //Salvando token no localStorage
+                    localStorage.setItem("token", response.token);
+
+                    if (response.tp_perfil == 'fisica') {
+                      window.location.href = "src/pages/pessoaFisicaPrincipal.html";
+                    } else {
+                      window.location.href = "src/pages/pessoaJuridicaPrincipal.html";
+                    }
+                  }
+                })
+                .catch(err => console.error(err));
+            }
+          })
+          .catch(err => console.error(err));
+      }
+
+    })
+    .catch(err => console.error(err));
 }
 
 window.onload = function () {
@@ -34,6 +192,7 @@ window.onload = function () {
     callback: handleCredentialResponse
   });
 
+  /*Criação do botão do google*/
   google.accounts.id.renderButton(
     document.getElementById("btnLoginGoogle"),
     {
