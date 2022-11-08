@@ -123,3 +123,28 @@ document.addEventListener('DOMContentLoaded', function () {
     var btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
 }, false);
+
+document.getElementById('btnLogout')
+.addEventListener('click', async function(){
+
+    localStorage.clear();
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      await Toast.fire({
+        icon: 'warning',
+        title: 'Encerrando sessão...'
+      })
+
+      window.location.href = "/index.html";
+});
