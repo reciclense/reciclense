@@ -93,3 +93,24 @@ h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+/* Perfil */
+div#perfil {
+  margin-left: 30px;
+  
+}
+
+div#perfil .dropdown-toggle{
+  color: var(--corBotao);
+}
+
+div#perfil .dropdown-item:focus{
+  background-color: var(--corBotao);
+  color: #ffffff;
+}
+
+div#perfil .dropdown-item:hover{
+  background-color: var(--corBotao);
+  color: #ffffff;
+}
+
