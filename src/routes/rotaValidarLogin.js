@@ -37,6 +37,7 @@ router.post('/valida-login', async function (req, res) {
 
             return res.status(200).json({
                 success: true,
+                id_usuario: usuario.cd_usuario,
                 tp_perfil: usuario.tp_perfil,
                 token
             });
