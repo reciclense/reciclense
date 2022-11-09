@@ -18,12 +18,12 @@ const tabelaMaterial = require('./src/models/material');
 const tabelaColeta = require('./src/models/coleta');
 
 //Importação das rotas
-const rotaValidarLogin = require('./src/routes/validarLogin');
-const rotaListarColetas = require('./src/routes/listarColetas');
-const rotaLoginGoogle = require('./src/routes/loginGoogle');
-const rotaCadastrarUsuario = require('./src/routes/cadastrarUsuario');
-const rotaBuscarUsuarioGoogle = require('./src/routes/buscarUsuarioGoogle');
-const rotaBtnDinamico = require('./src/routes/btnDinamico');
+const rotaValidarLogin = require('./src/routes/rotaValidarLogin');
+const rotaListarColetas = require('./src/routes/rotaListarColetas');
+const rotaLoginGoogle = require('./src/routes/rotaLoginGoogle');
+const rotaCadastrarUsuario = require('./src/routes/rotaCadastrarUsuario');
+const rotaBuscarUsuarioGoogle = require('./src/routes/rotaBuscarUsuarioGoogle');
+const rotaBtnDinamico = require('./src/routes/rotaBtnDinamico');
 
 //Configurações
 app.use(bodyParser.urlencoded({ extended: false }));
