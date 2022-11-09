@@ -20,7 +20,7 @@ const tabelaColeta = require('./src/models/coleta');
 //Importação das rotas
 const rotaValidarLogin = require('./src/routes/validarLogin');
 const rotaListarColetas = require('./src/routes/listarColetas');
-const rotaCadastrarUsuarioGoogle = require('./src/routes/cadastrarUsuarioGoogle');
+const rotaLoginGoogle = require('./src/routes/loginGoogle');
 const rotaCadastrarUsuario = require('./src/routes/cadastrarUsuario');
 const rotaBuscarUsuarioGoogle = require('./src/routes/buscarUsuarioGoogle');
 const rotaBtnDinamico = require('./src/routes/btnDinamico');
@@ -38,7 +38,7 @@ router.get('/', function (req, res) {
 });
 
 app.use('/', router);
-app.use(rotaValidarLogin, rotaListarColetas, rotaCadastrarUsuarioGoogle, rotaCadastrarUsuario, rotaBuscarUsuarioGoogle, rotaBtnDinamico);
+app.use(rotaValidarLogin, rotaListarColetas, rotaLoginGoogle, rotaCadastrarUsuario, rotaBuscarUsuarioGoogle, rotaBtnDinamico);
 app.use(cors());
 //app.use(cookieParser());
 app.use(express.json());
