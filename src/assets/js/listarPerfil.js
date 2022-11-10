@@ -1,8 +1,6 @@
 //Armazena o id do usuario gerado na constante
 const storageIdUsuario = localStorage.getItem("id_usuario");
 
-const options = { method: 'GET', headers: { 'Content-Type': 'application/json'}};
-
 const nm_usuario = document.getElementById("nm_usuario");
 const sobrenome_usuario = document.getElementById("sobrenome_usuario");
 const email = document.getElementById("email");
@@ -14,10 +12,16 @@ const cep = document.getElementById("cep");
 const nm_cidade = document.getElementById("nm_cidade");
 const nm_estado = document.getElementById("nm_estado");
 
+const options = {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+};
+
 //Configuração da rota
 fetch('http://localhost:5500/listar-perfil/' + storageIdUsuario, options)
     .then(response => response.json())
     .then(response => {
+
         nm_usuario.value = response.usuario.nm_usuario;
         sobrenome_usuario.value = response.usuario.sobrenome_usuario;
         email.value = response.usuario.email;
@@ -28,9 +32,6 @@ fetch('http://localhost:5500/listar-perfil/' + storageIdUsuario, options)
         cep.value = response.usuario.endereco.cep;
         nm_cidade.value = response.usuario.endereco.cidade.nm_cidade;
         nm_estado.value = response.usuario.endereco.cidade.estado.nm_estado;
-        
-
-
 
     })
     .catch(err => console.error(err));

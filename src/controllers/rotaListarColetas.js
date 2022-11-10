@@ -1,17 +1,12 @@
-/*Configurações*/
-const express = require('express');
-const router = express.Router();
-
 /*Importação das tabelas*/
-const tabelaUsuario = require('../models/usuario');
-const tabelaColeta = require('../models/coleta');
-const tabelaEndereco = require('../models/endereco');
-const tabelaCidade = require('../models/cidade');
-const tabelaEstado = require('../models/estado');
+const tabelaUsuario = require('../migrations/usuario');
+const tabelaColeta = require('../migrations/coleta');
+const tabelaEndereco = require('../migrations/endereco');
+const tabelaCidade = require('../migrations/cidade');
+const tabelaEstado = require('../migrations/estado');
 
-
-/*Rota para Listar Usuários*/
-router.get('/listar-coletas', async function (req, res) {
+/*Função para listar coletas*/
+async function listarColetas(req, res) {
 
     const coletas = await tabelaColeta.findAll({
         attributes: ['data', 'horario', 'observacao'],
@@ -45,6 +40,6 @@ router.get('/listar-coletas', async function (req, res) {
             messagem: erro.message
         });
     });
-});
+}
 
-module.exports = router;
+module.exports = listarColetas;

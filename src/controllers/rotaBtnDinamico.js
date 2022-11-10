@@ -1,15 +1,8 @@
-/*Configurações*/
-const express = require('express');
-const router = express.Router();
-
-/*Importação de middlewars*/
-const { eAdmin } = require('/FICR/reciclense/middlewares/auth');
-
 /*Importação das tabelas*/
-const tabelaUsuario = require('../models/usuario');
+const tabelaUsuario = require('../migrations/usuario');
 
-/*Rota para validar se usuário está logado*/
-router.get('/btn-dinamico', eAdmin, async (req, res) => {
+/*Função para verificar se o usuário esta logado*/
+async function btnDinamico(req, res) {
 
     const usuario = await tabelaUsuario.findOne({
         attributes: ['tp_perfil'],
@@ -30,6 +23,6 @@ router.get('/btn-dinamico', eAdmin, async (req, res) => {
             tp_perfil: usuario.tp_perfil
         });
     }
-});
+}
 
-module.exports = router;
+module.exports = btnDinamico;

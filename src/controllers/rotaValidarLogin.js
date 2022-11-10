@@ -1,16 +1,18 @@
 /*Configurações*/
-const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const acessoToken = "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A";
 
 /*Importação das tabelas*/
-const tabelaUsuario = require('../models/usuario');
+const tabelaUsuario = require('../migrations/usuario');
 
-/*Rota para Autenticar Login*/
+/*Função para validar login*/
+  async function validarLogin(req, res) {
 
-router.post('/valida-login', async function (req, res) {
+    /*console.log('CHAMOU');
+
+    console.log("EMAIL: " + req.body.email);
+    console.log("SENHA: " + req.body.senha);*/
 
     let dados = req.body;
 
@@ -51,6 +53,6 @@ router.post('/valida-login', async function (req, res) {
         }
     }
 
-});
+}
 
-module.exports = router;
+module.exports = validarLogin;

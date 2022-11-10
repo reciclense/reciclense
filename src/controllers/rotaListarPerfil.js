@@ -1,17 +1,12 @@
-/*Configurações*/
-const express = require('express');
-const router = express.Router();
-
 /*Importação das tabelas*/
-const tabelaUsuario = require('../models/usuario');
-const tabelaColeta = require('../models/coleta');
-const tabelaEndereco = require('../models/endereco');
-const tabelaCidade = require('../models/cidade');
-const tabelaEstado = require('../models/estado');
+const tabelaUsuario = require('../migrations/usuario');
+const tabelaColeta = require('../migrations/coleta');
+const tabelaEndereco = require('../migrations/endereco');
+const tabelaCidade = require('../migrations/cidade');
+const tabelaEstado = require('../migrations/estado');
 
-
-/*Rota para Listar Usuários*/
-router.get('/listar-perfil/:id', async function (req, res) {
+/*Função para recuperar dados do perfil do usuario na tela meu perfil*/
+async function recuperarDadosPerfil(req, res) {
 
     const usuario = await tabelaUsuario.findOne({
         attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal'],
@@ -45,6 +40,6 @@ router.get('/listar-perfil/:id', async function (req, res) {
         });
     });
 
-});
+}
 
-module.exports = router;
+module.exports = recuperarDadosPerfil;
