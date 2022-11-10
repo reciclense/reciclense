@@ -83,22 +83,22 @@
       <div class="row">
         <div class="col">
           <label for="inputName">Nome:</label>
-          <input type="text" class="form-control" placeholder="Digite seu Nome" />
+          <input type="text" id="nm_usuario" class="form-control" placeholder="Digite seu Nome" disabled/>
         </div>
         <div class="col">
           <label for="inputsobrenome">Sobrenome:</label>
-          <input type="text" class="form-control" placeholder="Digite seu Sobrenome" />
+          <input type="text" id="sobrenome_usuario" class="form-control" placeholder="Digite seu Sobrenome" disabled/>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label for="inputEmail4">Email:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com" />
+          <input type="email" id="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com" disabled/>
         </div>
         <div class="col">
           <label for="inputPassword4">CPF:</label>
-          <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaUser"
-            aria-describedby="CPF" placeholder="000.000.000-00">
+          <input oninput="mascaraCpf(this)" type="text" id="documento_principal" class="form-control" id="formGerenciaUser"
+            aria-describedby="CPF" placeholder="000.000.000-00" disabled>
         </div>
       </div>
     </form>
@@ -113,31 +113,31 @@
       <div class="row">
         <div class="col">
           <label for="inputName">Rua:</label>
-          <input type="text" class="form-control" placeholder="Rua do Recife" />
+          <input type="text" id="nm_logradouro" class="form-control" placeholder="Rua do Recife" disabled/>
         </div>
         <div class="col">
           <label for="inputsobrenome">Número:</label>
-          <input type="text" class="form-control" placeholder="Número 00" />
+          <input type="text" id="numero" class="form-control" placeholder="Número 00" disabled/>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label for="inputName">Complemento:</label>
-          <input type="text" class="form-control" placeholder="Apartamento, ponto de referência." />
+          <input type="text" id="nm_complemento" class="form-control" placeholder="Apartamento, ponto de referência." disabled/>
         </div>
         <div class="col">
           <label for="inputPassword4">CEP:</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="50000000" />
+          <input type="text" id="cep" class="form-control" id="inputPassword4" placeholder="50000000" disabled/>
         </div>
       </div>
       <div class="row">
         <div class="col-sm">
           <label for="inputEmail4">Cidade:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Recife" />
+          <input type="email"  id="nm_cidade" class="form-control" id="inputEmail4" placeholder="Ex: Recife" disabled/>
         </div>
         <div class="col-sm">
           <label for="inputEmail4">Estado:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Pernambuco" />
+          <input type="email" id="nm_estado" class="form-control" id="inputEmail4" placeholder="Ex: Pernambuco" disabled/>
         </div>
       </div>
     </form>
@@ -175,5 +175,5 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-
+<script type="text/JavaScript" src="../assets/js/listarPerfil.js"></script>
 </html>
