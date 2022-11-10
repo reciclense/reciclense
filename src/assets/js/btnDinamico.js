@@ -1,12 +1,20 @@
+var url = window.location.pathname;
+
 document.addEventListener('DOMContentLoaded', function () {
 
     let button = document.createElement('button');
-    let url = window.location.pathname;
 
+    //Armazena o token gerado na constante
     const storageToken = localStorage.getItem("token");
 
-    console.log("token: " + storageToken);
+    //Caso o contador seja diferente de um define como zero
+    if (localStorage.getItem("contSessaoExpirada") != 1) {
 
+        //Salvando contador no localstorage
+        localStorage.setItem("contSessaoExpirada", 0);
+    }
+
+    //Configuração da rota
     const options = {
         method: 'GET',
         headers: {
@@ -19,12 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(async response => {
 
-            console.log(response);
             //Usuário logado
             if (response.success) {
 
-                var contSessaoExpirada = 0;
-                console.log(contSessaoExpirada);
+                localStorage.setItem("contSessaoExpirada", 1);
 
                 //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
                 if (url == "/index.html" || url == "/") {
@@ -58,25 +64,77 @@ document.addEventListener('DOMContentLoaded', function () {
                     button.innerHTML = 'Cadastrar Coletor';
                     button.className = 'btn btn-primary';
 
-                    /*button.onclick = function () {
-                        $("#formCadastrarColetor").modal({
-                            show: true
-                        });
-                    };*/
-
                 }
 
-                //Sessão expirada
-            } else if (!response.success && storageToken != null) {
-                console.log(contSessaoExpirada);
+                //Usuario Deslogado
+            } else {
 
-                if (contSessaoExpirada == 0) {
+                button.type = 'button';
+                button.innerHTML = 'Entrar';
+                button.className = 'btn btn-primary';
+
+            }
+        })
+        .catch(err => console.error(err));
+
+    var btnDinamico = document.getElementById('btnDinamico');
+    btnDinamico.appendChild(button);
+}, false);
+
+//Deslogar usuario
+document.getElementById('btnLogout')
+    .addEventListener('click', async function () {
+
+        localStorage.clear();
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        await Toast.fire({
+            icon: 'warning',
+            title: 'Encerrando sessão...'
+        })
+
+        window.location.href = "/index.html";
+    });
+
+//Sessão expirada
+document.addEventListener('click', function () {
+
+    const storageToken = localStorage.getItem("token");
+
+    //Configuração da rota
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: "Bearer " + storageToken
+        }
+    };
+
+    fetch('http://localhost:5500/btn-dinamico', options)
+        .then(response => response.json())
+        .then(async response => {
+
+            if (!response.success && storageToken != null) {
+
+                //Mostra mensagem de sessão expirada caso contador esteja igual a 1
+                if (localStorage.getItem("contSessaoExpirada") == 1) {
 
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 2000,
+                        timer: 1500,
                         timerProgressBar: true,
                         didOpen: (toast) => {
                             toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -90,11 +148,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         text: 'Favor realize o login novamente.'
                     })
 
-                    contSessaoExpirada = 2;
+                    //Seta contador como 2 para que seja reiniciado quando a pagina for recarregada
+                    localStorage.setItem("contSessaoExpirada", 2);
 
-                    console.log(contSessaoExpirada);
-                    console.log(url);
-
+                    //Redireciona para pagina de inicio caso não esteja nela
                     if (url != "/index.html" && url != "/") {
 
                         window.location.href = "/index.html";
@@ -102,24 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
                 }
-
-                button.type = 'button';
-                button.innerHTML = 'Entrar';
-                button.className = 'btn btn-primary';
-
-                //Usuario deslogado
-            } else {
-
-                button.type = 'button';
-                button.innerHTML = 'Entrar';
-                button.className = 'btn btn-primary';
-
             }
-        })
-        .catch(err => console.error(err));
+        });
 
-
-
-    var btnDinamico = document.getElementById('btnDinamico');
-    btnDinamico.appendChild(button);
-}, false);
+});
