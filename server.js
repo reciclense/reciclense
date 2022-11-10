@@ -24,6 +24,7 @@ const rotaLoginGoogle = require('./src/routes/rotaLoginGoogle');
 const rotaCadastrarUsuario = require('./src/routes/rotaCadastrarUsuario');
 const rotaBuscarUsuarioGoogle = require('./src/routes/rotaBuscarUsuarioGoogle');
 const rotaBtnDinamico = require('./src/routes/rotaBtnDinamico');
+const rotaListarPerfil = require('./src/routes/rotaListarPerfil')
 
 //Configurações
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,7 +39,7 @@ router.get('/', function (req, res) {
 });
 
 app.use('/', router);
-app.use(rotaValidarLogin, rotaListarColetas, rotaLoginGoogle, rotaCadastrarUsuario, rotaBuscarUsuarioGoogle, rotaBtnDinamico);
+app.use(rotaValidarLogin, rotaListarColetas, rotaLoginGoogle, rotaCadastrarUsuario, rotaBuscarUsuarioGoogle, rotaBtnDinamico, rotaListarPerfil);
 app.use(cors());
 //app.use(cookieParser());
 app.use(express.json());

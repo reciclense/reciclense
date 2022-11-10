@@ -15,7 +15,7 @@ document.getElementById('btnEntrar')
                 senha
             })
         };
-
+        
         //Fetch para redirecionar usuário de acordo com o tp_perfil ou apresentar alert 
         fetch('http://localhost:5500/valida-login', options)
             .then(response => response.json())
@@ -46,6 +46,7 @@ document.getElementById('btnEntrar')
 
                     //Salvando token no localStorage
                     localStorage.setItem("token", response.token);
+                    localStorage.setItem("id_usuario", response.id_usuario);
 
                     if (response.tp_perfil == 'fisica') {
                         window.location.href = "src/pages/pessoaFisicaPrincipal.html";
