@@ -10,7 +10,7 @@ async function recuperarDadosPerfil(req, res) {
 
     if (req.params.perfil == 'fisica') {
 
-        const usuario = await tabelaUsuario.findOne({
+        await tabelaUsuario.findOne({
 
             attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal', 'tp_perfil'],
 
@@ -47,7 +47,7 @@ async function recuperarDadosPerfil(req, res) {
 
     } else {
 
-        const usuario = await tabelaUsuario.findOne({
+        await tabelaUsuario.findOne({
 
             attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal'],
 
@@ -76,7 +76,6 @@ async function recuperarDadosPerfil(req, res) {
                 cd_usuario: req.params.id
             }
         }).then(function (usuario) {
-
             return res.status(200).json({
                 success: true,
                 usuario: usuario

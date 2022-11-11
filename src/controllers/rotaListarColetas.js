@@ -4,13 +4,20 @@ const tabelaColeta = require('../migrations/coleta');
 const tabelaEndereco = require('../migrations/endereco');
 const tabelaCidade = require('../migrations/cidade');
 const tabelaEstado = require('../migrations/estado');
+const tabelaMaterial = require('../migrations/material');
 
 /*Função para listar coletas*/
 async function listarColetas(req, res) {
 
-    const coletas = await tabelaColeta.findAll({
+    await tabelaColeta.findAll({
         attributes: ['data', 'horario', 'observacao'],
         include: [
+
+            {
+                model: tabelaMaterial,
+                attributes: ['nm_material'],
+            },
+
             {
                 model: tabelaUsuario,
                 attributes: ['nm_usuario'],
@@ -28,7 +35,6 @@ async function listarColetas(req, res) {
                 }
             }
         ]
-
     }).then(function (coletas) {
         return res.status(200).json({
             success: true,
@@ -40,6 +46,7 @@ async function listarColetas(req, res) {
             messagem: erro.message
         });
     });
+
 }
 
 module.exports = listarColetas;

@@ -1,5 +1,13 @@
 var url = window.location.pathname;
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true
+})
+
 document.addEventListener('DOMContentLoaded', function () {
 
     let button = document.createElement('button');
@@ -87,14 +95,6 @@ document.getElementById('btnLogout')
 
         localStorage.clear();
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true
-        })
-
         await Toast.fire({
             icon: 'warning',
             title: 'Encerrando sessão...'
@@ -127,14 +127,6 @@ document.addEventListener('click', function () {
                 if (localStorage.getItem("contSessaoExpirada") == 1) {
 
                     localStorage.clear();
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1500,
-                        timerProgressBar: true
-                    })
 
                     await Toast.fire({
                         icon: 'error',

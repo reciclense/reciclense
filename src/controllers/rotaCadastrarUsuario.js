@@ -12,45 +12,28 @@ async function cadastrarUsuario(req, res) {
     let dados = req.body;
 
     // Verificando se email ja existe na tabela de Usuários
-    const buscarEmail = await tabelaUsuario.findOne({
+    await tabelaUsuario.findOne({
+
         attributes: ['email'],
         where: {
             email: dados.email
         }
-    });
 
+    }).then(async function () {
 
-    // Se nenhum email igual for encontrado, irá permitir fazer o login
-    if (buscarEmail != null) {
-
-        return res.status(400).json({
-            success: false
-        });
-
-    } else {
-
-        const senhaCripto = await bcrypt.hash(dados.senha, 8);
-
-       await tabelaUsuario.create({
+        await tabelaUsuario.create({
             email: dados.email,
-            senha: senhaCripto,
+            senha: await bcrypt.hash(dados.senha, 8),
             tp_perfil: dados.tp_perfil
+
         }).then(async function () {
 
-            const usuario = await tabelaUsuario.findOne({
+            await tabelaUsuario.findOne({
                 attributes: ['cd_usuario', 'email', 'senha', 'nm_usuario', 'tp_perfil'],
                 where: {
                     email: dados.email
                 }
-            });
-
-            if (usuario == null) {
-
-                return res.status(400).json({
-                    success: false
-                });
-
-            } else {
+            }).then(async function (usuario) {
 
                 if (await bcrypt.compare(dados.senha, usuario.senha)) {
 
@@ -66,20 +49,27 @@ async function cadastrarUsuario(req, res) {
                     });
 
                 } else {
-
                     return res.status(400).json({
                         success: false
                     });
-
                 }
-            }
-
-        }).catch(function (erro) {
+            }).catch(function (error) {
+                return res.status(400).json({
+                    success: false,
+                    message: error.message
+                });
+            });
+        }).catch(async function (error) {
             return res.status(400).json({
-                success: false
+                success: false,
+                message: error.message
             });
         });
-    }
+    }).catch(function (error) {
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    });
 }
-
 module.exports = cadastrarUsuario;

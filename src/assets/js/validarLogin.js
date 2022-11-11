@@ -20,6 +20,7 @@ document.getElementById('btnEntrar')
         fetch('http://localhost:5500/valida-login', options)
             .then(response => response.json())
             .then(async response => {
+                
                 if (response.success == false) {
                     Swal.fire({
                         icon: 'error',
@@ -27,15 +28,13 @@ document.getElementById('btnEntrar')
                         text: 'Usuário ou senha incorreta!'
                     });
                 } else {
-                    const Toast = Swal.mixin({
+
+                    await Swal.fire({
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
                         timer: 1500,
-                        timerProgressBar: true
-                    })
-
-                    await Toast.fire({
+                        timerProgressBar: true,
                         icon: 'success',
                         title: 'Logado com sucesso'
                     })
