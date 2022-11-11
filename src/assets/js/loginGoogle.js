@@ -154,8 +154,7 @@ function handleCredentialResponse(response) {
           /*Salvando token e id do usuario no localStorage*/
           localStorage.setItem("token", response.token);
           localStorage.setItem("id_usuario", response.id_usuario);
-          localStorage.setItem("perfil", response.tp_perfil);
-
+          
           if (perfil == 'fisica') {
             window.location.href = "src/pages/pessoaFisicaPrincipal.html";
           } else {

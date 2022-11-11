@@ -9,11 +9,6 @@ const tabelaUsuario = require('../migrations/usuario');
 /*Função para validar login*/
   async function validarLogin(req, res) {
 
-    /*console.log('CHAMOU');
-
-    console.log("EMAIL: " + req.body.email);
-    console.log("SENHA: " + req.body.senha);*/
-
     let dados = req.body;
 
     const usuario = await tabelaUsuario.findOne({
