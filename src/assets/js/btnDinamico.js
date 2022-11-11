@@ -92,11 +92,7 @@ document.getElementById('btnLogout')
             position: 'top-end',
             showConfirmButton: false,
             timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
+            timerProgressBar: true
         })
 
         await Toast.fire({
@@ -130,16 +126,14 @@ document.addEventListener('click', function () {
                 //Mostra mensagem de sessão expirada caso contador esteja igual a 1
                 if (localStorage.getItem("contSessaoExpirada") == 1) {
 
+                    localStorage.clear();
+
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
                         timer: 1500,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
+                        timerProgressBar: true
                     })
 
                     await Toast.fire({

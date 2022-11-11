@@ -9,7 +9,7 @@ function handleCredentialResponse(response) {
   const senha = data.sub;
   const nome = data.given_name;
   const sobrenome = data.family_name;
-  
+
   /*Criando variaveis de controle*/
   let primeiroAcesso = false;
   let perfil = null;
@@ -42,24 +42,24 @@ function handleCredentialResponse(response) {
     /*Armazenando o tipo de perfil escolhido na variavel perfil*/
     perfil = tp_perfil;
 
-    /*Caso seja o primeiro acesso com gmail entra*/
-    if (primeiroAcesso) {
+    /*Chamando rota para atualizar o tipo de perfil do usuário*/
+    const options = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        perfil
+      })
+    };
 
-      /*Chamando rota para atualizar o tipo de perfil do usuário*/
-      const options = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          perfil
-        })
-      };
+    fetch('http://localhost:5500/atualizar-tipo-perfil', options)
+      .then(response => response.json())
+      .then(response => {
 
-      fetch('http://localhost:5500/atualizar-tipo-perfil', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-    }
+        /*Salvando perfil do usuario no localStorage*/
+        localStorage.setItem("perfil", response.tp_perfil);
+      })
+      .catch(err => console.error(err));
   }
 
   /*Requisição para cadastrar usuario google na base*/
@@ -81,8 +81,6 @@ function handleCredentialResponse(response) {
 
       if (response.existeUsuario) {
 
-        primeiroAcesso = true;
-
         if (response.success == false) {
 
           Swal.fire({
@@ -97,11 +95,7 @@ function handleCredentialResponse(response) {
             position: 'top-end',
             showConfirmButton: false,
             timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
+            timerProgressBar: true
           })
 
           await Toast.fire({
@@ -112,6 +106,7 @@ function handleCredentialResponse(response) {
           //Salvando token no localStorage
           localStorage.setItem("token", response.token);
           localStorage.setItem("id_usuario", response.id_usuario);
+          localStorage.setItem("perfil", response.tp_perfil);
 
           if (response.tp_perfil == 'fisica') {
             window.location.href = "src/pages/pessoaFisicaPrincipal.html";
@@ -123,8 +118,15 @@ function handleCredentialResponse(response) {
 
       } else {
 
-        /*Chama função para definir o tipo de perfil do usuario*/
-        await salvaTipoPerfil();
+        primeiroAcesso = true;
+
+        /*Caso seja o primeiro acesso com gmail entra*/
+        if (primeiroAcesso) {
+
+          /*Chama função para definir o tipo de perfil do usuario*/
+          await salvaTipoPerfil();
+
+        }
 
         if (response.success == false) {
 
@@ -141,11 +143,7 @@ function handleCredentialResponse(response) {
             position: 'top-end',
             showConfirmButton: false,
             timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
+            timerProgressBar: true
           })
 
           await Toast.fire({
@@ -153,9 +151,10 @@ function handleCredentialResponse(response) {
             title: 'Logado com sucesso'
           })
 
-          //Salvando token no localStorage
+          /*Salvando token e id do usuario no localStorage*/
           localStorage.setItem("token", response.token);
           localStorage.setItem("id_usuario", response.id_usuario);
+          localStorage.setItem("perfil", response.tp_perfil);
 
           if (perfil == 'fisica') {
             window.location.href = "src/pages/pessoaFisicaPrincipal.html";
