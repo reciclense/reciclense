@@ -59,8 +59,8 @@
         </div>
         <!-- Perfil -->
         <div class="dropdown" id="perfil">
-          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#"
+            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
               alt="Black and White Portrait of a Man" loading="lazy" />
           </a>
@@ -78,23 +78,23 @@
 
     <h2 class="headingPerfilPessoaFisica2">Dados da Empresa</h2>
 
-    <!--Formulário Pessoa Física-->
+    <!--Formulário Pessoa Jurídica-->
 
     <form action="">
       <div class="row">
         <div class="col">
           <label for="inputRazaoSocial">Razão Social:</label>
-          <input type="text" class="form-control" placeholder="Digite a razão social da empresa" />
+          <input type="text" id="razaoSocial" class="form-control inputsPerfil" placeholder="Digite a razão social da empresa" disabled/>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <label for="inputEmail4">Email:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com" />
+          <label for="inputEmail">Email:</label>
+          <input type="email" id="email" class="form-control inputsPerfil" placeholder="Ex: usuário@gmail.com" disabled/>
         </div>
         <div class="col">
           <label for="inputCnpj">CNPJ:</label>
-          <input type="text" oninput="mascaraCnpj(this)" class="form-control" placeholder="Digite o CNPJ da empresa" />
+          <input type="text" id="cnpj" oninput="mascaraCnpj(this)" class="form-control inputsPerfil" placeholder="Digite o CNPJ da empresa" disabled/>
         </div>
       </div>
     </form>
@@ -108,32 +108,32 @@
     <form action="">
       <div class="row">
         <div class="col">
-          <label for="inputName">Rua:</label>
-          <input type="text" class="form-control" placeholder="Rua do Recife" />
+          <label for="inputRua">Rua:</label>
+          <input type="text" id="nm_logradouro" class="form-control inputsPerfil" placeholder="Rua do Recife" disabled/>
         </div>
         <div class="col">
-          <label for="inputsobrenome">Número:</label>
-          <input type="text" class="form-control" placeholder="Número 00" />
+          <label for="inputNumero">Número:</label>
+          <input type="text" id="numero" class="form-control inputsPerfil" placeholder="Número 00" disabled/>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <label for="inputName">Complemento:</label>
-          <input type="text" class="form-control" placeholder="Apartamento, ponto de referência." />
+          <label for="inputComplemento">Complemento:</label>
+          <input type="text" id="nm_complemento" class="form-control inputsPerfil" placeholder="Apartamento, ponto de referência." disabled/>
         </div>
         <div class="col">
-          <label for="inputPassword4">CEP:</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="50000000" />
+          <label for="inputCEP">CEP:</label>
+          <input type="text" id="cep" class="form-control inputsPerfil"  placeholder="50000000" disabled/>
         </div>
       </div>
       <div class="row">
         <div class="col-sm">
-          <label for="inputEmail4">Cidade:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Recife" />
+          <label for="inputCidade">Cidade:</label>
+          <input type="text" id="nm_cidade" class="form-control inputsPerfil"  placeholder="Ex: Recife" disabled/>
         </div>
         <div class="col-sm">
-          <label for="inputEmail4">Estado:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Pernambuco" />
+          <label for="inputEstado">Estado:</label>
+          <input type="text" id="nm_estado" class="form-control inputsPerfil"  placeholder="Ex: Pernambuco" disabled/>
         </div>
       </div>
     </form>
@@ -141,9 +141,9 @@
     <!--Botoes-->
 
     <div style="text-align: right">
-      <button type="button" class="btn btn-primary i bi-archive"></i> Salvar </button>
-      <button type="button" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
-      <button type="button" class="btn btn-danger i bi-trash3"></i> Excluir </button>
+      <button type="button" id ="btnSalvarPerfil" class="btn btn-primary i bi-archive"></i> Salvar </button>
+      <button type="button" id="btnEditarPerfil" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
+      <button type="button" id ="btnExcluirPerfil" class="btn btn-danger i bi-trash3"></i> Excluir </button>
     </div>
 
   </div>
@@ -171,6 +171,8 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/editarPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
 
 </html>

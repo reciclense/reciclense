@@ -11,7 +11,7 @@ const cadastrarUsuarioGoogle = require('../controllers/rotaLoginGoogle');
 const cadastrarUsuario = require('../controllers/rotaCadastrarUsuario');
 const atualizarTipoPerfil = require('../controllers/rotaAtualizarTipoPerfil');
 const btnDinamico = require('../controllers/rotaBtnDinamico');
-const recuperarDadosPerfil = require('../controllers/rotaListarPerfil');
+const recuperarDadosPerfil = require('../controllers/rotaRecuperarDadosPerfil');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -32,6 +32,6 @@ router.put('/atualizar-tipo-perfil', atualizarTipoPerfil);
 router.get('/btn-dinamico', eAdmin, btnDinamico);
 
 /*Rota que chamar a função recuperarDadosPerfil*/
-router.get('/listar-perfil/:id', recuperarDadosPerfil);
+router.get('/recuperar-dados-perfil/:id/:perfil', recuperarDadosPerfil);
 
 module.exports = router;

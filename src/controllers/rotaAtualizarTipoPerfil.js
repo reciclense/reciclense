@@ -22,7 +22,8 @@ async function atualizarTipoPerfil(req, res) {
     }).catch(function (error) {
 
         return res.status(400).json({
-            success: false
+            success: false,
+            perfil:dados.perfil
         });
 
     });
