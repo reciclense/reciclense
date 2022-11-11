@@ -26,7 +26,7 @@ fetch('http://localhost:5500/recuperar-dados-perfil/' + storageIdUsuario + '/' +
             document.getElementById("nm_cidade").value = response.usuario.endereco.cidade.nm_cidade;
             document.getElementById("nm_estado").value = response.usuario.endereco.cidade.estado.nm_estado;
 
-        }else{
+        } else {
 
             document.getElementById("razaoSocial").value = response.usuario.cooperativa.razao_social;
             document.getElementById("email").value = response.usuario.email;

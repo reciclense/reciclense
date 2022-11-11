@@ -45,12 +45,7 @@ async function cadastrarUsuarioGoogle(req, res) {
 
     } else {
 
-        //console.log('ENTROU NO ELSE');
-
         const senhaCripto = await bcrypt.hash(dados.senha, 8);
-
-        //console.log('ENTROU NO 2° ELSE. EMAIL: ' + dados.email + ' SENHA: ' +
-         //   dados.senha + ' NOME: ' + dados.nome + ' SOBRENONOME: ' + dados.sobrenome + ' PERFIL: ' + dados.tp_perfil);
 
         tabelaUsuario.create({
             email: dados.email,
@@ -67,8 +62,6 @@ async function cadastrarUsuarioGoogle(req, res) {
                     email: dados.email
                 }
             });
-
-          //  console.log('cd_usuario: ' + novoUsuario.cd_usuario + ' senha: ' + novoUsuario.senha);
 
             if (await bcrypt.compare(dados.senha, novoUsuario.senha)) {
 

@@ -1,6 +1,5 @@
 /*Importação das tabelas*/
 const tabelaUsuario = require('../migrations/usuario');
-const tabelaColeta = require('../migrations/coleta');
 const tabelaEndereco = require('../migrations/endereco');
 const tabelaCidade = require('../migrations/cidade');
 const tabelaEstado = require('../migrations/estado');
