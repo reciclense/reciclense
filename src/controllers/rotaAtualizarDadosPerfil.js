@@ -46,9 +46,19 @@ async function atualizarDadosPerfil(req, res) {
 
                     console.log('ENTROU: Pre query para atualizar o endereço');
                     //Caso seja perfil pessoa fisíca atualiza o endereco e o usuário
+                    console.log("Perfil: " + dados.perfil);
                     if (dados.perfil == 'fisica') {
-
+                        console.log('ENTROU: Em pessoa Fisica');
                         //Atualizando tabela endereco
+                        console.log('ENTROU: Inseriu o endereço. CEP: ' + dados.cep + 
+                        ' BAIRRO: ' + dados.bairro + 
+                        ' RUA: ' + dados.rua + 
+                        ' NUMERO: ' + dados.numero +
+                            ' COMPLEMENTO: ' + dados.complemento + 
+                            " CIDADE: " + cidade.cd_cidade + 
+                            " ESTADO: " + estado.cd_estado + 
+                            "USUARIO ENDERECO: " + usuario.cd_endereco);
+
                         await tabelaEndereco.update({
 
                             cep: dados.cep,
@@ -72,7 +82,7 @@ async function atualizarDadosPerfil(req, res) {
                                     nm_usuario: dados.nome,
                                     sobrenome_usuario: dados.sobrenome,
                                     documento_principal: dados.cpf,
-                                    cd_endereco: endereco.cd_endereco
+                                    cd_endereco: dados.cd_endereco
                                 },
 
                                     {
@@ -86,7 +96,8 @@ async function atualizarDadosPerfil(req, res) {
                                             success: true
                                         });
                                         //Caso nao consiga atualizar o usuario retorna success = false
-                                    }).catch(function () {
+                                    }).catch(function (error) {
+
                                         return res.status(400).json({
                                             success: false,
                                             perfil: dados.perfil,
@@ -94,7 +105,8 @@ async function atualizarDadosPerfil(req, res) {
                                         });
                                     });
                                 //Caso não consiga atualizar o endereço retorna success = false
-                            }).catch(function () {
+                            }).catch(function (error) {
+                                console.log("não conseguiu atualizar endereço");
                                 return res.status(400).json({
                                     success: false,
                                     perfil: dados.perfil,
@@ -156,7 +168,7 @@ async function atualizarDadosPerfil(req, res) {
                                             });
                                         });
                                     //Caso não consiga atualizar o endereço retorna success = false
-                                }).catch(function () {
+                                }).catch(function (error) {
                                     return res.status(400).json({
                                         success: false,
                                         perfil: dados.perfil,
@@ -164,7 +176,7 @@ async function atualizarDadosPerfil(req, res) {
                                     });
                                 });
                             //Caso não consiga achar a cooperativa retorna success = false
-                        }).catch(async function () {
+                        }).catch(async function (error) {
                             return res.status(400).json({
                                 success: false,
                                 perfil: dados.perfil,
@@ -363,7 +375,7 @@ async function atualizarDadosPerfil(req, res) {
                     }
                 }
                 //Caso nao encontre o usuario retorna success = false
-            }).catch(async function () {
+            }).catch(async function (error) {
                 return res.status(400).json({
                     success: false,
                     perfil: dados.perfil,
