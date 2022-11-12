@@ -62,8 +62,8 @@
 
         <!-- Perfil -->
         <div class="dropdown" id="perfil">
-          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#"
+            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
               alt="Black and White Portrait of a Man" loading="lazy" />
           </a>
@@ -131,29 +131,33 @@
           <div class="modal-content">
             <div class="modal-body">
               <!--Formulário de Cadastro de coletor-->
-              <form>
+              <form id="form-coletor" class="needs-validation" novalidate>
                 <div class="form-group">
                   <div class="modal-footer">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <h4 class="headings">Cadastrar Coletor</h4>
                   <label for="exampleInputNomeColetor" class="headerInput">Nome:</label>
-                  <input type="text" class="form-control" id="exampleInputData" placeholder="Coletor teste" required>
+                  <input type="text" class="form-control" id="nome-coletor" placeholder="Coletor teste" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputSobrenomeColetor" class="headerInput">Sobrenome:</label>
-                  <input type="text" class="form-control" id="exampleInputHorario" placeholder=" da Silva" required>
+                  <input type="text" class="form-control" id="sobrenome-coletor" placeholder=" da Silva" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputDocumentoColetor" class="headerInput">CPF:</label>
-                  <input oninput="mascaraCpf(this)" type="text" class="form-control" id="exampleInputHorario"
+                  <input oninput="mascaraCpf(this)" type="text" class="form-control" id="cpf-coletor"
                     placeholder=" 000.000.000-00" required>
                 </div>
-                <div>
-                  <button type="submit" class=" btnCadastrarColetor form-control btn btn-primary">Cadastrar</button>
+                <div class="campo-erro alert alert-danger d-none">
+                  Preencha o campo <span id="campo-erro"></span>!
                 </div>
+                <div>
+                  <button type="button" id="btnCadastrarColetor"
+                    class="btnCadastrarColetor form-control btn btn-primary">Cadastrar</button>
+                </div>
+              </form>
             </div>
-            </form>
           </div>
         </div>
       </div>
@@ -187,5 +191,6 @@
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
 <script type="text/JavaScript" src="../assets/js/listarColetas.js"></script>
+<script type="text/JavaScript" src="../assets/js/cadastrarColetor.js"></script>
 
 </html>
