@@ -29,7 +29,7 @@ const tabelaUsuario = require('../migrations/usuario');
         if (await bcrypt.compare(dados.senha, usuario.senha)) {
 
             let token = jwt.sign({ id: usuario.cd_usuario }, acessoToken, {
-                expiresIn: 45 //30min
+                expiresIn: 1800 //30min
             });
 
             return res.status(200).json({
