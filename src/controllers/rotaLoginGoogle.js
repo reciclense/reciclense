@@ -24,7 +24,7 @@ async function cadastrarUsuarioGoogle(req, res) {
         if (await bcrypt.compare(dados.senha, usuario.senha)) {
 
             let token = jwt.sign({ id: usuario.cd_usuario }, acessoToken, {
-                expiresIn: 45 //30min
+                expiresIn: 1800 //30min
             });
 
             return res.status(200).json({
@@ -61,13 +61,12 @@ async function cadastrarUsuarioGoogle(req, res) {
                 if (await bcrypt.compare(dados.senha, novoUsuario.senha)) {
 
                     let token = jwt.sign({ id: novoUsuario.cd_usuario }, acessoToken, {
-                        expiresIn: 45 //30min
+                        expiresIn: 1800 //30min
                     });
 
                     return res.status(200).json({
                         success: true,
                         id_usuario: novoUsuario.cd_usuario,
-                        tp_perfil: novoUsuario.tp_perfil,
                         existeUsuario: false,
                         token
                     });

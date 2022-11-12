@@ -14,17 +14,16 @@ fetch('http://localhost:5500/recuperar-dados-perfil/' + storageIdUsuario + '/' +
     .then(response => {
 
         let inputs = document.getElementsByClassName("inputsPerfil");
-        let controlaNulo = false;
+        let controlaNulo = 'false';
 
         if (storagePerfil == 'juridica') {
 
             if (!response.cd_cooperativa) {
 
-                //Desabilitando campos do formulario novamente
                 for (var i = 0; i < inputs.length; i++) {
 
                     if (inputs[i].value == '') {
-                        controlaNulo = true;
+                        controlaNulo = 'true';
                     };
                 }
             }
@@ -33,25 +32,24 @@ fetch('http://localhost:5500/recuperar-dados-perfil/' + storageIdUsuario + '/' +
 
             if (!response.cd_endereco) {
 
-                //Desabilitando campos do formulario novamente
                 for (var i = 0; i < inputs.length; i++) {
 
                     if (inputs[i].value == '') {
-                        controlaNulo = true;
+                        controlaNulo = 'true';
                     };
                 }
             }
 
         }
 
-        if (controlaNulo && storageGoogle == true) {
+        if (controlaNulo == 'true' && storageGoogle == 'true') {
 
             //Recupera os dados de ambos os perfis e seta no input
             document.getElementById("nm_usuario").value = response.usuario.nm_usuario;
             document.getElementById("sobrenome_usuario").value = response.usuario.sobrenome_usuario;
             document.getElementById("email").value = response.usuario.email;
 
-        } else if (controlaNulo && storageGoogle != true) {
+        } else if (controlaNulo == 'true' && storageGoogle == 'false') {
 
             //Recupera os dados de ambos os perfis e seta no input
             document.getElementById("email").value = response.usuario.email;
