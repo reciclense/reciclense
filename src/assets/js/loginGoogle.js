@@ -52,7 +52,7 @@ function handleCredentialResponse(response) {
       })
     };
 
-    fetch('http://localhost:5500/atualizar-tipo-perfil', options)
+    fetch('http://localhost:5500/salvar-tipo-perfil', options)
       .then(response => response.json())
       .then(response => {
 
@@ -107,6 +107,7 @@ function handleCredentialResponse(response) {
           localStorage.setItem("token", response.token);
           localStorage.setItem("id_usuario", response.id_usuario);
           localStorage.setItem("perfil", response.tp_perfil);
+          localStorage.setItem("google", true);
 
           if (response.tp_perfil == 'fisica') {
             window.location.href = "src/pages/pessoaFisicaPrincipal.html";
@@ -151,9 +152,10 @@ function handleCredentialResponse(response) {
             title: 'Logado com sucesso'
           })
 
-          /*Salvando token e id do usuario no localStorage*/
+          /*Salvando token, id do usuario e item para saber se o usuairo logou com o gmail no localStorage*/
           localStorage.setItem("token", response.token);
           localStorage.setItem("id_usuario", response.id_usuario);
+          localStorage.setItem("google", 'true');
           
           if (perfil == 'fisica') {
             window.location.href = "src/pages/pessoaFisicaPrincipal.html";

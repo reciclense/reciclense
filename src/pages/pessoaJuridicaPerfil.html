@@ -76,6 +76,34 @@
   <div class="container">
     <h1 class="headings">Perfil</h1>
 
+    <h2 class="headingPerfilPessoaFisica2">Seus Dados</h2>
+
+    <form action="">
+      <div class="row">
+        <div class="col">
+          <label for="inputName">Nome:</label>
+          <input type="text" id="nm_usuario" class="form-control inputsPerfil" placeholder="Digite seu Nome" disabled />
+        </div>
+        <div class="col">
+          <label for="inputsobrenome">Sobrenome:</label>
+          <input type="text" id="sobrenome_usuario" class="form-control inputsPerfil" placeholder="Digite seu Sobrenome"
+            disabled />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputEmail">Email:</label>
+          <input type="email" id="email" class="form-control inputsPerfil" placeholder="Ex: usuário@gmail.com"
+            disabled />
+        </div>
+        <div class="col">
+          <label for="inputCPF">CPF:</label>
+          <input oninput="mascaraCpf(this)" type="text" id="documento_principal" class="form-control inputsPerfil"
+            id="formGerenciaUser" aria-describedby="CPF" placeholder="000.000.000-00" disabled>
+        </div>
+      </div>
+    </form>
+
     <h2 class="headingPerfilPessoaFisica2">Dados da Empresa</h2>
 
     <!--Formulário Pessoa Jurídica-->
@@ -87,13 +115,6 @@
           <input type="text" id="razaoSocial" class="form-control inputsPerfil"
             placeholder="Digite a razão social da empresa" disabled />
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="inputEmail">Email:</label>
-          <input type="email" id="email" class="form-control inputsPerfil" placeholder="Ex: usuário@gmail.com"
-            disabled />
-        </div>
         <div class="col">
           <label for="inputCnpj">CNPJ:</label>
           <input type="text" id="cnpj" oninput="mascaraCnpj(this)" class="form-control inputsPerfil"
@@ -104,7 +125,7 @@
 
     <!--Titulo 2 da página-->
 
-    <h2 class="headingPerfilPessoaFisica2">Endereço</h2>
+    <h2 class="headingPerfilPessoaFisica2">Endereço da Empresa</h2>
 
     <!--Formulário de Endereco-->
 
@@ -133,6 +154,10 @@
       </div>
       <div class="row">
         <div class="col-sm">
+          <label for="inputBairro">Bairro:</label>
+          <input type="text" id="nm_bairro" class="form-control inputsPerfil" placeholder="Ex: Varzea" disabled />
+        </div>
+        <div class="col-sm">
           <label for="inputCidade">Cidade:</label>
           <input type="text" id="nm_cidade" class="form-control inputsPerfil" placeholder="Ex: Recife" disabled />
         </div>
@@ -146,7 +171,7 @@
     <!--Botoes-->
 
     <div style="text-align: right">
-      <button type="button" id="btnSalvarPerfil" class="btn btn-primary i bi-archive"></i> Salvar </button>
+      <button type="button" id="btnSalvarPerfil" class="btn btn-primary i bi-archive botoesPerfil" hidden></i> Salvar </button>
       <button type="button" id="btnEditarPerfil" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
       <button type="button" id="btnExcluirPerfil" class="btn btn-danger i bi-trash3"></i> Excluir </button>
     </div>
@@ -179,5 +204,6 @@
 <script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/editarPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/atualizarDadosPerfil.js"></script>
 
 </html>

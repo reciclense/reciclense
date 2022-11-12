@@ -71,6 +71,7 @@ document.getElementById('btnCriarConta')
                         //Salvando token no localStorage
                         localStorage.setItem("token", response.token);
                         localStorage.setItem("id_usuario", response.id_usuario);
+                        localStorage.setItem("google", false);
 
                         if (response.tp_perfil == 'fisica') {
                             window.location.href = "src/pages/pessoaFisicaPrincipal.html";

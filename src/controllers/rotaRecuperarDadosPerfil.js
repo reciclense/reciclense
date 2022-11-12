@@ -12,12 +12,12 @@ async function recuperarDadosPerfil(req, res) {
 
         await tabelaUsuario.findOne({
 
-            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal', 'tp_perfil'],
+            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal', 'tp_perfil', 'cd_endereco', 'cd_cooperativa'],
 
             include: [{
 
                 model: tabelaEndereco,
-                attributes: ['nm_logradouro', 'cep', 'numero', 'nm_complemento'],
+                attributes: ['nm_logradouro', 'cep', 'nm_bairro', 'numero', 'nm_complemento'],
 
                 include: [{
                     model: tabelaCidade,
@@ -34,8 +34,11 @@ async function recuperarDadosPerfil(req, res) {
             }
         }).then(function (usuario) {
 
+            console.log("CD_ENDERECO: " + usuario.cd_endereco);
             return res.status(200).json({
                 success: true,
+                cd_endereco: usuario.cd_endereco,
+                cd_cooperativa: usuario.cd_cooperativa,
                 usuario: usuario
             });
         }).catch(function (erro) {
@@ -49,7 +52,7 @@ async function recuperarDadosPerfil(req, res) {
 
         await tabelaUsuario.findOne({
 
-            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal'],
+            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal', 'cd_endereco', 'cd_cooperativa'],
 
             include: [{
 
@@ -59,7 +62,7 @@ async function recuperarDadosPerfil(req, res) {
                 include: [{
 
                     model: tabelaEndereco,
-                    attributes: ['nm_logradouro', 'cep', 'numero', 'nm_complemento'],
+                    attributes: ['nm_logradouro', 'cep', 'nm_bairro', 'numero', 'nm_complemento'],
 
                     include: [{
                         model: tabelaCidade,
@@ -76,11 +79,15 @@ async function recuperarDadosPerfil(req, res) {
                 cd_usuario: req.params.id
             }
         }).then(function (usuario) {
+            console.log("CD_COOPERATIVA: " + usuario.cd_cooperativa);
             return res.status(200).json({
                 success: true,
+                cd_endereco: usuario.cd_endereco,
+                cd_cooperativa: usuario.cd_cooperativa,
                 usuario: usuario
             });
         }).catch(function (erro) {
+            console.log("CD_COOPERATIVA: " + usuario.cd_cooperativa);
             return res.status(400).json({
                 success: false,
                 messagem: erro.message

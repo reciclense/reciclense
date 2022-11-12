@@ -41,7 +41,7 @@ tabelaEndereco.belongsTo(tabelaCidade, {
 
 //Relacionamento  1-N
 tabelaCidade.hasMany(tabelaEndereco, {
-    foreignKey: 'cd_estado'
+    foreignKey: 'cd_cidade'
 })
 
 //Método para verificar se tabela já existe

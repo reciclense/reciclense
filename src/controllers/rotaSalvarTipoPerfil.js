@@ -2,12 +2,12 @@
 const tabelaUsuario = require('../migrations/usuario');
 
 /*Função para verificar se o o gmail já esta cadastrado*/
-async function atualizarTipoPerfil(req, res) {
+async function salvarTipoPerfil(req, res) {
 
     let dados = req.body;
 
     // Verificando se email ja existe na tabela de Usuários
-    await tabelaUsuario.update({ tp_perfil: dados.perfil }, {
+    await tabelaUsuario.update({tp_perfil: dados.perfil }, {
 
         where: {
             email: dados.email
@@ -26,4 +26,4 @@ async function atualizarTipoPerfil(req, res) {
     });
 }
 
-module.exports = atualizarTipoPerfil;
+module.exports = salvarTipoPerfil;
