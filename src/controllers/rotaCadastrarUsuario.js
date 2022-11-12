@@ -12,16 +12,24 @@ async function cadastrarUsuario(req, res) {
     let dados = req.body;
 
     // Verificando se email ja existe na tabela de Usuários
-    await tabelaUsuario.findOne({
-
+    const usuario = await tabelaUsuario.findOne({
         attributes: ['email'],
         where: {
             email: dados.email
         }
+    });
 
-    }).then(async function () {
+    if (usuario != null) {
+
+        return res.status(400).json({
+            success: false,
+            message: "Usuário ja cadastrado!"
+        });
+
+    } else {
 
         await tabelaUsuario.create({
+
             email: dados.email,
             senha: await bcrypt.hash(dados.senha, 8),
             tp_perfil: dados.tp_perfil
@@ -33,6 +41,7 @@ async function cadastrarUsuario(req, res) {
                 where: {
                     email: dados.email
                 }
+
             }).then(async function (usuario) {
 
                 if (await bcrypt.compare(dados.senha, usuario.senha)) {
@@ -65,11 +74,6 @@ async function cadastrarUsuario(req, res) {
                 message: error.message
             });
         });
-    }).catch(function (error) {
-        return res.status(400).json({
-            success: false,
-            message: error.message
-        });
-    });
+    }
 }
 module.exports = cadastrarUsuario;
