@@ -57,7 +57,7 @@ function handleCredentialResponse(response) {
       .then(response => {
 
         /*Salvando perfil do usuario no localStorage*/
-        localStorage.setItem("perfil", response.tp_perfil);
+        localStorage.setItem("perfil", perfil);
       })
       .catch(err => console.error(err));
   }

@@ -41,24 +41,13 @@ async function atualizarDadosPerfil(req, res) {
                 //Caso encontre o usuario entra
             }).then(async function (usuario) {
 
-                //Caso o cd_endereco ou cd_cooperativa não seja nulo significa o perfil ja foi atualizado antes e entra no if
+                //Caso o cd_endereco ou cd_cooperativa não seja nulo significa que o perfil ja foi atualizado antes e entra no if
                 if (usuario.cd_endereco != null || usuario.cd_cooperativa != null) {
 
-                    console.log('ENTROU: Pre query para atualizar o endereço');
                     //Caso seja perfil pessoa fisíca atualiza o endereco e o usuário
-                    console.log("Perfil: " + dados.perfil);
                     if (dados.perfil == 'fisica') {
-                        console.log('ENTROU: Em pessoa Fisica');
-                        //Atualizando tabela endereco
-                        console.log('ENTROU: Inseriu o endereço. CEP: ' + dados.cep + 
-                        ' BAIRRO: ' + dados.bairro + 
-                        ' RUA: ' + dados.rua + 
-                        ' NUMERO: ' + dados.numero +
-                            ' COMPLEMENTO: ' + dados.complemento + 
-                            " CIDADE: " + cidade.cd_cidade + 
-                            " ESTADO: " + estado.cd_estado + 
-                            "USUARIO ENDERECO: " + usuario.cd_endereco);
 
+                        //Atualizando tabela endereco
                         await tabelaEndereco.update({
 
                             cep: dados.cep,
@@ -84,14 +73,12 @@ async function atualizarDadosPerfil(req, res) {
                                     documento_principal: dados.cpf,
                                     cd_endereco: dados.cd_endereco
                                 },
-
                                     {
                                         where: {
                                             cd_usuario: dados.id
                                         }
                                         //Caso consiga atualizar o usuario retorna success = true
                                     }).then(function () {
-                                        console.log('ENTROU: Atualizou pessoa fisica');
                                         return res.status(200).json({
                                             success: true
                                         });
@@ -106,7 +93,6 @@ async function atualizarDadosPerfil(req, res) {
                                     });
                                 //Caso não consiga atualizar o endereço retorna success = false
                             }).catch(function (error) {
-                                console.log("não conseguiu atualizar endereço");
                                 return res.status(400).json({
                                     success: false,
                                     perfil: dados.perfil,
@@ -119,13 +105,42 @@ async function atualizarDadosPerfil(req, res) {
                         //Busca cooperativa na base
                         await tabelaCooperativa.findOne({
                             where: {
-                                cd_cooperativa: usuario.cd_cooperativa
+                                cnpj: dados.cnpj
                             }
                             //Caso ache a cooperativa atualiza o endereco
                         }).then(async function (cooperativa) {
+                            console.log('ENTROU: Pre atualização');
+                            //Atualizando o usuario
+                            await tabelaUsuario.update({
 
-                            //Atualizando o endereço da cooperativa
-                            await tabelaEndereco.update({
+                                nm_usuario: dados.nome,
+                                sobrenome_usuario: dados.sobrenome,
+                                documento_principal: dados.cpf,
+                                cd_cooperativa: cooperativa.cd_cooperativa
+                            },
+                                {
+                                    where: {
+                                        cd_usuario: dados.id
+                                    }
+                                    //Caso consiga atualizar o usuario retorna success = true
+                                }).then(function () {
+                                    return res.status(200).json({
+                                        success: true
+                                    });
+                                    //Caso nao consiga atualizar o usuario retorna success = false
+                                }).catch(function (error) {
+                                    return res.status(400).json({
+                                        success: false,
+                                        perfil: dados.perfil,
+                                        message: error.message
+                                    });
+                                });
+                            //Caso não consiga achar a cooperativa retorna success = false
+                        }).catch(async function () {
+
+                            console.log('ENTROU NO CATCH 2° atualização');
+                            //Criando o endereço da cooperativa na base
+                            await tabelaEndereco.create({
 
                                 cep: dados.cep,
                                 nm_bairro: dados.bairro,
@@ -134,13 +149,19 @@ async function atualizarDadosPerfil(req, res) {
                                 nm_complemento: dados.complemento,
                                 cd_cidade: cidade.cd_cidade,
                                 cd_estado: estado.cd_estado
-                            },
-                                {
-                                    where: {
-                                        cd_endereco: cooperativa.cd_endereco
-                                    }
-                                    //Caso consiga atualizar o endereço atualiza o usuario
-                                }).then(async function () {
+
+                                //Caso consiga criar o endereço cria a cooperativa
+                            }).then(async function (endereco) {
+
+                                //Criando cooperativa na base
+                                await tabelaCooperativa.create({
+
+                                    razao_social: dados.razaoSocial,
+                                    cnpj: dados.cnpj,
+                                    cd_endereco: endereco.cd_endereco
+
+                                    //Caso consiga criar a cooperativa atualiza o usuario
+                                }).then(async function (cooperativa) {
 
                                     //Atualizando o usuario
                                     await tabelaUsuario.update({
@@ -167,7 +188,7 @@ async function atualizarDadosPerfil(req, res) {
                                                 message: error.message
                                             });
                                         });
-                                    //Caso não consiga atualizar o endereço retorna success = false
+                                    //Caso não consiga criar a cooperativa retorna success = false
                                 }).catch(function (error) {
                                     return res.status(400).json({
                                         success: false,
@@ -175,19 +196,19 @@ async function atualizarDadosPerfil(req, res) {
                                         message: error.message
                                     });
                                 });
-                            //Caso não consiga achar a cooperativa retorna success = false
-                        }).catch(async function (error) {
-                            return res.status(400).json({
-                                success: false,
-                                perfil: dados.perfil,
-                                message: error.message
+                                //Caso não consiga criar o endereço retorna success = false
+                            }).catch(function (error) {
+                                return res.status(400).json({
+                                    success: false,
+                                    perfil: dados.perfil,
+                                    message: error.message
+                                });
                             });
                         });
                     }
                     //Perfil esta sendo atualizado pela 1° vez
                 } else {
 
-                    console.log('ENTROU: Pre query para criar endereço');
                     //Caso seja perfil pessoa fisíca cria o endereco e  atualiza o usuário
                     if (dados.perfil == 'fisica') {
 
@@ -205,8 +226,6 @@ async function atualizarDadosPerfil(req, res) {
                             //Caso consiga criar o endereco atualiza o usuario
                         }).then(async function (endereco) {
 
-                            console.log('ENTROU: Pre atualizar dados do usuario pessoa fisica');
-
                             //Atualizando usuario
                             await tabelaUsuario.update({
                                 nm_usuario: dados.nome,
@@ -214,14 +233,12 @@ async function atualizarDadosPerfil(req, res) {
                                 documento_principal: dados.cpf,
                                 cd_endereco: endereco.cd_endereco
                             },
-
                                 {
                                     where: {
                                         cd_usuario: dados.id
                                     }
                                     //Caso consiga atualizar o usuario retorna success = true
                                 }).then(function () {
-                                    console.log('ENTROU: Atualizou pessoa fisica');
                                     return res.status(200).json({
                                         success: true
                                     });
@@ -252,51 +269,25 @@ async function atualizarDadosPerfil(req, res) {
                             //Caso encontre a cooperativa atualiza o endereço
                         }).then(async function (cooperativa) {
 
-                            //Atualizando endereço da cooperativa
-                            await tabelaEndereco.update({
+                            //Atualizando usuario
+                            await tabelaUsuario.update({
 
-                                cep: dados.cep,
-                                nm_bairro: dados.bairro,
-                                nm_logradouro: dados.rua,
-                                numero: dados.numero,
-                                nm_complemento: dados.complemento,
-                                cd_cidade: cidade.cd_cidade,
-                                cd_estado: estado.cd_estado
+                                nm_usuario: dados.nome,
+                                sobrenome_usuario: dados.sobrenome,
+                                documento_principal: dados.cpf,
+                                cd_cooperativa: cooperativa.cd_cooperativa
                             },
                                 {
                                     where: {
-                                        cd_endereco: endereco.cd_endereco
+                                        cd_usuario: dados.id
                                     }
-                                    //Se conseguir atualizar o endereço atualiza o usuario
-                                }).then(async function () {
-
-                                    //Atualizando usuario
-                                    await tabelaUsuario.update({
-
-                                        nm_usuario: dados.nome,
-                                        sobrenome_usuario: dados.sobrenome,
-                                        documento_principal: dados.cpf,
-                                        cd_cooperativa: cooperativa.cd_cooperativa
-                                    },
-                                        {
-                                            where: {
-                                                cd_usuario: dados.id
-                                            }
-                                            //Caso consiga atualizar o usuario retorna success = true
-                                        }).then(function () {
-                                            return res.status(200).json({
-                                                success: true
-                                            });
-                                            //Caso nao consiga atualizar o usuario retorna success = false
-                                        }).catch(function (error) {
-                                            return res.status(400).json({
-                                                success: false,
-                                                perfil: dados.perfil,
-                                                message: error.message
-                                            });
-                                        });
-                                    //Caso não consiga atualizar o endereço retorna success = false
-                                }).catch(function () {
+                                    //Caso consiga atualizar o usuario retorna success = true
+                                }).then(function () {
+                                    return res.status(200).json({
+                                        success: true
+                                    });
+                                    //Caso nao consiga atualizar o usuario retorna success = false
+                                }).catch(function (error) {
                                     return res.status(400).json({
                                         success: false,
                                         perfil: dados.perfil,
@@ -306,6 +297,7 @@ async function atualizarDadosPerfil(req, res) {
                             //Caso a cooperativa nao exista cria o endereço, a cooperativa e atualiza o usuario
                         }).catch(async function () {
 
+                            console.log('ENTROU NO CATCH 1° atualização');
                             //Criando o endereço da cooperativa na base
                             await tabelaEndereco.create({
 
