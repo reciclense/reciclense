@@ -35,7 +35,7 @@ document.getElementById('btnSalvarPerfil')
             denyButtonText: 'Cancelar',
         }).then(async (result) => {
 
-            //Caso o usuario clice em salvar chama a rota para atualizar o perfil
+            //Caso o usuario clique em salvar chama a rota para atualizar o perfil
             if (result.isConfirmed) {
 
                 //Configuração da requisição
@@ -89,7 +89,7 @@ document.getElementById('btnSalvarPerfil')
                     })
                     .catch(err => console.error(err));
                 //Caso o usuario clique em cancelar não salva os dados
-            } else if (result.isDenied) {
+            } else {
 
                 Swal.fire('Alterações canceladas!', '', 'info');
 

@@ -14,6 +14,7 @@ const btnDinamico = require('../controllers/rotaBtnDinamico');
 const recuperarDadosPerfil = require('../controllers/rotaRecuperarDadosPerfil');
 const atualizarDadosPerfil = require('../controllers/rotaAtualizarDadosPerfil');
 const cadastrarColetor = require('../controllers/rotaCadastrarColetor');
+const excluirUsuario = require('../controllers/rotaExcluirUsuario');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -37,9 +38,12 @@ router.get('/btn-dinamico', eAdmin, btnDinamico);
 router.get('/recuperar-dados-perfil/:id/:perfil', recuperarDadosPerfil);
 
 /*Rota que chamar a função salvarDadosPerfil*/
-router.put('/atualizar-dados-perfil/', atualizarDadosPerfil);
+router.put('/atualizar-dados-perfil', atualizarDadosPerfil);
 
 /*Rota que chamar a função cadastrarColetor*/
 router.post('/cadastrar-coletor', cadastrarColetor);
+
+/*Rota que chamar a função excluirUsuario*/
+router.delete('/excluir-usuario', excluirUsuario);
 
 module.exports = router;

@@ -34,7 +34,6 @@ async function recuperarDadosPerfil(req, res) {
             }
         }).then(function (usuario) {
 
-            console.log("CD_ENDERECO: " + usuario.cd_endereco);
             return res.status(200).json({
                 success: true,
                 cd_endereco: usuario.cd_endereco,
@@ -79,7 +78,7 @@ async function recuperarDadosPerfil(req, res) {
                 cd_usuario: req.params.id
             }
         }).then(function (usuario) {
-            console.log("CD_COOPERATIVA: " + usuario.cd_cooperativa);
+
             return res.status(200).json({
                 success: true,
                 cd_endereco: usuario.cd_endereco,
@@ -87,7 +86,7 @@ async function recuperarDadosPerfil(req, res) {
                 usuario: usuario
             });
         }).catch(function (erro) {
-            console.log("CD_COOPERATIVA: " + usuario.cd_cooperativa);
+
             return res.status(400).json({
                 success: false,
                 messagem: erro.message

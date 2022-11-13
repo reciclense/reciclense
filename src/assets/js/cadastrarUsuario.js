@@ -71,6 +71,7 @@ document.getElementById('btnCriarConta')
                         //Salvando token no localStorage
                         localStorage.setItem("token", response.token);
                         localStorage.setItem("id_usuario", response.id_usuario);
+                        localStorage.setItem("perfil", response.tp_perfil);
                         localStorage.setItem("google", false);
 
                         if (response.tp_perfil == 'fisica') {
