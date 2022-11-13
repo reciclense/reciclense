@@ -13,6 +13,7 @@ const salvarTipoPerfil = require('../controllers/rotaSalvarTipoPerfil');
 const btnDinamico = require('../controllers/rotaBtnDinamico');
 const recuperarDadosPerfil = require('../controllers/rotaRecuperarDadosPerfil');
 const atualizarDadosPerfil = require('../controllers/rotaAtualizarDadosPerfil');
+const cadastrarColetor = require('../controllers/rotaCadastrarColetor');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -37,5 +38,8 @@ router.get('/recuperar-dados-perfil/:id/:perfil', recuperarDadosPerfil);
 
 /*Rota que chamar a função salvarDadosPerfil*/
 router.put('/atualizar-dados-perfil/', atualizarDadosPerfil);
+
+/*Rota que chamar a função cadastrarColetor*/
+router.post('/cadastrar-coletor', cadastrarColetor);
 
 module.exports = router;
