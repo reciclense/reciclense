@@ -81,15 +81,15 @@
                 <!-- Formulário -->
                 <form id="formGerenciaColetor" class="col-sm-6 col-md-6 col-lg-6 d-flex">
                     <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
-                        <label class="headerInput">Nome:</label>
+                        <label class="headerInput">Pesquisar coletor:</label>
                         <input type="text" class="form-control" id="formGerenciaColetor" aria-describedby="Nome"
-                            placeholder="Coletor teste">
+                            placeholder="Ex: João da Silva ou 777.222.333.444">
                     </div>
-                    <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
+                   <!-- <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
                         <label class="headerInput">CPF:</label>
                         <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaColetor"
                             aria-describedby="CPF" placeholder="000.000.000-00">
-                    </div>
+                    </div> -->
                     <div id="divGerenciaColetor" class="col-sm-6 col-md-6 form-group col-lg-6">
                         <button type="submit" id="btnPesquisarColetor" class="btn btn-primary bi bi-search"
                             onclick="buscaColetor()"> Pesquisar</button>
@@ -98,26 +98,9 @@
             </div>
 
 
-            <table class=" table tableGerenciaUsuario">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Sobrenome</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Coletor</td>
-                        <td scope="row">Teste</td>
-                        <td scope="row">30131033026</td>
-                        <td scope="row">
-                            <button class="btn btn-secondary i bi-pencil-square" data-bs-toggle="modal"
+            <table id="tableGerenciaUsuario" class=" table tableGerenciaUsuario">
+                <button class="btn btn-secondary i bi-pencil-square" data-bs-toggle="modal"
                                 data-bs-target="#formEditaColetor"> Editar</button>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
         </div>
         <!-- Modal Gerencia Coletor -->
@@ -137,19 +120,19 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <h4 class="headings">Gerenciar Coletor</h4>
-                                        <label for="exampleInputNomeColetor" class="headerInput">Nome:</label>
-                                        <input type="text" class="form-control" id="exampleInputData"
+                                        <label for="nomeColetor" class="headerInput">Nome:</label>
+                                        <input type="text" class="form-control" id="nomeColetor"
                                             placeholder="Coletor teste" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputSobrenomeColetor" class="headerInput">Sobrenome:</label>
-                                        <input type="text" class="form-control" id="exampleInputHorario"
+                                        <label for="sobrenomeColetor" class="headerInput">Sobrenome:</label>
+                                        <input type="text" class="form-control" id="sobrenomeColetor"
                                             placeholder=" da Silva" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputDocumentoColetor" class="headerInput">CPF:</label>
+                                        <label for="cpfColetor" class="headerInput">CPF:</label>
                                         <input oninput="mascaraCpf(this)" type="text" class="form-control"
-                                            id="exampleInputHorario" placeholder=" 000.000.000-00" required>
+                                            id="cpfColetor" placeholder=" 000.000.000-00" required>
                                     </div>
                                     <div>
                                         <button type="submit"
@@ -199,5 +182,7 @@
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/listarColetor.js"></script>
+<script type="text/JavaScript" src="../assets/js/editarColetor.js"></script>
 
 </html>
