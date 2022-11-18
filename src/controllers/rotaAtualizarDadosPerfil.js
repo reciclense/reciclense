@@ -29,11 +29,15 @@ async function atualizarDadosPerfil(req, res) {
             //Caso encontre o usuario entra
         }).then(async function (usuario) {
 
+            console.log("USUARIO: ENCONTROU O USUARIO");
+
             //Caso o cd_endereco ou cd_cooperativa não seja nulo significa que o perfil ja foi atualizado antes e entra no if
             if (usuario.cd_endereco != null || usuario.cd_cooperativa != null) {
 
                 //Caso seja perfil pessoa fisíca atualiza o endereco e o usuário
                 if (dados.perfil == 'fisica') {
+
+                    console.log("USUARIO FISICA: ATUALIZANDO ENDEREÇO");
 
                     //Atualizando tabela endereco
                     await tabelaEndereco.update({
@@ -89,7 +93,8 @@ async function atualizarDadosPerfil(req, res) {
                         });
                     //Caso seja pessoa juridica atualiza o endereco da cooperativa e depois atualiza o usuario
                 } else {
-
+                    console.log("USUARIO JURIDICA: BUSCANDO COOPERATIVA...");
+                    console.log("USUARIO JURIDICA: CNPJ: " + dados.cnpj);
                     //Busca cooperativa na base
                     await tabelaCooperativa.findOne({
                         where: {
@@ -97,26 +102,57 @@ async function atualizarDadosPerfil(req, res) {
                         }
                         //Caso ache a cooperativa atualiza o endereco
                     }).then(async function (cooperativa) {
-                        
-                        //Atualizando o usuario
-                        await tabelaUsuario.update({
+                        console.log("USUARIO JURIDICA: ATUALIZANDO ENDERECO COOPERATIVA...");
 
-                            nm_usuario: dados.nome,
-                            sobrenome_usuario: dados.sobrenome,
-                            documento_principal: dados.cpf,
-                            cd_cooperativa: cooperativa.cd_cooperativa
+                        //Atualizando tabela endereco
+                        await tabelaEndereco.update({
+
+                            cep: dados.cep,
+                            nm_bairro: dados.bairro,
+                            nm_logradouro: dados.rua,
+                            numero: dados.numero,
+                            nm_complemento: dados.complemento,
+                            cd_cidade: cidade.cd_cidade
                         },
                             {
                                 where: {
-                                    cd_usuario: dados.id
+                                    cd_endereco: cooperativa.cd_endereco
                                 }
-                                //Caso consiga atualizar o usuario retorna success = true
-                            }).then(function () {
-                                return res.status(200).json({
-                                    success: true
-                                });
-                                //Caso nao consiga atualizar o usuario retorna success = false
+
+                                //Caso consiga atualizar o endereco atualiza o usuario
+                            }).then(async function () {
+
+                                console.log("USUARIO JURIDICA: ATUALIZANDO USUARIO ...");
+                                //Atualizando o usuario
+                                await tabelaUsuario.update({
+
+                                    nm_usuario: dados.nome,
+                                    sobrenome_usuario: dados.sobrenome,
+                                    documento_principal: dados.cpf,
+                                    cd_cooperativa: cooperativa.cd_cooperativa
+                                },
+                                    {
+                                        where: {
+                                            cd_usuario: dados.id
+                                        }
+                                        //Caso consiga atualizar o usuario retorna success = true
+                                    }).then(function () {
+                                        console.log("USUARIO JURIDICA: USUARIO ATUALIZADO ...");
+                                        return res.status(200).json({
+                                            success: true
+                                        });
+                                        //Caso nao consiga atualizar o usuario retorna success = false
+                                    }).catch(function (error) {
+                                        console.log("USUARIO JURIDICA: ERRO ...");
+                                        return res.status(400).json({
+                                            success: false,
+                                            perfil: dados.perfil,
+                                            message: error.message
+                                        });
+                                    });
+
                             }).catch(function (error) {
+                                console.log("USUARIO JURIDICA: NAO CONSEGUIU ATUALIZAR O ENDEREÇO DA COOPERATIVA PELA 2° VEZ ...");
                                 return res.status(400).json({
                                     success: false,
                                     perfil: dados.perfil,

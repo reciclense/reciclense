@@ -14,10 +14,12 @@ async function salvarTipoPerfil(req, res) {
         }
 
     }).then(function () {
+        console.log('ENTROU NO THEN');
         return res.status(200).json({
             success: true
         });
     }).catch(function (error) {
+        console.log('ENTROU NO CATCH');
         return res.status(400).json({
             success: false,
             perfil:dados.perfil,

@@ -58,7 +58,7 @@
           </li>
         </ul>
         <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal"
-          data-bs-target="#formCadastrarColetor"></div>
+          data-bs-target="#formCadastrarColetor" hidden></div>
 
         <!-- Perfil -->
         <div class="dropdown" id="perfil">
@@ -109,8 +109,8 @@
           </table>
 
           <div class="col-md-12 d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-relatorio">Gerar Relatório</button>
-            <a role="button" class="btn btn-primary btn-relatorio" href="/src/pages/gerenciaColetor.html">Buscar
+            <button type="button" class="btn btn-primary btn-relatorio" id="btn-relatorio">Gerar Relatório</button>
+            <a role="button" class="btn btn-primary btn-buscar" id="btn-buscar" href="/src/pages/gerenciaColetor.html">Buscar
               Coletor</a>
           </div>
         </div>
@@ -189,8 +189,9 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-<script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
 <script type="text/JavaScript" src="../assets/js/listarColetas.js"></script>
 <script type="text/JavaScript" src="../assets/js/cadastrarColetor.js"></script>
+<script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
 
 </html>

@@ -82,99 +82,104 @@
       <div class="row">
         <div class="col">
           <label for="inputName">Nome:</label>
-          <input type="text" id="nm_usuario" class="form-control inputsPerfil" placeholder="Digite seu Nome" disabled />
+          <input type="text" name="nome" id="nm_usuario" class="form-control inputsPerfil" placeholder="Digite seu Nome"
+            disabled />
         </div>
         <div class="col">
           <label for="inputsobrenome">Sobrenome:</label>
-          <input type="text" id="sobrenome_usuario" class="form-control inputsPerfil" placeholder="Digite seu Sobrenome"
-            disabled />
+          <input type="text" name="Sobrenome" id="sobrenome_usuario" class="form-control inputsPerfil"
+            placeholder="Digite seu Sobrenome" disabled />
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label for="inputEmail">Email:</label>
-          <input type="email" id="email" class="form-control inputsPerfil" placeholder="Ex: usuário@gmail.com"
-            disabled />
+          <input type="email" name="Email" id="email" class="form-control inputsPerfil"
+            placeholder="Ex: usuário@gmail.com" disabled />
         </div>
         <div class="col">
           <label for="inputCPF">CPF:</label>
-          <input oninput="mascaraCpf(this)" type="text" id="documento_principal" class="form-control inputsPerfil"
-            id="formGerenciaUser" aria-describedby="CPF" placeholder="000.000.000-00" disabled>
+          <input oninput="mascaraCpf(this)" type="text" name="CPF" id="documento_principal"
+            class="form-control inputsPerfil" id="formGerenciaUser" aria-describedby="CPF" placeholder="000.000.000-00"
+            disabled>
         </div>
       </div>
-    </form>
 
-    <h2 class="headingPerfilPessoaFisica2">Dados da Empresa</h2>
 
-    <!--Formulário Pessoa Jurídica-->
+      <h2 class="headingPerfilPessoaFisica2">Dados da Empresa</h2>
 
-    <form action="">
+      <!--Formulário Pessoa Jurídica-->
+
+
       <div class="row">
-        <div class="col">
-          <label for="inputRazaoSocial">Razão Social:</label>
-          <input type="text" id="razaoSocial" class="form-control inputsPerfil"
-            placeholder="Digite a razão social da empresa" disabled />
-        </div>
         <div class="col">
           <label for="inputCnpj">CNPJ:</label>
-          <input type="text" id="cnpj" oninput="mascaraCnpj(this)" class="form-control inputsPerfil"
-            placeholder="Digite o CNPJ da empresa" disabled />
+          <input type="text" name="CNPJ" id="cnpj" onblur="consultarCNPJ(this.value)" oninput="mascaraCnpj(this)"
+            class="form-control inputsPerfil" placeholder="Digite o CNPJ da empresa" disabled />
+        </div>
+        <div class="col">
+          <label for="inputRazaoSocial">Razão Social:</label>
+          <input type="text" name="Razão Social" id="razaoSocial" class="form-control inputsPerfil"
+            placeholder="Digite a razão social da empresa" disabled />
         </div>
       </div>
-    </form>
 
-    <!--Titulo 2 da página-->
 
-    <h2 class="headingPerfilPessoaFisica2">Endereço da Empresa</h2>
+      <!--Titulo 2 da página-->
 
-    <!--Formulário de Endereco-->
+      <h2 class="headingPerfilPessoaFisica2">Endereço da Empresa</h2>
 
-    <form action="">
+      <!--Formulário de Endereco-->
+
       <div class="row">
-        <div class="col">
-          <label for="inputRua">Rua:</label>
-          <input type="text" id="nm_logradouro" class="form-control inputsPerfil" placeholder="Rua do Recife"
-            disabled />
-        </div>
-        <div class="col">
-          <label for="inputNumero">Número:</label>
-          <input type="text" id="numero" class="form-control inputsPerfil" placeholder="Número 00" disabled />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="inputComplemento">Complemento:</label>
-          <input type="text" id="nm_complemento" class="form-control inputsPerfil"
-            placeholder="Apartamento, ponto de referência." disabled />
-        </div>
         <div class="col">
           <label for="inputCEP">CEP:</label>
-          <input type="text" id="cep" class="form-control inputsPerfil" placeholder="50000000" disabled />
+          <input type="text" oninput="mascaraCEP(this)" name="CEP" id="cep" class="form-control inputsPerfil"
+            placeholder="50000000" disabled />
+        </div>
+        <div class="col">
+          <label for="inputRua">Rua:</label>
+          <input type="text" name="Rua" id="nm_logradouro" class="form-control inputsPerfil" placeholder="Rua do Recife"
+            disabled />
         </div>
       </div>
       <div class="row">
-        <div class="col-sm">
-          <label for="inputBairro">Bairro:</label>
-          <input type="text" id="nm_bairro" class="form-control inputsPerfil" placeholder="Ex: Varzea" disabled />
-        </div>
-        <div class="col-sm">
-          <label for="inputCidade">Cidade:</label>
-          <input type="text" id="nm_cidade" class="form-control inputsPerfil" placeholder="Ex: Recife" disabled />
+        <div class="col">
+          <label for="inputNumero">Número:</label>
+          <input type="text" oninput="apenasNumeros(this)" name="Número" id="numero" class="form-control inputsPerfil"
+            placeholder="Número 00" disabled />
         </div>
         <div class="col-sm">
           <label for="inputEstado">Estado:</label>
-          <input type="text" id="nm_estado" class="form-control inputsPerfil" placeholder="Ex: Pernambuco" disabled />
+          <select type="text" name="Estado" id="nm_estado" class="form-control inputsPerfil"
+            placeholder="Ex: Pernambuco" disabled>
+          </select>
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm">
+          <label for="inputCidade">Cidade:</label>
+          <select type="text" name="Cidade" id="nm_cidade" class="form-control inputsPerfil" placeholder="Ex: Recife"
+            disabled>
+          </select>
+        </div>
+        <div class="col-sm">
+          <label for="inputBairro">Bairro:</label>
+          <input type="text" name="Bairro" id="nm_bairro" class="form-control inputsPerfil" placeholder="Ex: Varzea"
+            disabled />
+        </div>
+      </div>
+
+
+      <!--Botoes-->
+
+      <div style="text-align: right">
+        <button type="button" id="btnSalvarPerfil" class="btn btn-primary i bi-archive botoesPerfil" hidden></i> Salvar
+        </button>
+        <button type="button" id="btnEditarPerfil" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
+        <button type="button" id="btnExcluirPerfil" class="btn btn-danger i bi-trash3"></i> Excluir </button>
+      </div>
     </form>
-
-    <!--Botoes-->
-
-    <div style="text-align: right">
-      <button type="button" id="btnSalvarPerfil" class="btn btn-primary i bi-archive botoesPerfil" hidden></i> Salvar </button>
-      <button type="button" id="btnEditarPerfil" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
-      <button type="button" id="btnExcluirPerfil" class="btn btn-danger i bi-trash3"></i> Excluir </button>
-    </div>
 
   </div>
 
@@ -191,8 +196,11 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+  integrity="sha512-k2WPPrSgRFI6cTaHHhJdc8kAXaRM4JBFEDo1pPGGlYiOyv4vnA0Pp0G5XMYYxgAPmtmv/IIaQA6n5fLAyJaFMA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
   integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
@@ -201,10 +209,14 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-<script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/editarPerfil.js"></script>
-<script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
 <script type="text/JavaScript" src="../assets/js/atualizarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/excluirUsuario.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarCidades.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarEstados.js"></script>
+<script type="text/JavaScript" src="../assets/js/consultarCEP.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/consultarCNPJ.js"></script>
 
 </html>
