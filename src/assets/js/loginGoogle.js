@@ -14,9 +14,10 @@ function handleCredentialResponse(response) {
   let primeiroAcesso = false;
   let perfil = null;
 
-
   /*Função para definir qual é o tipo de perfil do usuário*/
   const salvaTipoPerfil = async () => {
+
+    const storageIdUsuario = localStorage.getItem('id_usuario');
 
     /*Apresentando inputOptions*/
     const inputOptions = new Promise((resolve) => {
@@ -40,26 +41,73 @@ function handleCredentialResponse(response) {
     })
 
     /*Armazenando o tipo de perfil escolhido na variavel perfil*/
-    perfil = tp_perfil;
+    if (tp_perfil != null) {
 
-    /*Chamando rota para atualizar o tipo de perfil do usuário*/
-    const options = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        perfil
-      })
-    };
+      perfil = tp_perfil;
 
-    fetch('http://localhost:5500/salvar-tipo-perfil', options)
-      .then(response => response.json())
-      .then(response => {
+      /*Chamando rota para atualizar o tipo de perfil do usuário*/
+      const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          perfil
+        })
+      };
 
-        /*Salvando perfil do usuario no localStorage*/
-        localStorage.setItem("perfil", perfil);
-      })
-      .catch(err => console.error(err));
+      fetch('http://localhost:5500/salvar-tipo-perfil', options)
+        .then(response => response.json())
+        .then(response => {
+
+          /*Salvando perfil do usuario no localStorage*/
+          localStorage.setItem("perfil", perfil);
+        })
+        .catch(err => console.error(err));
+
+    } else {
+
+      while (perfil == null) {
+
+        await Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Favor escolher um tipo de perfil!',
+
+          showDenyButton: true,
+          confirmButtonText: 'Escolher',
+          denyButtonText: 'Cancelar'
+        }).then(async (result) => {
+
+          console.log("RESULTADO: " + result);
+
+          //Caso o usuario clique em escolher chama o metodo novamente
+          if (result.isConfirmed) {
+
+            await salvaTipoPerfil();
+
+          } else {
+
+            const options = {
+              method: 'DELETE',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                id: storageIdUsuario,
+                perfil: null
+              })
+            };
+
+            fetch('http://localhost:5500/excluir-usuario', options)
+              .then(response => response.json())
+              .then(async response => {
+                if (response.success) {
+                  perfil = 1;
+                  window.location.href = '/index.html';
+                }
+              }).catch(err => console.error(err));
+          }
+        });
+      }
+    }
   }
 
   /*Requisição para cadastrar usuario google na base*/
@@ -119,6 +167,8 @@ function handleCredentialResponse(response) {
 
       } else {
 
+        localStorage.setItem("id_usuario", response.id_usuario);
+
         primeiroAcesso = true;
 
         /*Caso seja o primeiro acesso com gmail entra*/
@@ -156,7 +206,7 @@ function handleCredentialResponse(response) {
           localStorage.setItem("token", response.token);
           localStorage.setItem("id_usuario", response.id_usuario);
           localStorage.setItem("google", 'true');
-          
+
           if (perfil == 'fisica') {
             window.location.href = "src/pages/pessoaFisicaPrincipal.html";
           } else {

@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(err => console.error(err));
 
-    var btnDinamico = document.getElementById('btnDinamico');
+    let btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
 }, false);
 

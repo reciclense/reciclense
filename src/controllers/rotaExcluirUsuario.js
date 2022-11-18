@@ -16,6 +16,8 @@ async function excluirUsuario(req, res) {
             cd_usuario: dados.id
         }
     });
+    
+ console.log("USUARIO: " + usuario);
 
     if (usuario == null) {
         console.log('ENTROU: Não achou o usuario');
@@ -74,7 +76,7 @@ async function excluirUsuario(req, res) {
                 });
             });
 
-        } else {
+        } else if(dados.perfil == 'juridica'){
 
             const cooperativa = await tabelaCooperativa.findOne({
 
@@ -160,6 +162,26 @@ async function excluirUsuario(req, res) {
                     });
                 });
             }
+            //Caso o perfil esteja nulo ( Acontece ao tentar logar com o google pela primeira vez e desistir antes de escolher o tp_perfil)
+        }else{
+
+            await tabelaUsuario.destroy({
+                where: {
+                    cd_usuario: usuario.cd_usuario
+                }
+            }).then(function(){
+                console.log('SEM PERFIL: Excluiu o usuario ');
+                return res.status(200).json({
+                    success: true
+                });
+            }).catch (function (error){
+                console.log('SEM PERFIL: Não excluiu o usuario ');
+                return res.status(400).json({
+                    success: false,
+                    messagem: error.message
+                });
+            });
+
         }
 
     }
