@@ -20,6 +20,7 @@ const recuperarEstados = require('../controllers/rotaRecuperarEstados');
 const recuperarCidades = require('../controllers/rotaRecuperarCidades');
 const consultarCEP = require('../controllers/rotaConsultarCEP');
 const recuperarNomeEstado = require('../controllers/rotaRecuperarNomeEstado');
+const cadastrarColeta = require('../controllers/rotaCadastrarColeta');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -65,5 +66,8 @@ router.get('/consultar-cep/:cep', consultarCEP);
 
  /*Rota que chamar a função recuperarNomeEstado*/
  router.get('/recuperar-nome-estado/:uf', recuperarNomeEstado);
+
+/*Rota que chamar a função cadastrarColeta*/
+router.post('/cadastrar-coleta', cadastrarColeta);
 
 module.exports = router;

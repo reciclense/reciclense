@@ -110,16 +110,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <h4 class="headings">Solicitar Coleta</h4>
-                  <label for="exampleInputData" class="headerInput">Data:</label>
-                  <input type="date" class="form-control" id="exampleInputData" required>
+                  <label for="data-coleta" class="headerInput">Data:</label>
+                  <input type="date" class="form-control inputsColeta" id="data-coleta" required>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputHorario" class="headerInput">Horário:</label>
-                  <input type="time" class="form-control" id="exampleInputHorario" required>
+                  <label for="horario-coleta" class="headerInput">Horário:</label>
+                  <input type="time" class="form-control inputsColeta" id="horario-coleta" required>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputTipoMaterial" class="headerInput">Tipo de Material:</label>
-                  <select class="form-control" id="submit">
+                  <label for="material-coleta" class="headerInput">Tipo de Material:</label>
+                  <select class="form-control inputsColeta" id="material-coleta">
                     <option value="1">Plástico</option>
                     <option value="2">Papel</option>
                     <option value="3">Vidro</option>
@@ -127,11 +127,11 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputObservacoes" class="headerInput">Observações:</label>
-                  <textarea class="form-control" id="exampleInputObservacoes"></textarea>
+                  <label for="obs-coleta" class="headerInput">Observações:</label>
+                  <textarea class="form-control inputsColeta" id="obs-coleta"></textarea>
                 </div>
                 <div>
-                  <button type="submit" class=" btnSolicitarColeta form-control btn btn-primary">Solicitar</button><br>
+                  <button type="button" id="btnSolicitarColeta" class=" btnSolicitarColeta form-control btn btn-primary">Solicitar</button><br>
                 </div>
               </form>
             </div>
@@ -164,6 +164,7 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+<script type="text/JavaScript" src="../assets/js/cadastrarColeta.js"></script>
 <script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
 
 </html>
