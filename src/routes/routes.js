@@ -13,9 +13,16 @@ const salvarTipoPerfil = require('../controllers/rotaSalvarTipoPerfil');
 const btnDinamico = require('../controllers/rotaBtnDinamico');
 const recuperarDadosPerfil = require('../controllers/rotaRecuperarDadosPerfil');
 const atualizarDadosPerfil = require('../controllers/rotaAtualizarDadosPerfil');
+const verificarDadosPerfil = require('../controllers/rotaValidarDadosPerfil');
 const cadastrarColetor = require('../controllers/rotaCadastrarColetor');
 const excluirUsuario = require('../controllers/rotaExcluirUsuario');
+const recuperarEstados = require('../controllers/rotaRecuperarEstados');
+const recuperarCidades = require('../controllers/rotaRecuperarCidades');
+const consultarCEP = require('../controllers/rotaConsultarCEP');
+const recuperarNomeEstado = require('../controllers/rotaRecuperarNomeEstado');
 const cadastrarColeta = require('../controllers/rotaCadastrarColeta');
+const listarColetor = require('../controllers/rotaListarColetor');
+const atualizarColetor = require('../controllers/rotaAtualizarColetor');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -47,7 +54,28 @@ router.post('/cadastrar-coletor', cadastrarColetor);
 /*Rota que chamar a função excluirUsuario*/
 router.delete('/excluir-usuario', excluirUsuario);
 
+/*Rota que chamar a função verificarDadosPerfil*/
+router.get('/validar-dados-perfil/:id/:perfil', verificarDadosPerfil);
+
+/*Rota que chamar a função recuperarEstados*/
+router.get('/recuperar-estados/:id', recuperarEstados);
+
+/*Rota que chamar a função recuperarCidades*/
+router.get('/recuperar-cidades/:uf', recuperarCidades);
+
+/*Rota que chamar a função consultarCEP*/
+router.get('/consultar-cep/:cep', consultarCEP);
+
+ /*Rota que chamar a função recuperarNomeEstado*/
+ router.get('/recuperar-nome-estado/:uf', recuperarNomeEstado);
+
 /*Rota que chamar a função cadastrarColeta*/
 router.post('/cadastrar-coleta', cadastrarColeta);
+
+/*Rota que chamar a função listarColetor*/
+router.get('/listar-coletor/:id', listarColetor);
+
+/*Rota que chamar a função atualizarColetor*/
+router.put('/atualizar-coletor', atualizarColetor);
 
 module.exports = router;

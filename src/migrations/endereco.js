@@ -28,7 +28,7 @@ const tabelaEndereco = db.define('endereco', {
     },
     nm_complemento: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
 }, { freezeTableName: true });
 

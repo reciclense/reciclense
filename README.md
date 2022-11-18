@@ -44,6 +44,9 @@ Instalar o jwt
 ### npm install --save bcrypt 
 Instalar o bcrypt
 
+### npm install node-cep-correios --save
+Instalar API dos correios
+
 ## Exemplo de criação de tabela através do Sequelize
 const Sequelize = require('sequelize');
 

@@ -9,3 +9,5 @@ function editarColetor(nome, sobrenome, cpf) {
     cpfColetor.value = cpf;
 
 }
+
+
