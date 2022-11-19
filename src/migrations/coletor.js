@@ -18,6 +18,10 @@ const tabelaColetor = db.define('coletor', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    dt_nascimento: {
+        type: Sequelize.DATEONLY,
+        allowNull: true
+    },
     documento_principal: {
         type: Sequelize.STRING,
         allowNull: false

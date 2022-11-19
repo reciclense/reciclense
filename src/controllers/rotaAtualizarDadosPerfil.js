@@ -62,6 +62,7 @@ async function atualizarDadosPerfil(req, res) {
 
                                 nm_usuario: dados.nome,
                                 sobrenome_usuario: dados.sobrenome,
+                                dt_nascimento: dados.dt_nascimento,
                                 documento_principal: dados.cpf,
                                 cd_endereco: dados.cd_endereco
                             },
@@ -128,6 +129,7 @@ async function atualizarDadosPerfil(req, res) {
 
                                     nm_usuario: dados.nome,
                                     sobrenome_usuario: dados.sobrenome,
+                                    dt_nascimento: dados.dt_nascimento,
                                     documento_principal: dados.cpf,
                                     cd_cooperativa: cooperativa.cd_cooperativa
                                 },
@@ -191,6 +193,7 @@ async function atualizarDadosPerfil(req, res) {
 
                                     nm_usuario: dados.nome,
                                     sobrenome_usuario: dados.sobrenome,
+                                    dt_nascimento: dados.dt_nascimento,
                                     documento_principal: dados.cpf,
                                     cd_cooperativa: cooperativa.cd_cooperativa
                                 },
@@ -253,6 +256,7 @@ async function atualizarDadosPerfil(req, res) {
                         await tabelaUsuario.update({
                             nm_usuario: dados.nome,
                             sobrenome_usuario: dados.sobrenome,
+                            dt_nascimento: dados.dt_nascimento,
                             documento_principal: dados.cpf,
                             cd_endereco: endereco.cd_endereco
                         },
@@ -297,6 +301,7 @@ async function atualizarDadosPerfil(req, res) {
 
                             nm_usuario: dados.nome,
                             sobrenome_usuario: dados.sobrenome,
+                            dt_nascimento: dados.dt_nascimento,
                             documento_principal: dados.cpf,
                             cd_cooperativa: cooperativa.cd_cooperativa
                         },
@@ -349,6 +354,7 @@ async function atualizarDadosPerfil(req, res) {
 
                                     nm_usuario: dados.nome,
                                     sobrenome_usuario: dados.sobrenome,
+                                    dt_nascimento: dados.dt_nascimento,
                                     documento_principal: dados.cpf,
                                     cd_cooperativa: cooperativa.cd_cooperativa
                                 },

@@ -118,3 +118,12 @@ div#perfil .dropdown-item:hover{
   margin-top: 20px;
 }
 
+#preloader, #preloaderCNPJ{
+  margin-top: 25px;
+  display: none;
+}
+
+#preloaderColetor{
+  margin-top: 65px;
+  display: none;
+}

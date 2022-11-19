@@ -44,6 +44,7 @@ document.getElementById('btnSalvarPerfil')
                     //Recuperando valores do formulario da tela meu perfil
                     let nome = document.getElementById('nm_usuario').value;
                     let sobrenome = document.getElementById('sobrenome_usuario').value;
+                    let dt_nascimento = document.getElementById('nascimento').value;
                     let cpf = document.getElementById('documento_principal').value;
                     let estado = document.getElementById('nm_estado').value;
                     let cidade = document.getElementById('nm_cidade').value;
@@ -69,6 +70,7 @@ document.getElementById('btnSalvarPerfil')
                             perfil: storagePerfil,
                             nome: nome,
                             sobrenome: sobrenome,
+                            dt_nascimento: dt_nascimento,
                             cpf: cpf,
                             razaoSocial: razaoSocial,
                             cnpj: cnpj,
