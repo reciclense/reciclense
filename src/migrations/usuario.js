@@ -27,6 +27,10 @@ const tabelaUsuario = db.define('usuario', {
         type: Sequelize.STRING,
         allowNull: true
     },
+    dt_nascimento: {
+        type: Sequelize.DATEONLY,
+        allowNull: true
+    },
     tp_perfil: {
         type: Sequelize.STRING,
         allowNull: true

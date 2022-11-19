@@ -12,7 +12,7 @@ async function recuperarDadosPerfil(req, res) {
 
         await tabelaUsuario.findOne({
 
-            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal', 'tp_perfil', 'cd_endereco', 'cd_cooperativa'],
+            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'dt_nascimento', 'documento_principal', 'tp_perfil', 'cd_endereco', 'cd_cooperativa'],
 
             include: [{
 
@@ -51,7 +51,7 @@ async function recuperarDadosPerfil(req, res) {
 
         await tabelaUsuario.findOne({
 
-            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'documento_principal', 'cd_endereco', 'cd_cooperativa'],
+            attributes: ['email', 'nm_usuario', 'sobrenome_usuario', 'dt_nascimento', 'documento_principal', 'cd_endereco', 'cd_cooperativa'],
 
             include: [{
 

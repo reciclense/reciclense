@@ -87,6 +87,7 @@ fetch('http://localhost:5500/recuperar-dados-perfil/' + storageIdUsuario + '/' +
             document.getElementById("nm_usuario").value = response.usuario.nm_usuario;
             document.getElementById("sobrenome_usuario").value = response.usuario.sobrenome_usuario;
             document.getElementById("email").value = response.usuario.email;
+            document.getElementById("nascimento").value = response.usuario.dt_nascimento;
             document.getElementById("documento_principal").value = response.usuario.documento_principal;
 
 
