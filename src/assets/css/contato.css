@@ -5,11 +5,10 @@
   margin-top: 80px;
 }
 
-div#materiais-reciclaveis .card-body {
+div#contato {
   font-weight: 400;
   font-size: 1rem;
   color: #ffffff;
-  height: 216px;
   text-shadow: 1px 1px 1.5px black;
 }
 
