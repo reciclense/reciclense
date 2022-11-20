@@ -13,7 +13,7 @@ document.getElementById('btnSolicitarColeta')
         //Recuperando classe dos inputs do formulário
         let inputs = document.getElementsByClassName('inputsColeta');
         
-        //Removando o atributo de erro dos inputs
+        //Removendo o atributo de erro dos inputs
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].classList.remove("is-invalid");
         }
