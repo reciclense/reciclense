@@ -47,7 +47,6 @@ function apresentarForca(forcaSenha) {
 
   if (forcaSenha < 30) {
 
-    //document.getElementById('divForcaSenha').innerHTML = "<span style = 'color: #ff0000'>Força da Senha: Fraca</span>";
     document.getElementById('divForcaSenha').innerHTML = "<span class='progress-bar bg-danger' role='progressbar' style='width: 25%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'></span>";
 
   } else if ((forcaSenha >= 30) && (forcaSenha < 50)) {
