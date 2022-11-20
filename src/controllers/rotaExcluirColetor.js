@@ -1,6 +1,6 @@
 const tabelaColetor = require('../migrations/coletor');
 
-async function atualizarColetor(req, res) {
+async function excluirColetor(req, res) {
 
     //Recurepando dados do formulario
     let dados = req.body;
@@ -9,23 +9,20 @@ async function atualizarColetor(req, res) {
     await tabelaColetor.findOne({
 
         where: {
-            documento_principal: dados.cpfAtual
+            documento_principal: dados.cpfColetor
         }
     }).then(async function (usuario) {
 
         if (usuario != null) {
 
             //Atualizando tabela coletor
-            await tabelaColetor.update({
-                nm_coletor: dados.nm_coletor,
-                sobrenome_coletor: dados.sobrenome_coletor
-            },
-                {
+            await tabelaColetor.destroy({
                     where: {
-                        documento_principal: dados.cpfAtual
+                        documento_principal: dados.cpfColetor
                     }
 
                 }).then(function () {
+                    console.log("COLETOR EXCLUIDO COM SUCESSO!")
                     return res.status(200).json({
                         success: true
                     });
@@ -54,4 +51,4 @@ async function atualizarColetor(req, res) {
 
 }
 
-module.exports = atualizarColetor;
+module.exports = excluirColetor;

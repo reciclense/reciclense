@@ -1,5 +1,7 @@
 function consultarCNPJ(cnpj) {
 
+    document.getElementById('preloaderCNPJ').style.display = 'block';
+
     let estado = document.getElementById("nm_estado");
     let cidade = document.getElementById("nm_cidade");
     
@@ -9,10 +11,10 @@ function consultarCNPJ(cnpj) {
     let selectEstados = document.getElementById('nm_estado');
     let selectCidades = document.getElementById('nm_cidade');
 
-    cnpjSemPonto = cnpj.replace('.', '');
-    cnpjSemPonto1 = cnpjSemPonto.replace('.', '');
-    cnpjSemBarra = cnpjSemPonto1.replace('/', '');
-    cnpjFinal = cnpjSemBarra.replace('-', '');
+   let cnpjSemPonto = cnpj.replace('.', '');
+   let cnpjSemPonto1 = cnpjSemPonto.replace('.', '');
+   let cnpjSemBarra = cnpjSemPonto1.replace('/', '');
+   let cnpjFinal = cnpjSemBarra.replace('-', '');
 
     $.ajax({
 
@@ -55,6 +57,7 @@ function consultarCNPJ(cnpj) {
                 optionCidade.innerHTML = data.municipio;
                 cidade.appendChild(optionCidade);
 
+                document.getElementById('preloaderCNPJ').style.display = 'none';
                 
             }
 

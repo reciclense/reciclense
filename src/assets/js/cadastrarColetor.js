@@ -8,7 +8,8 @@ document.getElementById('btnCadastrarColetor')
         let campo = document.getElementById('campo-erro');
         let nome = document.getElementById('nome-coletor');
         let sobrenome = document.getElementById('sobrenome-coletor');
-        let cpf = document.getElementById('cpf-coletor');
+        let dt_nascimento = document.getElementById('nascimento');
+        let cpf = document.getElementById('documento_principal');
 
         // removendo o elemento da tela sempre que tentar submeter o formulário
         erro.classList.add("d-none");
@@ -16,6 +17,7 @@ document.getElementById('btnCadastrarColetor')
 
         //valida o campo nome
         if (nome.value == "") {
+
             erro.classList.remove("d-none");
             campo.innerHTML = "nome" // nome do campo que não foi preenchido!
             nome.focus();
@@ -23,6 +25,7 @@ document.getElementById('btnCadastrarColetor')
 
             //valida o campo sobrenome
         } else if (sobrenome.value == "") {
+
             erro.classList.remove("d-none");
             campo.innerHTML = "sobrenome"
             sobrenome.focus();
@@ -30,11 +33,20 @@ document.getElementById('btnCadastrarColetor')
 
             //valida o campo cpf
         } else if (cpf.value == "") {
+
             erro.classList.remove("d-none");
             campo.innerHTML = "cpf"
             cpf.focus();
             cpf.classList.add("is-invalid");
-        } else {
+       
+        } else if(dt_nascimento.value == ""){
+            
+            erro.classList.remove("d-none");
+            campo.innerHTML = "dt_nascimento"
+            dt_nascimento.focus();
+            dt_nascimento.classList.add("is-invalid");
+
+        }else{
 
             //Configuração da requisição
             const options = {
@@ -44,6 +56,7 @@ document.getElementById('btnCadastrarColetor')
 
                     nm_coletor: nome.value,
                     sobrenome_coletor: sobrenome.value,
+                    dt_nascimento: dt_nascimento.value,
                     documento_principal: cpf.value,
                     id_juridico: storageIdUsuario
                 })

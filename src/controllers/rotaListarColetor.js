@@ -16,7 +16,7 @@ async function listarColetor(req, res) {
 
         //Buscando todos os coletores na base onde a cooperativa é igual a da pessoa juridica
         await tabelaColetor.findAll({
-            attributes: ['nm_coletor', 'sobrenome_coletor', 'documento_principal'],
+            attributes: ['nm_coletor', 'sobrenome_coletor', 'dt_nascimento', 'documento_principal'],
             where: {
                 cd_cooperativa: usuario.cd_cooperativa
             }

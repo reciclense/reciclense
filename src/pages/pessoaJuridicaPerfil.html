@@ -98,18 +98,23 @@
             placeholder="Ex: usuário@gmail.com" disabled />
         </div>
         <div class="col">
+          <label for="inputEmail">Nascimento:</label>
+          <input type="date" id="nascimento" class="form-control inputsPerfil" placeholder="Ex: 2020-10-15" disabled />
+        </div>
+        <div class="col">
           <label for="inputCPF">CPF:</label>
           <input oninput="mascaraCpf(this)" type="text" name="CPF" id="documento_principal"
             class="form-control inputsPerfil" id="formGerenciaUser" aria-describedby="CPF" placeholder="000.000.000-00"
             disabled>
         </div>
+        <div class="spinner-border text-primary" id="preloader" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
-
 
       <h2 class="headingPerfilPessoaFisica2">Dados da Empresa</h2>
 
       <!--Formulário Pessoa Jurídica-->
-
 
       <div class="row">
         <div class="col">
@@ -117,13 +122,15 @@
           <input type="text" name="CNPJ" id="cnpj" onblur="consultarCNPJ(this.value)" oninput="mascaraCnpj(this)"
             class="form-control inputsPerfil" placeholder="Digite o CNPJ da empresa" disabled />
         </div>
+        <div class="spinner-border text-primary"  id="preloaderCNPJ" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
         <div class="col">
           <label for="inputRazaoSocial">Razão Social:</label>
           <input type="text" name="Razão Social" id="razaoSocial" class="form-control inputsPerfil"
             placeholder="Digite a razão social da empresa" disabled />
         </div>
       </div>
-
 
       <!--Titulo 2 da página-->
 
@@ -218,5 +225,6 @@
 <script type="text/JavaScript" src="../assets/js/consultarCEP.js"></script>
 <script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/consultarCNPJ.js"></script>
+<script type="text/JavaScript" src="../assets/js/consultarCPF.js"></script>
 
 </html>

@@ -121,27 +121,34 @@
                                         </div>
                                         <h4 class="headings">Gerenciar Coletor</h4>
                                         <label for="nomeColetor" class="headerInput">Nome:</label>
-                                        <input type="text" class="form-control" id="nomeColetor"
+                                        <input type="text" class="form-control inputsColetor" id="nomeColetor"
                                             placeholder="Coletor teste" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="sobrenomeColetor" class="headerInput">Sobrenome:</label>
-                                        <input type="text" class="form-control" id="sobrenomeColetor"
+                                        <input type="text" class="form-control inputsColetor" id="sobrenomeColetor"
                                             placeholder=" da Silva" required>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="nascimentoColetor" class="headerInput">Data de Nascimento:</label>
+                                        <input type="date" class="form-control" id="nascimentoColetor"
+                                          disabled>
+                                      </div>
+
                                     <div class="form-group">
                                         <label for="cpfColetor" class="headerInput">CPF:</label>
                                         <input oninput="mascaraCpf(this)" type="text" class="form-control"
-                                            id="cpfColetor" placeholder=" 000.000.000-00" required>
+                                            id="cpfColetor" placeholder=" 000.000.000-00" disabled>
                                     </div>
                                     <div>
-                                        <button type="submit"
-                                            class=" btnEditarColetor form-control btn btn-primary i bi-archive">
+                                        <button type="button"
+                                            id="btnEditarColetor" class=" btnEditarColetor form-control btn btn-primary i bi-archive">
                                             Salvar
                                         </button>
 
-                                        <button type="submit"
-                                            class=" btnExcluirColetor form-control btn btn-danger bi bi-trash3">
+                                        <button type="button"
+                                            id="btnExcluirColetor" class=" btnExcluirColetor form-control btn btn-danger bi bi-trash3">
                                             Excluir
                                         </button>
                                     </div>
@@ -181,12 +188,11 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-<<<<<<< HEAD
+<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
 <script type="text/JavaScript" src="../assets/js/listarColetor.js"></script>
 <script type="text/JavaScript" src="../assets/js/editarColetor.js"></script>
-=======
-<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
->>>>>>> 0e012099c75e9fc17aaa71b2bbe38fb86d07c849
+<script type="text/JavaScript" src="../assets/js/excluirColetor.js"></script>
+
 
 </html>

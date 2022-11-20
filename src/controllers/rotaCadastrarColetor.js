@@ -41,6 +41,7 @@ async function cadastrarColetor(req, res) {
             await tabelaColetor.create({
                 nm_coletor: dados.nm_coletor,
                 sobrenome_coletor: dados.sobrenome_coletor,
+                dt_nascimento: dados.dt_nascimento,
                 documento_principal: dados.documento_principal,
                 cd_cooperativa: usuario.cd_cooperativa
             }).then(function (coletor) {

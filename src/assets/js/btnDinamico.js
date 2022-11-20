@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem("contSessaoExpirada", 1);
 
                 //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
-                if (url == "/index.html" || url == "/" || url == '/src/pages/pessoaFisicaPerfil.html' || url == '/src/pages/pessoaJuridicaPerfil.html') {
+                if (url == "/index.html" || url == "/" || url == '/src/pages/gerenciaColetor.html' || url == '/src/pages/pessoaFisicaPerfil.html' 
+                || url == '/src/pages/pessoaJuridicaPerfil.html' || url == '/src/pages/contato.html') {
 
                     button.type = 'button';
                     button.innerHTML = 'Área do usuário';

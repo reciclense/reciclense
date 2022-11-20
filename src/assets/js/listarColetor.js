@@ -14,7 +14,7 @@ fetch('http://localhost:5500/listar-coletor/' + storageIdUsuario, options)
         // Percorrendo o objeto response.dados e atribuindo um array dentro do array dados
         for (let i = 0; i < response.dados.length; i++) {
             dados[i] = [response.dados[i].nm_coletor, response.dados[i].sobrenome_coletor, 
-            response.dados[i].documento_principal]
+            response.dados[i].dt_nascimento, response.dados[i].documento_principal]
 
         }
 
@@ -30,7 +30,7 @@ fetch('http://localhost:5500/listar-coletor/' + storageIdUsuario, options)
         let thead = criarTag("thead");
         let tbody = criarTag("tbody");
 
-        let indicesTabela = ["Nome", "Sobrenome", "CPF", "Ações"];
+        let indicesTabela = ["Nome", "Sobrenome", "Nascimento", "CPF", "Ações"];
         let linhaHead = criarTag("tr");
 
         // Função para criar uma celula Ex <th> + o texto
@@ -69,7 +69,7 @@ fetch('http://localhost:5500/listar-coletor/' + storageIdUsuario, options)
             btnEditar.className = 'btn btn-secondary i bi-pencil-square';
             btnEditar.setAttribute('data-bs-toggle', 'modal');
             btnEditar.setAttribute('data-bs-target', '#formEditaColetor');
-            btnEditar.setAttribute('onclick', "editarColetor(" + "'" + dados[j][0] + "'," + "'" + dados[j][1] + "'," + "'" + dados[j][2] + "'" + ")");
+            btnEditar.setAttribute('onclick', "editarColetor(" + "'" + dados[j][0] + "'," + "'" + dados[j][1] + "'," + "'" + dados[j][2] + "'" + "," + "'" + dados[j][3] + "'" + ")");
 
             //Criando mais uma celula no final da linha e adicionando o botão Editar
             let editar = linhaBody.insertCell();
