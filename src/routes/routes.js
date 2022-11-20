@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 /*Importação de middlewars*/
-const { eAdmin } = require('/FICR/reciclense/middlewares/auth');
+const { eAdmin } = require('../../middlewares/auth');
 
 /*Importação das funções executadas em cada rota*/
 const validarLogin = require('../controllers/rotaValidarLogin');
@@ -22,6 +22,7 @@ const consultarCEP = require('../controllers/rotaConsultarCEP');
 const recuperarNomeEstado = require('../controllers/rotaRecuperarNomeEstado');
 const cadastrarColeta = require('../controllers/rotaCadastrarColeta');
 const consultarCPF = require('../controllers/rotaConsultarCPF');
+const recuperarSenha = require('../controllers/rotaRecuperarSenha');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -73,5 +74,8 @@ router.post('/cadastrar-coleta', cadastrarColeta);
 
 /*Rota que chamar a função consultarCPF*/
 router.post('/consultar-cpf', consultarCPF);
+
+/*Rota que chamar a função recuperarSenha*/
+router.post('/recuperar-senha', recuperarSenha);
 
 module.exports = router;

@@ -127,3 +127,8 @@ div#perfil .dropdown-item:hover{
   margin-top: 65px;
   display: none;
 }
+
+#preloaderRecuperarSenha{
+  margin-top: 165px;
+  display: none;
+}

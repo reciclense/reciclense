@@ -1,5 +1,5 @@
 document.getElementById('documento_principal')
-    .addEventListener('focusout', function consultarCPF() {
+    .addEventListener('focusout', function () {
 
         var url = window.location.pathname;
 
