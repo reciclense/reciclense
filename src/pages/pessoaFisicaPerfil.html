@@ -107,6 +107,9 @@
           <input oninput="mascaraCpf(this)" type="text" id="documento_principal" class="form-control inputsPerfil"
             id="formGerenciaUser" aria-describedby="CPF" placeholder="000.000.000-00" disabled>
         </div>
+        <div class="spinner-border text-primary" id="preloader" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
 
 
@@ -115,12 +118,14 @@
       <h2 class="headingPerfilPessoaFisica2">Endereço</h2>
 
       <!--Formulário de Endereco-->
-
       <div class="row">
         <div class="col">
           <label for="inputCEP">CEP:</label>
           <input type="text" oninput="mascaraCEP(this)" name="CEP" id="cep" class="form-control inputsPerfil"
             placeholder="50000000" disabled />
+        </div>
+        <div class="spinner-border text-primary" id="preloaderCEP" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
         <div class="col">
           <label for="inputRua">Rua:</label>
@@ -204,7 +209,6 @@
 <script type="text/JavaScript" src="../assets/js/recuperarEstados.js"></script>
 <script type="text/JavaScript" src="../assets/js/consultarCEP.js"></script>
 <script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
-<script type="text/JavaScript" src="../assets/js/consultarCNPJ.js"></script>
 <script type="text/JavaScript" src="../assets/js/consultarCPF.js"></script>
 
 </html>

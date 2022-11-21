@@ -1,6 +1,8 @@
 document.getElementById('cep')
     .addEventListener('focusout', function () {
 
+        document.getElementById('preloaderCEP').style.display = 'block';
+
         let cep = document.getElementById('cep').value;
 
         let estado = document.getElementById("nm_estado");
@@ -21,7 +23,9 @@ document.getElementById('cep')
             .then(response => response.json())
             .then(response => {
 
-                if (response.endereco.status != 404) {
+                if (response.success) {
+
+                    document.getElementById('preloaderCEP').style.display = 'none';
 
                     selectEstados.length = 0;
                     selectCidades.length = 0;
@@ -37,6 +41,7 @@ document.getElementById('cep')
                     cidade.appendChild(optionCidade);
 
                 }else{
+                    document.getElementById('preloaderCEP').style.display = 'none';
                     Swal.fire('CEP não encontrado!', 'Favor informar um cep válido', 'error');
                 }
 

@@ -1,0 +1,3 @@
+module.exports = {
+    acessoToken: "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A"
+}

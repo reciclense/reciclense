@@ -3,16 +3,19 @@ document.getElementById('documento_principal')
 
         var url = window.location.pathname;
 
-        if(url == '/src/pages/pessoaJuridicaPrincipal.html'){
+        if (url == '/src/pages/pessoaJuridicaPrincipal.html') {
             document.getElementById('preloaderColetor').style.display = 'block';
-        }else{
+        } else {
             document.getElementById('preloader').style.display = 'block';
         }
 
         let inputs = document.getElementsByClassName('inputsPerfil');
 
         for (let i = 0; i < inputs.length; i++) {
-            inputs[i].setAttribute('disabled', '');
+            if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento' || inputs[i].id == 'email'
+                || inputs[i].id == 'documento_principal'){
+                    inputs[i].setAttribute('disabled', '');
+                }
         }
 
         let nascimento = document.getElementById('nascimento').value;
@@ -23,9 +26,6 @@ document.getElementById('documento_principal')
         cpfSemPonto = cpfCompleto.replace('.', '');
         cnpfSemPonto1 = cpfSemPonto.replace('.', '');
         cpf = cnpfSemPonto1.replace('-', '');
-
-        console.log('CPF: ' + cpf);
-        console.log('NASCIMENTO: ' + nascimento);
 
         const options = {
             method: 'POST',
@@ -40,20 +40,20 @@ document.getElementById('documento_principal')
 
         fetch('http://localhost:5500/consultar-cpf', options)
             .then(response => response.json())
-            .then(response => {
+            .then(async response => {
 
                 if (response.code == 608) {
 
                     for (let i = 0; i < inputs.length; i++) {
-                        if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento'
-                            || inputs[i].id == 'documento_principal' || inputs[i].id == 'cnpj' || inputs[i].id =='nome-coletor' || inputs[i].id == 'sobrenome-coletor') {
+                        if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento' || inputs[i].id == 'btnCadastrarColetor'
+                            || inputs[i].id == 'documento_principal' || inputs[i].id == 'cnpj' || inputs[i].id == 'nome-coletor' || inputs[i].id == 'sobrenome-coletor') {
                             inputs[i].removeAttribute('disabled', '');
                         }
                     }
 
-                    if(url == '/src/pages/pessoaJuridicaPrincipal.html'){
+                    if (url == '/src/pages/pessoaJuridicaPrincipal.html') {
                         document.getElementById('preloaderColetor').style.display = 'none';
-                    }else{
+                    } else {
                         document.getElementById('preloader').style.display = 'none';
                     }
 
@@ -65,19 +65,19 @@ document.getElementById('documento_principal')
                 } else if (!response.success) {
 
                     for (let i = 0; i < inputs.length; i++) {
-                        if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento'
-                            || inputs[i].id == 'documento_principal' || inputs[i].id == 'cnpj' || inputs[i].id =='nome-coletor' || inputs[i].id == 'sobrenome-coletor') {
+                        if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento' || inputs[i].id == 'btnCadastrarColetor'
+                            || inputs[i].id == 'documento_principal' || inputs[i].id == 'cnpj' || inputs[i].id == 'nome-coletor' || inputs[i].id == 'sobrenome-coletor') {
                             inputs[i].removeAttribute('disabled', '');
                         }
                     }
 
-                    if(url == '/src/pages/pessoaJuridicaPrincipal.html'){
+                    if (url == '/src/pages/pessoaJuridicaPrincipal.html') {
                         document.getElementById('preloaderColetor').style.display = 'none';
-                    }else{
+                    } else {
                         document.getElementById('preloader').style.display = 'none';
                     }
 
-                    Swal.fire('CPF inexistente!', 'Favor informar um CPF válido', 'error');
+                    await Swal.fire('CPF inexistente!', 'Favor informar um CPF válido', 'error');
 
                     document.getElementById('nascimento').value = '';
                     document.getElementById('documento_principal').value = '';
@@ -85,15 +85,15 @@ document.getElementById('documento_principal')
                 } else {
 
                     for (let i = 0; i < inputs.length; i++) {
-                        if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento'
-                            || inputs[i].id == 'documento_principal' || inputs[i].id == 'cnpj' || inputs[i].id =='nome-coletor' || inputs[i].id == 'sobrenome-coletor') {
+                        if (inputs[i].id == 'nm_usuario' || inputs[i].id == 'sobrenome_usuario' || inputs[i].id == 'nascimento' || inputs[i].id == 'btnCadastrarColetor'
+                            || inputs[i].id == 'documento_principal' || inputs[i].id == 'cnpj' || inputs[i].id == 'nome-coletor' || inputs[i].id == 'sobrenome-coletor') {
                             inputs[i].removeAttribute('disabled', '');
                         }
                     }
 
-                    if(url == '/src/pages/pessoaJuridicaPrincipal.html'){
+                    if (url == '/src/pages/pessoaJuridicaPrincipal.html') {
                         document.getElementById('preloaderColetor').style.display = 'none';
-                    }else{
+                    } else {
                         document.getElementById('preloader').style.display = 'none';
                     }
 
