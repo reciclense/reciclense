@@ -13,7 +13,7 @@ fetch('http://localhost:5500/listar-coletor/' + storageIdUsuario, options)
 
         // Percorrendo o objeto response.dados e atribuindo um array dentro do array dados
         for (let i = 0; i < response.dados.length; i++) {
-            dados[i] = [response.dados[i].nm_coletor, response.dados[i].sobrenome_coletor, 
+            dados[i] = [response.dados[i].nm_coletor, response.dados[i].sobrenome_coletor,
             response.dados[i].dt_nascimento, response.dados[i].documento_principal]
 
         }
@@ -82,3 +82,40 @@ fetch('http://localhost:5500/listar-coletor/' + storageIdUsuario, options)
         tabela.appendChild(tbody);
 
     }).catch(err => console.error(err));
+
+// Pesquisa dinâmica
+document.getElementById("iptPesquisarColetor").addEventListener("keyup", function () {
+
+    let tbody = document.querySelector('tbody')
+    let busca = document.getElementById("iptPesquisarColetor").value.toLowerCase();
+    console.log(busca);
+
+    // Percorrendo as do body para encontrar um valor
+    for (let i = 0; i < tbody.childNodes.length; i++) {
+
+        let achou = false;
+        let tr = tbody.childNodes[i];
+        let td = tr.childNodes;
+
+        // Percorrendo as colunas do body para encontrar um valor
+        for (let j = 0; j < 3; j++) {
+            let value = td[j].childNodes[0].nodeValue.toLowerCase();
+            console.log(td.length)
+            console.log(td)
+
+            if (value.indexOf(busca) >= 0) {
+                achou = true;
+            }
+        }
+
+        // Se encontrar, adicionar a classe "table-row" para exibir as linhas da pesquisa
+        if (achou) {
+            tr.style.display = "table-row";
+        }
+        // Se não encontrar, adicionar a classe "none" para esconder as linhas
+        else {
+            tr.style.display = "none";
+        }
+    }
+
+});
