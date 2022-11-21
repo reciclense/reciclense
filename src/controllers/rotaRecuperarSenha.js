@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 const SMTP_CONFIG = require('../config/smtp');
+const JWT_CONFIG = require('../config/jwtSecret');
+const jwt = require('jsonwebtoken');
 const tabelaUsuario = require('../migrations/usuario');
 
 async function recuperarSenha(req, res) {
@@ -9,12 +11,30 @@ async function recuperarSenha(req, res) {
     // Verificando se email ja existe na tabela de Usuários
     await tabelaUsuario.findOne({
 
-        attributes: ['nm_usuario'],
+        attributes: ['cd_usuario', 'nm_usuario', 'senha'],
         where: {
             email: dados.email
         }
 
     }).then(async function (usuario) {
+
+        //Criando jwt unico para cada usuario
+        const secret = JWT_CONFIG.acessoToken + usuario.senha;
+
+        //Criando payload para gerar o token
+        const payload = {
+            email: dados.email,
+            id: usuario.cd_usuario
+        }
+
+        //Gerando token valido por 15 min
+        const token = jwt.sign(payload, secret, {
+            expiresIn: '5m'
+        });
+
+        //Gerando link para enviar por email
+        const link = `http://localhost:5500/src/pages/redefinirSenha.html?usuario=` + usuario.cd_usuario + `&token=` + token
+        console.log(link);
 
         //Criando e conectando transportador de email com o gmail 
         const transporter = nodemailer.createTransport({
@@ -31,11 +51,12 @@ async function recuperarSenha(req, res) {
             },
         });
 
-        const emailEnviado = await transporter.sendMail({
+        //Enviando email
+        await transporter.sendMail({
             from: 'Suporte Reciclense <testereciclense@gmail.com>',
             subject: 'RECUPERAR SENHA - RECICLENSE',
             to: dados.email,
-            text: 'Olá ' + usuario.nm_usuario + '. Você fez um pedido de recuperação de senha? Para poder recuperar a sua senha, por favor clique no link: http://localhost:5500/src/pages/redefinirSenha.html',
+            text: 'Olá ' + usuario.nm_usuario + '. Você fez um pedido de recuperação de senha? Para poder recuperar a sua senha, por favor clique no link: ' + link,
             html: `
         <div style="margin-left:30%;margin-right:20px;margin-top:24px">
             <tbody>
@@ -53,7 +74,7 @@ async function recuperarSenha(req, res) {
                             <p>Para poder recuperar a sua senha, por favor clique no botão abaixo.</p>
                             <p style="margin-top:0;margin-bottom:0;font-size:16px;line-height:24px">&nbsp;&nbsp;</p>
                             <p style="margin-top:0;margin-bottom:0;font-size:16px;line-height:24px">&nbsp;</p>
-                            <p style="margin-top:0px;margin-bottom:0px;font-size:16px;line-height:24px;text-align:center"><span style="font-weight:400"><a style="border-radius:4px;display:inline-block;font-weight:bold;text-align:center;text-decoration:none!important;color:#fff;background-color:#d30a12;font-family:'PT Sans','Trebuchet MS',sans-serif;font-size:12px;line-height:24px;padding:12px 35px" href="http://localhost:5500/src/pages/redefinirSenha.html" target="_blank" data-saferedirecturl="http://localhost:5500/src/pages/redefinirSenha.html">RECUPERAR SENHA</a>&nbsp;</span></p>
+                            <p style="margin-top:0px;margin-bottom:0px;font-size:16px;line-height:24px;text-align:center"><span style="font-weight:400"><a style="border-radius:4px;display:inline-block;font-weight:bold;text-align:center;text-decoration:none!important;color:#fff;background-color:#d30a12;font-family:'PT Sans','Trebuchet MS',sans-serif;font-size:12px;line-height:24px;padding:12px 35px" href=`+ link +` target="_blank" data-saferedirecturl=`+ link +`>RECUPERAR SENHA</a>&nbsp;</span></p>
                             <p style="margin-top:0;margin-bottom:0;font-size:16px;line-height:24px">&nbsp;</p>
                         </div>
                     </td>
@@ -71,8 +92,6 @@ async function recuperarSenha(req, res) {
                 message: error.message
             })
         })
-
-        console.log('EMAIL ENVIADO: ' + emailEnviado);
 
     }).catch(function (error) {
         return res.status(400).json({

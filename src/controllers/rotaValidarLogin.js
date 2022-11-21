@@ -1,7 +1,7 @@
 /*Configurações*/
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const acessoToken = "D587SCF4712TESC930WYZS4G52UMLOP51ZA56611A";
+const JWT_CONFIG = require('../config/jwtSecret');
 
 /*Importação das tabelas*/
 const tabelaUsuario = require('../migrations/usuario');
@@ -28,7 +28,7 @@ const tabelaUsuario = require('../migrations/usuario');
 
         if (await bcrypt.compare(dados.senha, usuario.senha)) {
 
-            let token = jwt.sign({ id: usuario.cd_usuario }, acessoToken, {
+            let token = jwt.sign({ id: usuario.cd_usuario }, JWT_CONFIG.acessoToken, {
                 expiresIn: 1800 //30min
             });
 
