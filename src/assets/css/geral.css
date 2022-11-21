@@ -128,6 +128,11 @@ div#perfil .dropdown-item:hover{
   display: none;
 }
 
+#preloaderCEP{
+  margin-top: 26px;
+  display: none;
+}
+
 #preloaderRecuperarSenha{
   margin-top: 165px;
   display: none;

@@ -23,6 +23,7 @@ const recuperarNomeEstado = require('../controllers/rotaRecuperarNomeEstado');
 const cadastrarColeta = require('../controllers/rotaCadastrarColeta');
 const consultarCPF = require('../controllers/rotaConsultarCPF');
 const recuperarSenha = require('../controllers/rotaRecuperarSenha');
+const redefinirSenha = require('../controllers/rotaRedefinirSenha');
 const listarColetor = require('../controllers/rotaListarColetor');
 const atualizarColetor = require('../controllers/rotaAtualizarColetor');
 const excluirColetor = require('../controllers/rotaExcluirColetor');
@@ -80,6 +81,9 @@ router.post('/consultar-cpf', consultarCPF);
 
 /*Rota que chamar a função recuperarSenha*/
 router.post('/recuperar-senha', recuperarSenha);
+
+/*Rota que chamar a função redefinirSenha*/
+router.put('/redefinir-senha', redefinirSenha);
 
 /*Rota que chamar a função listarColetor*/
 router.get('/listar-coletor/:id', listarColetor);
