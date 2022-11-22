@@ -60,17 +60,17 @@
                     data-bs-target="#formCadastrarColetor">
                 </div>
                 <!-- Perfil -->
-        <div class="dropdown" id="perfil">
-            <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
-                alt="Black and White Portrait of a Man" loading="lazy" />
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="pessoaJuridicaPerfil.html">Meu Perfil</a></li>
-              <li><a class="dropdown-item" id ="btnLogout">Sair</a></li>
-            </ul>
-          </div>
+                <div class="dropdown" id="perfil">
+                    <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#"
+                        id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
+                            alt="Black and White Portrait of a Man" loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="pessoaJuridicaPerfil.html">Meu Perfil</a></li>
+                        <li><a class="dropdown-item" id="btnLogout">Sair</a></li>
+                    </ul>
+                </div>
         </nav>
     </div>
 
@@ -82,13 +82,14 @@
                         <h1 class="headings">Gerencia Coletor</h1>
                     </div>
                     <div class="col-md-12">
+                        <label class="headerInput">Pesquisar coletor:</label>
+                    </div>
+                    <div class="col-md-12">
                         <!-- Pesquisa -->
                         <form id="formGerenciaColetor" class="form-inline d-flex">
-                            <div class=" teste form-group col-sm-6 col-md-6 col-lg-12">
-                                <label class="headerInput">Pesquisar coletor:</label>
-                                <input type="search" class="form-control mr-sm-2" id="iptPesquisarColetor" aria-label="Search"
-                                    placeholder="Ex: João da Silva ou 777.222.333.444">
-                            </div>
+                            <input type="search" class="form-control mr-sm-2 ipt-pesquisa" id="iptPesquisarColetor"
+                                aria-label="Search" placeholder="Ex: João da Silva ou 777.222.333.444">
+                            <i class="my-2 my-sm-0 btn-pesquisa d-flex align-items-center bi bi-search"></i>
                             <!-- <div id="divGerenciaColetor" class="col-sm-6 col-md-6 form-group col-lg-6">
                                 <button type="submit" id="btnPesquisarColetor" class="btn btn-primary bi bi-search"
                                     onclick="buscaColetor()"> Pesquisar</button>
