@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let selectEstados = document.getElementById('nm_estado');
-    const storageIdUsuario = localStorage.getItem("id_usuario");
+    // const storageIdUsuario = localStorage.getItem("id_usuario");
 
     const options = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     };
 
-    fetch('http://localhost:5500/recuperar-estados/' + storageIdUsuario, options)
+    fetch('http://localhost:5500/recuperar-estados', options)
         .then(response => response.json())
         .then(response => {
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 selectEstados.length = 0;
 
                 let optionPadrao = document.createElement('option');
-                optionPadrao.innerHTML = 'Selecione seu estado';
+                optionPadrao.innerHTML = 'Todos os estados';
                 selectEstados.appendChild(optionPadrao);
 
                 response.estados.forEach(element => {

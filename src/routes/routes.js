@@ -27,6 +27,7 @@ const redefinirSenha = require('../controllers/rotaRedefinirSenha');
 const listarColetor = require('../controllers/rotaListarColetor');
 const atualizarColetor = require('../controllers/rotaAtualizarColetor');
 const excluirColetor = require('../controllers/rotaExcluirColetor');
+const recuperarBairros = require('../controllers/rotaRecuperarBairros');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -62,7 +63,7 @@ router.delete('/excluir-usuario', excluirUsuario);
 router.get('/validar-dados-perfil/:id/:perfil', verificarDadosPerfil);
 
 /*Rota que chamar a função recuperarEstados*/
-router.get('/recuperar-estados/:id', recuperarEstados);
+router.get('/recuperar-estados', recuperarEstados);
 
 /*Rota que chamar a função recuperarCidades*/
 router.get('/recuperar-cidades/:uf', recuperarCidades);
@@ -93,5 +94,8 @@ router.put('/atualizar-coletor', atualizarColetor);
 
 /*Rota que chamar a função excluirColetor*/
 router.delete('/excluir-coletor', excluirColetor);
+
+/*Rota que chamar a função recuperarBairros*/
+router.get('/recuperar-bairros', recuperarBairros);
 
 module.exports = router;

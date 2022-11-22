@@ -307,119 +307,120 @@
         </div>
       </div>
     </div>
+  </div>
+  
+  <!-- Modal Cadastro -->
+  <div id="cadastro">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
 
-    <!-- Modal Cadastro -->
-    <div id="cadastro">
-      <div class="col-md-6">
-        <!-- Modal -->
-        <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
+              <!--Formulário de cadastro-->
+              <form>
+                <div class="modal-footer">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-group">
+                  <h4 class=" headings">Cadastre-se</h4>
+                  <label for="cadEmail" class="headerInput">Email</label>
+                  <input type="email" class="form-control" name="cadEmail" id="cadEmail" aria-describedby="emailHelp"
+                    placeholder="Informe seu email..." required>
+                </div>
+                <div class="form-group">
+                  <label for="cadSenha" class="headerInput">Senha</label>
+                  <input type="password" class="form-control" name="cadSenha" id="cadSenha"
+                    placeholder="Informe sua senha..." required>
+                  <div id="divForcaSenha" class="progress"></div>
+                  <label class="headerInput">Tipo de Usuário</label>
+                </div>
 
-                <!--Formulário de cadastro-->
-                <form>
-                  <div class="modal-footer">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="form-group">
-                    <h4 class=" headings">Cadastre-se</h4>
-                    <label for="cadEmail" class="headerInput">Email</label>
-                    <input type="email" class="form-control" name="cadEmail" id="cadEmail" aria-describedby="emailHelp"
-                      placeholder="Informe seu email..." required>
-                  </div>
-                  <div class="form-group">
-                    <label for="cadSenha" class="headerInput">Senha</label>
-                    <input type="password" class="form-control" name="cadSenha" id="cadSenha"
-                      placeholder="Informe sua senha..." required>
-                    <div id="divForcaSenha" class="progress"></div>
-                    <label class="headerInput">Tipo de Usuário</label>
-                  </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cadTipo" id="cadFisica" value="fisica" checked>
-                    <label class="form-check-label" for="cadFisica">
-                      Pessoa Fisíca
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cadTipo" id="cadJuridica" value="juridica">
-                    <label class="form-check-label" for="cadJuridica">
-                      Pessoa Jurídica
-                    </label>
-                  </div>
-                  <div>
-                    <button type="button" id="btnCriarConta" class=" btnCriarConta  form-control btn btn-primary">Criar
-                      Conta</button><br>
-                    <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin"
-                        data-bs-toggle="modal" data-bs-target="#formLogin">Fazer Login</button></p>
-                  </div>
-                  <div class="campo-erro alert alert-danger d-none">
-                    Preencha o campo <span id="campo-erro"></span>!
-                  </div>
-                </form>
-              </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="cadTipo" id="cadFisica" value="fisica" checked>
+                  <label class="form-check-label" for="cadFisica">
+                    Pessoa Fisíca
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="cadTipo" id="cadJuridica" value="juridica">
+                  <label class="form-check-label" for="cadJuridica">
+                    Pessoa Jurídica
+                  </label>
+                </div>
+                <div>
+                  <button type="button" id="btnCriarConta" class=" btnCriarConta  form-control btn btn-primary">Criar
+                    Conta</button><br>
+                  <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin" data-bs-toggle="modal"
+                      data-bs-target="#formLogin">Fazer Login</button></p>
+                </div>
+                <div class="campo-erro alert alert-danger d-none">
+                  Preencha o campo <span id="campo-erro"></span>!
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Modal Recuperar Senha -->
-    <div id="recuperarSenha">
-      <div class="col-md-6">
-        <!-- Modal -->
-        <div class="modal fade" id="formRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="formRecuperarSenha"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
+  <!-- Modal Recuperar Senha -->
+  <div id="recuperarSenha">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="formRecuperarSenha"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
 
-                <!--Formulário Enviar Email Para Recuperar Senha-->
-                <form>
-                  <div class="modal-footer">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="form-group">
-                        <h4 class=" headings">Recuperar Senha</h4>
-                        <label for="cadEmail" class="headerInput">Email</label>
-                        <input type="email" class="form-control" name="cadEmail" id="recuperarSenhaEmail"
-                          aria-describedby="emailHelp" placeholder="Informe seu email..." required>
-                      </div>
-                    </div>
-                    <div class="spinner-border text-primary" id="preloaderRecuperarSenha" role="status">
-                      <span class="visually-hidden">Loading...</span>
+              <!--Formulário Enviar Email Para Recuperar Senha-->
+              <form>
+                <div class="modal-footer">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <h4 class=" headings">Recuperar Senha</h4>
+                      <label for="cadEmail" class="headerInput">Email</label>
+                      <input type="email" class="form-control" name="cadEmail" id="recuperarSenhaEmail"
+                        aria-describedby="emailHelp" placeholder="Informe seu email..." required>
                     </div>
                   </div>
-                  <div>
-                    <button type="button" id="btnRecuperarSenha"
-                      class=" btnCriarConta  form-control btn btn-primary">Enviar email</button><br>
-                    <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin"
-                        data-bs-toggle="modal" data-bs-target="#formLogin">Fazer Login</button></p>
+                  <div class="spinner-border text-primary" id="preloaderRecuperarSenha" role="status">
+                    <span class="visually-hidden">Loading...</span>
                   </div>
-                  <div class="campo-erro alert alert-danger d-none">
-                    Preencha o campo <span id="campo-erro"></span>!
-                  </div>
-                </form>
-              </div>
+                </div>
+                <div>
+                  <button type="button" id="btnRecuperarSenha"
+                    class=" btnCriarConta  form-control btn btn-primary">Enviar email</button><br>
+                  <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin" data-bs-toggle="modal"
+                      data-bs-target="#formLogin">Fazer Login</button></p>
+                </div>
+                <div class="campo-erro alert alert-danger d-none">
+                  Preencha o campo <span id="campo-erro"></span>!
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
-    <!-- Rodapé -->
-    <footer class="rodape">
+  <!-- Rodapé -->
+  <footer class="rodape">
 
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
-        <a href="/"> reciclense.com.br</a>
-      </div>
-    </footer>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+      <a href="/"> reciclense.com.br</a>
+    </div>
+  </footer>
 </body>
 
 <!-- Optional JavaScript -->

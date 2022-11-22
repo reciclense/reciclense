@@ -72,16 +72,11 @@
             <li><a class="dropdown-item" id="btnLogout">Sair</a></li>
           </ul>
         </div>
-
-
       </div>
+    </nav>
   </div>
 
-
-  </nav>
-  </div>
   <main>
-
     <!-- Barra de Pesquisa -->
     <div id="pesquisar">
       <div class="container">
@@ -95,30 +90,23 @@
                 placeholder="Pesquise aqui" aria-label="Search">
                   <i class="my-2 my-sm-0 btn-pesquisa d-flex align-items-center bi bi-search"></i>
             </form>
-
           </div>
 
-
-          <table id="tbl-pesquisa" class="table tbl-pesquisa">
-
-          </table>
+          <table id="tbl-pesquisa" class="table tbl-pesquisa"></table>
 
           <div class="col-md-12 d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-relatorio" id="btn-relatorio">Gerar Relatório</button>
+            <button type="button" class="btn btn-primary btn-relatorio" data-bs-toggle="modal"
+              data-bs-target="#formGerarRelatorio" id="btn-relatorio">Gerar Relatório</button>
             <a role="button" class="btn btn-primary btn-buscar" id="btn-buscar"
               href="/src/pages/gerenciaColetor.html">Buscar
               Coletor</a>
           </div>
         </div>
-
       </div>
-
     </div>
-
   </main>
 
   <!-- Modal Cadastrar Coletor -->
-
   <div id="cadastrarColetor">
     <div class="col-md-6">
       <!-- Modal -->
@@ -164,8 +152,8 @@
                   <div class="col">
                     <div class="form-group">
                       <label for="exampleInputDocumentoColetor" class="headerInput inputsPerfil">CPF:</label>
-                      <input oninput="mascaraCpf(this)" type="text" class="form-control inputsPerfil" id="documento_principal"
-                        placeholder=" 000.000.000-00" required>
+                      <input oninput="mascaraCpf(this)" type="text" class="form-control inputsPerfil"
+                        id="documento_principal" placeholder=" 000.000.000-00" required>
                     </div>
                   </div>
                   <div class="spinner-border text-primary" id="preloaderColetor" role="status">
@@ -186,18 +174,113 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal Gerar Relatório -->
+  <div id="gerarRelatorio">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formGerarRelatorio" tabindex="-1" role="dialog" aria-labelledby="formGerarRelatorio"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <!--Formulário de Cadastro de coletor-->
+              <form id="form-coletor" class="needs-validation" novalidate>
+                <div class="form-group">
+                  <div class="modal-footer">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h3 class="headings">Gerar Relatório</h3>
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleInputNomeColetor" class="headerInput">Data Início:</label>
+                      <input type="date" class="form-control inputsPerfil" id="dataInicioRelatorio"
+                        placeholder=" da Silva" required>
+                    </div>
+                    <div class="col">
+                      <label for="exampleInputNomeColetor" class="headerInput">Data Fim:</label>
+                      <input type="date" class="form-control inputsPerfil" id="dataFimRelatorio" placeholder=" da Silva"
+                        required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Estado:</label>
+                        <select class="form-control" id="nm_estado">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Cidade:</label>
+                        <select class="form-control" id="nm_cidade">
+                          <option value="" selected>Todas as cidades</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Bairro:</label>
+                        <select class="form-control" id="selectBairroRelatorio">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Material</label>
+                        <select class="form-control">
+                          <option>Todos os materiais</option>
+                          <option>Plástico</option>
+                          <option>Vidro</option>
+                          <option>Metal</option>
+                          <option>Papel</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Turno:</label>
+                        <select class="form-control">
+                          <option>Todos os turnos</option>
+                          <option>Manha</option>
+                          <option>Tarde</option>
+                        </select>
+                      </div>
+                      <div class="spinner-border text-primary" id="preloaderColetor" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <button type="button" id="btnGerarRelatorio"
+                          class="btnCadastrarColetor form-control inputsPerfil btn btn-primary">Gerar
+                          Relatório</button>
+                      </div>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Rodapé -->
   <footer class="rodape">
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
       <a href="/"> reciclense.com.br</a>
     </div>
   </footer>
-
-
 </body>
 
 <!-- Optional JavaScript -->
@@ -217,5 +300,8 @@
 <script type="text/JavaScript" src="../assets/js/cadastrarColetor.js"></script>
 <script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/consultarCPF.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarEstados.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarCidades.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarBairros.js"></script>
 
 </html>
