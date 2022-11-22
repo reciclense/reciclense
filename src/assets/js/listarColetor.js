@@ -98,7 +98,7 @@ document.getElementById("iptPesquisarColetor").addEventListener("keyup", functio
         let td = tr.childNodes;
 
         // Percorrendo as colunas do body para encontrar um valor
-        for (let j = 0; j < 3; j++) {
+        for (let j = 0; j < 4; j++) {
             let value = td[j].childNodes[0].nodeValue.toLowerCase();
             console.log(td.length)
             console.log(td)
