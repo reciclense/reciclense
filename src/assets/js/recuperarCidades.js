@@ -4,8 +4,6 @@ document.getElementById('nm_estado')
         let selectCidades = document.getElementById('nm_cidade');
         let UF = document.getElementById('nm_estado').value;
 
-
-
         const options = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
@@ -24,7 +22,7 @@ document.getElementById('nm_estado')
                 setTimeout(() => {
 
                     selectCidades.length = 0;
-                    optionPadrao.innerHTML = 'Selecione sua cidade';
+                    optionPadrao.innerHTML = 'Todas as cidades';
                     selectCidades.appendChild(optionPadrao);
 
                     response.cidades.forEach(element => {
