@@ -20,10 +20,35 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
                 list += `<div id="no-coletas">Nenhuma coleta disponível</div>`;
             } else {
                 coletas.forEach((coletas, index) => {
+                    //Variável que definirá a cor do background do titlo de acordo com o tipo de material
+                    let cardCor;
+
+                    //Verificand o tipo de material e atribuindo o estilo a variável
+                    switch(coletas.material.nm_material){
+                        case 'Metal': 
+                        cardCor = 'style="background-color:#e4bb0e;"'
+                        break;
+
+                        case 'Plastico': 
+                        cardCor = 'style="background-color:#e13513;"'
+                        break;
+
+                        case 'Vidro': 
+                        cardCor = 'style="background-color:#2d6b11;"'
+                        break;
+
+                        case 'Plastico': 
+                        cardCor = 'style="background-color:#0070bb;"'
+                        break;
+
+                        default:
+                            console.log("Nenhum material identificado")
+                    }
+
                     list += `
             <div class="col">
                 <div class="cardMinhasSolicitacoes card""> 
-                            <div class="card-header d-flex align-items-center justify-content-center">
+                            <div class="card-header d-flex align-items-center justify-content-center" ${cardCor}>
                                 <h5 class="card-title">${coletas.material.nm_material}</h5>
                             </div>
                             <div class="card-body">
