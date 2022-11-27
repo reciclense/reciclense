@@ -124,9 +124,9 @@
                   <label for="material-coleta" class="headerInput">Tipo de Material:</label>
                   <select class="form-control inputsColeta" id="material-coleta">
                     <option value="1">Plástico</option>
-                    <option value="2">Papel</option>
-                    <option value="3">Vidro</option>
-                    <option value="4">Metal</option>
+                    <option value="2">Metal</option>
+                    <option value="3">Papel</option>
+                    <option value="4">Vidro</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -135,6 +135,53 @@
                 </div>
                 <div>
                   <button type="button" id="btnSolicitarColeta" class=" btnSolicitarColeta form-control btn btn-primary">Solicitar</button><br>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Editar Coleta -->
+  <div id="editarColeta">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formEditarColeta" tabindex="-1" role="dialog" aria-labelledby="formSolicitarColeta"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <!--Formulário de Editar coleta-->
+              <form>
+                <div class="form-group">
+                  <div class="modal-footer">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h4 class="headings">Editar Coleta</h4>
+                  <label for="data-coleta" class="headerInput">Data:</label>
+                  <input type="date" class="form-control inputsEditarColeta" id="data-editar-coleta" required>
+                </div>
+                <div class="form-group">
+                  <label for="horario-coleta" class="headerInput">Horário:</label>
+                  <input type="time" class="form-control inputsEditarColeta" id="horario-editar-coleta" required>
+                </div>
+                <div class="form-group">
+                  <label for="material-coleta" class="headerInput">Tipo de Material:</label>
+                  <select class="form-control inputsEditarColeta" id="material-editar-coleta">
+                    <option value="1">Plástico</option>
+                    <option value="2">Metal</option>
+                    <option value="3">Papel</option>
+                    <option value="4">Vidro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="obs-coleta" class="headerInput">Observações:</label>
+                  <textarea class="form-control inputsEditarColeta" id="obs-editar-coleta"></textarea>
+                </div>
+                <div>
+                  <button type="button" id="btnEditarColeta" class="btnEditarColeta form-control btn btn-primary">Salvar</button><br>
                 </div>
               </form>
             </div>
@@ -170,5 +217,6 @@
 <script type="text/JavaScript" src="../assets/js/cadastrarColeta.js"></script>
 <script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/listarMinhasColetas.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarMinhaColeta.js"></script>
 
 </html>

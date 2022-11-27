@@ -7,9 +7,9 @@ const tabelaEstado = require('../migrations/estado');
 const tabelaMaterial = require('../migrations/material');
 
 /*Função para listar minhas coletas*/
-async function listarMinhasColetas(req, res) {
+async function recuperarMinhaColeta(req, res) {
 
-    await tabelaColeta.findAll({
+    await tabelaColeta.findOne({
         attributes: ['cd_coleta', 'data', 'horario', 'observacao', 'cd_material'],
         include: [
             {
@@ -18,7 +18,7 @@ async function listarMinhasColetas(req, res) {
             }
         ],
         where: {
-            cd_usuario: req.params.id
+            cd_coleta: req.params.id
         }
     }).then(function (coletas) {
         return res.status(200).json({
@@ -34,4 +34,4 @@ async function listarMinhasColetas(req, res) {
 
 }
 
-module.exports = listarMinhasColetas;
+module.exports = recuperarMinhaColeta;

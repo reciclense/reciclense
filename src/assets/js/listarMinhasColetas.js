@@ -24,22 +24,22 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
                     let cardCor;
 
                     //Verificand o tipo de material e atribuindo o estilo a variável
-                    switch(coletas.material.nm_material){
-                        case 'Metal': 
-                        cardCor = 'style="background-color:#e4bb0e;"'
-                        break;
+                    switch (coletas.material.nm_material) {
+                        case 'Metal':
+                            cardCor = '#e4bb0e'
+                            break;
 
-                        case 'Plastico': 
-                        cardCor = 'style="background-color:#e13513;"'
-                        break;
+                        case 'Plastico':
+                            cardCor = '#e13513'
+                            break;
 
-                        case 'Vidro': 
-                        cardCor = 'style="background-color:#2d6b11;"'
-                        break;
+                        case 'Vidro':
+                            cardCor = '#2d6b11'
+                            break;
 
-                        case 'Plastico': 
-                        cardCor = 'style="background-color:#0070bb;"'
-                        break;
+                        case 'Papel':
+                            cardCor = '#0070bb'
+                            break;
 
                         default:
                             console.log("Nenhum material identificado")
@@ -48,7 +48,7 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
                     list += `
             <div class="col">
                 <div class="cardMinhasSolicitacoes card""> 
-                            <div class="card-header d-flex align-items-center justify-content-center" ${cardCor}>
+                            <div class="card-header d-flex align-items-center justify-content-center" style="background-color:${cardCor};">
                                 <h5 class="card-title">${coletas.material.nm_material}</h5>
                             </div>
                             <div class="card-body">
@@ -56,7 +56,7 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
                                 <label><b>Horário:</b> ${coletas.horario} a.m</label><br><br>
                                 <label><b>Observações:</b> ${coletas.observacao}</label><br><br>
                                 <p class="card-text">Este é um exemplo de solicitação de coleta</p>
-                                <a href="#" class="btn btn-sencondary">Editar</a>
+                                <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#formEditarColeta" onclick="recuperarMinhaColeta(${coletas.cd_coleta}, '${coletas.data}', '${coletas.horario}', '${coletas.cd_material}','${coletas.observacao}')">Editar</a>
                                 <a href="#" class="btnExcluir btn btn-danger">Excluir</a>
                             </div>
                         </div>
@@ -65,10 +65,15 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
             }
 
             listContainer.innerHTML = list;
+            
 
         }
 
+        
+
         listarMinhasColetas(coletas);
+
+      
 
     })
     .catch(err => console.error(err));
