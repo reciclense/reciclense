@@ -138,6 +138,11 @@ div#perfil .dropdown-item:hover{
   display: none;
 }
 
+#preloaderRelatorio{
+  margin-top: 65px;
+  display: none;
+}
+
 .btn-pesquisa {
   border-radius: 0px 10px 10px 0px;
   border-left: none;

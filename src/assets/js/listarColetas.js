@@ -11,8 +11,8 @@ fetch('http://localhost:5500/listar-coletas', options)
         // Percorrendo o objeto response.dados e atribuindo um array dentro do array dados
         for (let i = 0; i < response.dados.length; i++) {
             dados[i] = [response.dados[i].material.nm_material, response.dados[i].usuario.endereco.nm_logradouro, response.dados[i].usuario.endereco.numero, response.dados[i].usuario.endereco.nm_bairro,
-            response.dados[i].usuario.endereco.cidade.nm_cidade, response.dados[i].usuario.endereco.cidade.estado.sigla_uf,
-            response.dados[i].usuario.endereco.nm_complemento, response.dados[i].data, response.dados[i].horario,
+            response.dados[i].usuario.endereco.cidade.nm_cidade, response.dados[i].usuario.endereco.cidade.estado.nm_estado,
+            response.dados[i].usuario.endereco.nm_complemento, response.dados[i].data.split('-').reverse().join('/'), response.dados[i].horario,
             response.dados[i].usuario.nm_usuario, response.dados[i].observacao]
 
         }

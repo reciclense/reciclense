@@ -1,7 +1,7 @@
 const tabelaUsuario = require("../migrations/usuario");
 
 async function validarDadosPerfil(req, res) {
-console.log('Entrou na rota');
+
     await tabelaUsuario.findOne({
         attributes: ['cd_endereco', 'cd_cooperativa'],
         where: {
