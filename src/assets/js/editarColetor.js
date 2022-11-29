@@ -59,6 +59,8 @@ document.getElementById('btnEditarColetor').addEventListener('click', async func
             })
         };
 
+       
+
         fetch('http://localhost:5500/atualizar-coletor', options)
             .then(response => response.json())
             .then(async response => {

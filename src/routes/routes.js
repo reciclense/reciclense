@@ -30,6 +30,9 @@ const excluirColetor = require('../controllers/rotaExcluirColetor');
 const recuperarBairros = require('../controllers/rotaRecuperarBairros');
 const gerarRelatorio = require('../controllers/rotaGerarRelatorio');
 const baixarRelatorio = require('../controllers/rotaBaixarRelatorio');
+const listarMinhasColetas = require('../controllers/rotaListarMinhasColetas');
+const atualizarColeta = require('../controllers/rotaAtualizarColeta');
+const excluirColeta = require('../controllers/rotaExcluirColeta');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -99,11 +102,5 @@ router.delete('/excluir-coletor', excluirColetor);
 
 /*Rota que chamar a função recuperarBairros*/
 router.get('/recuperar-bairros', recuperarBairros);
-
-/*Rota que chamar a função gerarRelatorio*/
-router.post('/gerar-relatorio', gerarRelatorio);
-
-// /*Rota que chamar a função baixarRelatorio*/
-router.get('/baixar-relatorio', baixarRelatorio);
 
 module.exports = router;
