@@ -109,4 +109,13 @@ router.post('/gerar-relatorio', gerarRelatorio);
 // /*Rota que chamar a função baixarRelatorio*/
 router.get('/baixar-relatorio', baixarRelatorio);
 
+/*Rota que chamar a função editarColetas*/
+router.put ('/atualizar-coleta' , atualizarColeta ) ;
+
+/*Rota que chamar a função listarMinhasColetas */
+router.get ('/ listar-minhas-coletas/:id ' , listarMinhasColetas ) ;
+
+/*Rota que chamar a função excluirColeta*/
+router.delete ('/excluir-coleta' ,  excluirColeta ) ;
+
 module.exports = router;
