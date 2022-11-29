@@ -103,4 +103,10 @@ router.delete('/excluir-coletor', excluirColetor);
 /*Rota que chamar a função recuperarBairros*/
 router.get('/recuperar-bairros', recuperarBairros);
 
+/*Rota que chamar a função gerarRelatorio*/
+router.post('/gerar-relatorio', gerarRelatorio);
+
+// /*Rota que chamar a função baixarRelatorio*/
+router.get('/baixar-relatorio', baixarRelatorio);
+
 module.exports = router;
