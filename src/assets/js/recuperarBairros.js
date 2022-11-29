@@ -12,9 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(response => {
 
-            // for (let i = 0; i < response.dados.length; i++) {
-            //     console.log('BAIRRO: ' + response.dados[i].usuario.endereco.nm_bairro);
-            // }
             if (response.success) {
 
                 selectBairros.length = 0;
@@ -23,22 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 optionPadrao.innerHTML = 'Todos os bairros';
                 selectBairros.appendChild(optionPadrao);
 
-                response.dados.forEach(element => {
+                response.bairros.forEach(element => {
 
-                    for (let i = 0; i < selectBairros.length; i++) {
-
-                        if (element.usuario.endereco.nm_bairro != selectBairros[i].innerHTML) {
-
-                            let optionBairros = document.createElement('option');
-                            optionBairros.innerHTML = element.usuario.endereco.nm_bairro;
-                            selectBairros.appendChild(optionBairros);
-                        }
-
-                    }
-
+                    let optionBairros = document.createElement('option');
+                    optionBairros.innerHTML = element.nm_bairro;
+                    selectBairros.appendChild(optionBairros);
                 });
             }
-
         })
         .catch(err => console.error(err));
 });

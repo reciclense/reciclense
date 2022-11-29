@@ -29,7 +29,7 @@ async function listarColetas(req, res) {
                         attributes: ['nm_cidade'],
                         include: {
                             model: tabelaEstado,
-                            attributes: ['sigla_uf']
+                            attributes: ['nm_estado']
                         }
                     }
                 }

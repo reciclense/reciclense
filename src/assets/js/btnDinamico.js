@@ -105,7 +105,7 @@ document.getElementById('btnLogout')
     });
 
 //Sessão expirada
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('click', function () {
 
     const storageToken = localStorage.getItem("token");
 

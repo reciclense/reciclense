@@ -1,42 +1,29 @@
 /*Importação das tabelas*/
-const tabelaUsuario = require('../migrations/usuario');
-const tabelaColeta = require('../migrations/coleta');
-const tabelaEndereco = require('../migrations/endereco');
-const tabelaMaterial = require('../migrations/material');
+
+const sequelize = require('../migrations/db');
 
 /*Função para listar coletas*/
 async function recuperarBairros(req, res) {
 
-    await tabelaColeta.findAll({
+    const [results] = await sequelize.query(
 
-        include: [
+        `SELECT DISTINCT(e.nm_bairro)
+         FROM coleta c INNER JOIN usuario u on c.cd_usuario = u.cd_usuario
+         INNER JOIN endereco e on u.cd_endereco = e.cd_endereco`
 
-            {
-                model: tabelaMaterial,
+    );
 
-            },
-
-            {
-                model: tabelaUsuario,
-
-                include: {
-                    model: tabelaEndereco,
-                    attributes: ['nm_bairro'],
-                }
-            }
-        ]
-    }).then(function (coletas) {
+    if (results != null) {
         return res.status(200).json({
             success: true,
-            dados: coletas
+            bairros: results
         });
-    }).catch(function (erro) {
+    } else {
         return res.status(400).json({
             success: false,
             messagem: erro.message
         });
-    });
-
+    }
 }
 
 module.exports = recuperarBairros;
