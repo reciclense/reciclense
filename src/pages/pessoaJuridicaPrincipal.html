@@ -88,7 +88,7 @@
             <form class="form-inline d-flex form-pesquisa">
               <input id="ipt-pesquisa" class="form-control mr-sm-2 ipt-pesquisa" type="search"
                 placeholder="Pesquise aqui" aria-label="Search">
-                  <i class="my-2 my-sm-0 btn-pesquisa d-flex align-items-center bi bi-search"></i>
+              <i class="my-2 my-sm-0 btn-pesquisa d-flex align-items-center bi bi-search"></i>
             </form>
           </div>
 
@@ -273,6 +273,18 @@
       </div>
     </div>
   </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
   <!-- Rodapé -->
   <footer class="rodape">

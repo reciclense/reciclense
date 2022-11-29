@@ -79,7 +79,7 @@
     </div>
 
     <!--Card Minhas solicitações-->
-    <div class="cardMinhasSolicitacoes card" style="width: 18rem;">
+    <!--<div class="cardMinhasSolicitacoes card" style="width: 18rem;">
       <div class="card-header d-flex align-items-center justify-content-center">
         <h5 class="card-title">Metal</h5>
       </div>
@@ -87,11 +87,14 @@
         <label><b>Data:</b> 05/10/2022</label><br><br>
         <label><b>Horário:</b> 11:00 a.m</label><br><br>
         <label><b>Observações:</b> </label><br><br>
-        <p class="card-text">Este é um exemplo de solicitção de coleta</p>
+        <p class="card-text">Este é um exemplo de solicitação de coleta</p>
         <a href="#" class="btn btn-sencondary">Editar</a>
         <a href="#" class="btnExcluir btn btn-danger">Excluir</a>
       </div>
-    </div>
+    </div>-->
+
+    <div id="list" class="row row-cols-1 row-cols-md-4 g-4"></div>
+
   </main>
 
   <!-- Modal Solicitar Coleta -->
@@ -121,9 +124,9 @@
                   <label for="material-coleta" class="headerInput">Tipo de Material:</label>
                   <select class="form-control inputsColeta" id="material-coleta">
                     <option value="1">Plástico</option>
-                    <option value="2">Papel</option>
-                    <option value="3">Vidro</option>
-                    <option value="4">Metal</option>
+                    <option value="2">Metal</option>
+                    <option value="3">Papel</option>
+                    <option value="4">Vidro</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -141,6 +144,66 @@
     </div>
   </div>
 
+  <!-- Modal Editar Coleta -->
+  <div id="editarColeta">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formEditarColeta" tabindex="-1" role="dialog" aria-labelledby="formSolicitarColeta"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <!--Formulário de Editar coleta-->
+              <form>
+                <div class="form-group">
+                  <div class="modal-footer">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h4 class="headings">Editar Coleta</h4>
+                  <label for="data-coleta" class="headerInput">Data:</label>
+                  <input type="date" class="form-control inputsEditarColeta" id="dataEditarColeta" required>
+                </div>
+                <div class="form-group">
+                  <label for="horario-coleta" class="headerInput">Horário:</label>
+                  <input type="time" class="form-control inputsEditarColeta" id="horarioEditarColeta" required>
+                </div>
+                <div class="form-group">
+                  <label for="material-coleta" class="headerInput">Tipo de Material:</label>
+                  <select class="form-control inputsEditarColeta" id="materialEditarColeta">
+                    <option value="1">Plástico</option>
+                    <option value="2">Metal</option>
+                    <option value="3">Papel</option>
+                    <option value="4">Vidro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="obs-coleta" class="headerInput">Observações:</label>
+                  <textarea class="form-control inputsEditarColeta" id="obsEditarColeta"></textarea>
+                </div>
+                <div>
+                  <button type="button" id="btnEditarColeta" class="btnEditarColeta form-control btn btn-primary">Salvar</button><br>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  
   <!-- Rodapé -->
   <footer class="rodape">
 
@@ -166,5 +229,8 @@
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
 <script type="text/JavaScript" src="../assets/js/cadastrarColeta.js"></script>
 <script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/listarMinhasColetas.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarMinhaColeta.js"></script>
+<script type="text/JavaScript" src="../assets/js/excluirColeta.js"></script>
 
 </html>
