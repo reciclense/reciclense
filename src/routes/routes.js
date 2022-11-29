@@ -29,7 +29,8 @@ const atualizarColetor = require('../controllers/rotaAtualizarColetor');
 const excluirColetor = require('../controllers/rotaExcluirColetor');
 const recuperarBairros = require('../controllers/rotaRecuperarBairros');
 const listarMinhasColetas = require('../controllers/rotaListarMinhasColetas');
-const recuperarMinhaColeta = require('../controllers/rotaRecuperarMinhaColeta');
+const atualizarColeta = require('../controllers/rotaAtualizarColeta');
+const excluirColeta = require('../controllers/rotaExcluirColeta');
 
 /*Rota que chamar a função validarLogin*/
 router.post('/valida-login', validarLogin);
@@ -104,6 +105,9 @@ router.get('/recuperar-bairros', recuperarBairros);
 router.get('/listar-minhas-coletas/:id', listarMinhasColetas);
 
 /*Rota que chamar a função editarColetas*/
-router.get('/recuperar-minha-coleta/:id', recuperarMinhaColeta);
+router.put('/atualizar-coleta', atualizarColeta);
+
+/*Rota que chamar a função excluirColeta*/
+router.delete('/excluir-coleta', excluirColeta);
 
 module.exports = router;

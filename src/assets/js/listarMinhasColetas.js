@@ -44,6 +44,13 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
                         default:
                             console.log("Nenhum material identificado")
                     }
+                    
+                    let tempoHora = "a.m";
+
+                    //Verificando se o horário é a tarde, se sim irá trocar para p.m
+                    if (parseInt(coletas.horario) >= 12) {
+                        tempoHora = "p.m";
+                    }
 
                     list += `
             <div class="col">
@@ -52,12 +59,11 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
                                 <h5 class="card-title">${coletas.material.nm_material}</h5>
                             </div>
                             <div class="card-body">
-                                <label><b>Data:</b> ${coletas.data}</label><br><br>
-                                <label><b>Horário:</b> ${coletas.horario} a.m</label><br><br>
+                                <label><b>Data:</b> ${coletas.data.split('-').reverse().join('/')}</label><br><br>
+                                <label><b>Horário:</b> ${coletas.horario} ${tempoHora}</label><br><br>
                                 <label><b>Observações:</b> ${coletas.observacao}</label><br><br>
-                                <p class="card-text">Este é um exemplo de solicitação de coleta</p>
                                 <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#formEditarColeta" onclick="recuperarMinhaColeta(${coletas.cd_coleta}, '${coletas.data}', '${coletas.horario}', '${coletas.cd_material}','${coletas.observacao}')">Editar</a>
-                                <a href="#" class="btnExcluir btn btn-danger">Excluir</a>
+                                <a href="#" class="btnExcluir btn btn-danger" onclick="excluirColeta(${coletas.cd_coleta})">Excluir</a>
                             </div>
                         </div>
                 </div>`;
@@ -77,3 +83,9 @@ fetch('http://localhost:5500/listar-minhas-coletas/' + storageIdUsuario, options
 
     })
     .catch(err => console.error(err));
+
+    function formatarData(data) {
+        data.split('-').reserve().join('/');
+        return data
+        
+    }

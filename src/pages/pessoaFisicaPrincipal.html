@@ -161,15 +161,15 @@
                   </div>
                   <h4 class="headings">Editar Coleta</h4>
                   <label for="data-coleta" class="headerInput">Data:</label>
-                  <input type="date" class="form-control inputsEditarColeta" id="data-editar-coleta" required>
+                  <input type="date" class="form-control inputsEditarColeta" id="dataEditarColeta" required>
                 </div>
                 <div class="form-group">
                   <label for="horario-coleta" class="headerInput">Horário:</label>
-                  <input type="time" class="form-control inputsEditarColeta" id="horario-editar-coleta" required>
+                  <input type="time" class="form-control inputsEditarColeta" id="horarioEditarColeta" required>
                 </div>
                 <div class="form-group">
                   <label for="material-coleta" class="headerInput">Tipo de Material:</label>
-                  <select class="form-control inputsEditarColeta" id="material-editar-coleta">
+                  <select class="form-control inputsEditarColeta" id="materialEditarColeta">
                     <option value="1">Plástico</option>
                     <option value="2">Metal</option>
                     <option value="3">Papel</option>
@@ -178,7 +178,7 @@
                 </div>
                 <div class="form-group">
                   <label for="obs-coleta" class="headerInput">Observações:</label>
-                  <textarea class="form-control inputsEditarColeta" id="obs-editar-coleta"></textarea>
+                  <textarea class="form-control inputsEditarColeta" id="obsEditarColeta"></textarea>
                 </div>
                 <div>
                   <button type="button" id="btnEditarColeta" class="btnEditarColeta form-control btn btn-primary">Salvar</button><br>
@@ -191,6 +191,19 @@
     </div>
   </div>
 
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  
   <!-- Rodapé -->
   <footer class="rodape">
 
@@ -218,5 +231,6 @@
 <script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
 <script type="text/JavaScript" src="../assets/js/listarMinhasColetas.js"></script>
 <script type="text/JavaScript" src="../assets/js/recuperarMinhaColeta.js"></script>
+<script type="text/JavaScript" src="../assets/js/excluirColeta.js"></script>
 
 </html>
