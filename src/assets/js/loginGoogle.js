@@ -78,8 +78,6 @@ function handleCredentialResponse(response) {
           denyButtonText: 'Cancelar'
         }).then(async (result) => {
 
-          console.log("RESULTADO: " + result);
-
           //Caso o usuario clique em escolher chama o metodo novamente
           if (result.isConfirmed) {
 

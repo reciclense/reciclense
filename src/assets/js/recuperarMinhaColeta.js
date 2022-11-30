@@ -4,19 +4,16 @@ var materialColeta = document.getElementById('materialEditarColeta');
 var observacaoColeta = document.getElementById('obsEditarColeta');
 var btnEditarColeta = document.getElementById('btnEditarColeta');
 
-
 function recuperarMinhaColeta(cd_coleta, data, horario, cd_material, observacao) {
 
     dataColeta.value = data;
     horarioColeta.value = horario;
     materialColeta.value = cd_material;
     observacaoColeta.value = observacao;
-    console.log(dataColeta.value)
 
     //Adicionando atributo onclick com a função editarColeta no botão de Salvar
     btnEditarColeta.setAttribute('onclick', 'editarColeta('+ cd_coleta + ')')
     
-
 }
 
 function editarColeta(cd_coleta) {

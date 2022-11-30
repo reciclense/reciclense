@@ -29,15 +29,11 @@ async function atualizarDadosPerfil(req, res) {
             //Caso encontre o usuario entra
         }).then(async function (usuario) {
 
-            console.log("USUARIO: ENCONTROU O USUARIO");
-
             //Caso o cd_endereco ou cd_cooperativa não seja nulo significa que o perfil ja foi atualizado antes e entra no if
             if (usuario.cd_endereco != null || usuario.cd_cooperativa != null) {
 
                 //Caso seja perfil pessoa fisíca atualiza o endereco e o usuário
                 if (dados.perfil == 'fisica') {
-
-                    console.log("USUARIO FISICA: ATUALIZANDO ENDEREÇO");
 
                     //Atualizando tabela endereco
                     await tabelaEndereco.update({
@@ -94,8 +90,7 @@ async function atualizarDadosPerfil(req, res) {
                         });
                     //Caso seja pessoa juridica atualiza o endereco da cooperativa e depois atualiza o usuario
                 } else {
-                    console.log("USUARIO JURIDICA: BUSCANDO COOPERATIVA...");
-                    console.log("USUARIO JURIDICA: CNPJ: " + dados.cnpj);
+
                     //Busca cooperativa na base
                     await tabelaCooperativa.findOne({
                         where: {
@@ -103,7 +98,6 @@ async function atualizarDadosPerfil(req, res) {
                         }
                         //Caso ache a cooperativa atualiza o endereco
                     }).then(async function (cooperativa) {
-                        console.log("USUARIO JURIDICA: ATUALIZANDO ENDERECO COOPERATIVA...");
 
                         //Atualizando tabela endereco
                         await tabelaEndereco.update({
@@ -123,7 +117,6 @@ async function atualizarDadosPerfil(req, res) {
                                 //Caso consiga atualizar o endereco atualiza o usuario
                             }).then(async function () {
 
-                                console.log("USUARIO JURIDICA: ATUALIZANDO USUARIO ...");
                                 //Atualizando o usuario
                                 await tabelaUsuario.update({
 
@@ -139,13 +132,13 @@ async function atualizarDadosPerfil(req, res) {
                                         }
                                         //Caso consiga atualizar o usuario retorna success = true
                                     }).then(function () {
-                                        console.log("USUARIO JURIDICA: USUARIO ATUALIZADO ...");
+
                                         return res.status(200).json({
                                             success: true
                                         });
                                         //Caso nao consiga atualizar o usuario retorna success = false
                                     }).catch(function (error) {
-                                        console.log("USUARIO JURIDICA: ERRO ...");
+
                                         return res.status(400).json({
                                             success: false,
                                             perfil: dados.perfil,
@@ -154,7 +147,7 @@ async function atualizarDadosPerfil(req, res) {
                                     });
 
                             }).catch(function (error) {
-                                console.log("USUARIO JURIDICA: NAO CONSEGUIU ATUALIZAR O ENDEREÇO DA COOPERATIVA PELA 2° VEZ ...");
+
                                 return res.status(400).json({
                                     success: false,
                                     perfil: dados.perfil,

@@ -23,7 +23,6 @@ async function excluirColeta(req, res) {
                     }
 
                 }).then(function () {
-                    console.log("COLETA EXCLUIDA COM SUCESSO")
                     return res.status(200).json({
                         success: true
                     });

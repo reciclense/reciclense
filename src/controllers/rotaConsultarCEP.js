@@ -11,13 +11,6 @@ async function consultarCEP(req, res) {
 
     }).then(async function (endereco) {
 
-        console.log('ENDERECO - CEP: ' + endereco.cep);
-        console.log('ENDERECO - TIPO: ' + endereco.address_type);
-        console.log('ENDERECO - RUA: ' + endereco.address_name);
-        console.log('ENDERECO - RUA COMPLETA: ' + endereco.address);
-        console.log('ENDERECO - ESTADO: ' + endereco.state);
-        console.log('ENDERECO - BAIRRO: ' + endereco.district);
-
         if (endereco.state == undefined) {
 
             return res.status(400).json({

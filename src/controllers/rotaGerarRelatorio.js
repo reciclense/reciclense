@@ -130,8 +130,6 @@ async function gerarRelatorio(req, res) {
 
                 if (results != null) {
 
-                    console.log('ENTROU NO RESULTS');
-
                     /*Passando dados para a página ejs*/
                     ejs.renderFile('src/ejs/templatePDF.ejs', {
 
@@ -147,7 +145,6 @@ async function gerarRelatorio(req, res) {
                                 message: err.message
                             })
                         } else {
-                            console.log('GERANDO PDF');
 
                             /*Gerando relatório em pdf. Padrão seguido para geração do nome do arquivo: 'COLETAS_DDMMYYY_HHMMSS'*/
                             pdf.create(html, options).toFile('src/relatorios/COLETAS_' + dataFinal + '_' + hora + min + sec + '.pdf', function (error, response) {
@@ -1129,8 +1126,6 @@ async function gerarRelatorio(req, res) {
 
                 if (results != null) {
 
-                    console.log('ENTROU NO RESULTS');
-
                     /*Passando dados para a página ejs*/
                     ejs.renderFile('src/ejs/templatePDF.ejs', {
 
@@ -1146,7 +1141,6 @@ async function gerarRelatorio(req, res) {
                                 message: err.message
                             })
                         } else {
-                            console.log('GERANDO PDF');
 
                             /*Gerando relatório em pdf. Padrão seguido para geração do nome do arquivo: 'COLETAS_DDMMYYY_HHMMSS'*/
                             pdf.create(html, options).toFile('src/relatorios/COLETAS_' + dataFinal + '_' + hora + min + sec + '.pdf', function (error, response) {

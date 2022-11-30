@@ -82,8 +82,6 @@ document.getElementById("ipt-pesquisa").addEventListener("keyup", function () {
         // Percorrendo as colunas do body para encontrar um valor
         for (let j = 0; j < td.length; j++) {
             let value = td[j].childNodes[0].nodeValue.toLowerCase();
-            console.log(td.length)
-            console.log(value)
 
             if (value.indexOf(busca) >= 0) {
                 achou = true;

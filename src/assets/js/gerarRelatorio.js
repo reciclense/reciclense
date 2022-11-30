@@ -9,7 +9,6 @@ document.getElementById('btnGerarRelatorio')
         let cidade = document.getElementById('nm_cidade').value;
         let bairro = document.getElementById('selectBairroRelatorio').value;
         let material = document.getElementById('selectMaterialRelatorio').value;
-        // let turno = document.getElementById('selectTurnoRelatorio').value;
 
         const options = {
             method: 'POST',
@@ -22,7 +21,6 @@ document.getElementById('btnGerarRelatorio')
                 cidade: cidade,
                 bairro: bairro,
                 material: material
-                // turno: turno
 
             })
         };

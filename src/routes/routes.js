@@ -113,7 +113,7 @@ router.get('/baixar-relatorio', baixarRelatorio);
 router.put ('/atualizar-coleta' , atualizarColeta ) ;
 
 /*Rota que chamar a função listarMinhasColetas */
-router.get ('/ listar-minhas-coletas/:id ' , listarMinhasColetas ) ;
+router.get ('/listar-minhas-coletas/:id' , listarMinhasColetas ) ;
 
 /*Rota que chamar a função excluirColeta*/
 router.delete ('/excluir-coleta' ,  excluirColeta ) ;

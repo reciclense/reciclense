@@ -1,12 +1,11 @@
+var nomeColetor = document.getElementById('nomeColetor');
+var sobrenomeColetor = document.getElementById('sobrenomeColetor');
+var nascimentoColetor = document.getElementById('nascimentoColetor');
+var cpfColetor = document.getElementById('cpfColetor');
+
 function editarColetor(nome, sobrenome, nascimento, cpf) {
 
     cpfAtual = cpf;
-
-    var nomeColetor = document.getElementById('nomeColetor');
-    var sobrenomeColetor = document.getElementById('sobrenomeColetor');
-    var nascimentoColetor = document.getElementById('nascimentoColetor');
-    var cpfColetor = document.getElementById('cpfColetor');
-
 
     nomeColetor.value = nome;
     sobrenomeColetor.value = sobrenome;
@@ -58,8 +57,6 @@ document.getElementById('btnEditarColetor').addEventListener('click', async func
 
             })
         };
-
-       
 
         fetch('http://localhost:5500/atualizar-coletor', options)
             .then(response => response.json())

@@ -18,8 +18,6 @@ fetch('http://localhost:5500/listar-coletor/' + storageIdUsuario, options)
 
         }
 
-        console.log(dados);
-
         // Função para criar uma Tag Ex: <tr>, <td>
         function criarTag(elemento) {
             return document.createElement(elemento);
@@ -88,7 +86,6 @@ document.getElementById("iptPesquisarColetor").addEventListener("keyup", functio
 
     let tbody = document.querySelector('tbody')
     let busca = document.getElementById("iptPesquisarColetor").value.toLowerCase();
-    console.log(busca);
 
     // Percorrendo as do body para encontrar um valor
     for (let i = 0; i < tbody.childNodes.length; i++) {
@@ -100,8 +97,6 @@ document.getElementById("iptPesquisarColetor").addEventListener("keyup", functio
         // Percorrendo as colunas do body para encontrar um valor
         for (let j = 0; j < 4; j++) {
             let value = td[j].childNodes[0].nodeValue.toLowerCase();
-            console.log(td.length)
-            console.log(td)
 
             if (value.indexOf(busca) >= 0) {
                 achou = true;

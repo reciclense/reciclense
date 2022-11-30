@@ -22,7 +22,6 @@ async function excluirColetor(req, res) {
                     }
 
                 }).then(function () {
-                    console.log("COLETOR EXCLUIDO COM SUCESSO!")
                     return res.status(200).json({
                         success: true
                     });

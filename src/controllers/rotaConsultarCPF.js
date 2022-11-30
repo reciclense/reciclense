@@ -44,17 +44,7 @@ async function consultarCPF(req, res) {
                 code: response.code,
                 code_messagem: response.code_messagem
             });
-
         }
-
-        console.log('NOME: ' + response.dados.nome);
-        console.log('NASCIMENTO: ' + response.dados.data_nascimento);
-        console.log('NASCIMENTO: ' + response.dados.data_inscricao);
-        console.log('CPF: ' + response.dados.cpf);
-        console.log('SITUACAO CADASTRAL: ' + response.dados.situacao_cadastral);
-        
-        console.log(`Cabeçalho da consulta: ${response.header}`);
-        console.log(`URLs com comprovantes (HTML/PDF): ${response.site_receipts}`);
     }
 }
 
