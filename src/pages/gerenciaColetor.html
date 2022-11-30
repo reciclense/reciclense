@@ -60,66 +60,49 @@
                     data-bs-target="#formCadastrarColetor">
                 </div>
                 <!-- Perfil -->
-        <div class="dropdown" id="perfil">
-            <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
-                alt="Black and White Portrait of a Man" loading="lazy" />
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="pessoaJuridicaPerfil.html">Meu Perfil</a></li>
-              <li><a class="dropdown-item" href="#">Sair</a></li>
-            </ul>
-          </div>
+                <div class="dropdown" id="perfil">
+                    <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#"
+                        id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
+                            alt="Black and White Portrait of a Man" loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="pessoaJuridicaPerfil.html">Meu Perfil</a></li>
+                        <li><a class="dropdown-item" id="btnLogout">Sair</a></li>
+                    </ul>
+                </div>
         </nav>
     </div>
 
     <main>
-        <div id="pesquisarColetor col-sm-6 col-md-6 col-lg-12">
-            <div class="pesquisarColetor col-sm-6 col-md-6 col-lg-12">
-                <h1 class="headings">Gerencia Coletor</h1>
-                <!-- Formulário -->
-                <form id="formGerenciaColetor" class="col-sm-6 col-md-6 col-lg-6 d-flex">
-                    <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
-                        <label class="headerInput">Nome:</label>
-                        <input type="text" class="form-control" id="formGerenciaColetor" aria-describedby="Nome"
-                            placeholder="Coletor teste">
+        <div id="pesquisarColetor">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="headings">Gerencia Coletor</h1>
                     </div>
-                    <div class=" teste form-group col-sm-6 col-md-6 col-lg-6">
-                        <label class="headerInput">CPF:</label>
-                        <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaColetor"
-                            aria-describedby="CPF" placeholder="000.000.000-00">
+                    <div class="col-md-12">
+                        <label class="headerInput">Pesquisar coletor:</label>
                     </div>
-                    <div id="divGerenciaColetor" class="col-sm-6 col-md-6 form-group col-lg-6">
-                        <button type="submit" id="btnPesquisarColetor" class="btn btn-primary bi bi-search"
-                            onclick="buscaColetor()"> Pesquisar</button>
+                    <div class="col-md-12">
+                        <!-- Pesquisa -->
+                        <form id="formGerenciaColetor" class="form-inline d-flex">
+                            <input type="search" class="form-control mr-sm-2 ipt-pesquisa" id="iptPesquisarColetor"
+                                aria-label="Search" placeholder="Ex: João da Silva ou 777.222.333.444">
+                            <i class="my-2 my-sm-0 btn-pesquisa d-flex align-items-center bi bi-search"></i>
+                            <!-- <div id="divGerenciaColetor" class="col-sm-6 col-md-6 form-group col-lg-6">
+                                <button type="submit" id="btnPesquisarColetor" class="btn btn-primary bi bi-search"
+                                    onclick="buscaColetor()"> Pesquisar</button>
+                            </div> -->
+                        </form>
                     </div>
-                </form>
+                    <!-- Tabela -->
+                    <table id="tableGerenciaUsuario" class=" table tableGerenciaUsuario">
+                    </table>
+                </div>
             </div>
-
-
-            <table class=" table tableGerenciaUsuario">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Sobrenome</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Coletor</td>
-                        <td scope="row">Teste</td>
-                        <td scope="row">30131033026</td>
-                        <td scope="row">
-                            <button class="btn btn-secondary i bi-pencil-square" data-bs-toggle="modal"
-                                data-bs-target="#formEditaColetor"> Editar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
+
         <!-- Modal Gerencia Coletor -->
         <div id="editaColetor">
             <div class="col-md-6">
@@ -137,27 +120,33 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <h4 class="headings">Gerenciar Coletor</h4>
-                                        <label for="exampleInputNomeColetor" class="headerInput">Nome:</label>
-                                        <input type="text" class="form-control" id="exampleInputData"
+                                        <label for="nomeColetor" class="headerInput">Nome:</label>
+                                        <input type="text" class="form-control inputsColetor" id="nomeColetor"
                                             placeholder="Coletor teste" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputSobrenomeColetor" class="headerInput">Sobrenome:</label>
-                                        <input type="text" class="form-control" id="exampleInputHorario"
+                                        <label for="sobrenomeColetor" class="headerInput">Sobrenome:</label>
+                                        <input type="text" class="form-control inputsColetor" id="sobrenomeColetor"
                                             placeholder=" da Silva" required>
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="exampleInputDocumentoColetor" class="headerInput">CPF:</label>
+                                        <label for="nascimentoColetor" class="headerInput">Data de Nascimento:</label>
+                                        <input type="date" class="form-control" id="nascimentoColetor" disabled>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cpfColetor" class="headerInput">CPF:</label>
                                         <input oninput="mascaraCpf(this)" type="text" class="form-control"
-                                            id="exampleInputHorario" placeholder=" 000.000.000-00" required>
+                                            id="cpfColetor" placeholder=" 000.000.000-00" disabled>
                                     </div>
                                     <div>
-                                        <button type="submit"
+                                        <button type="button" id="btnEditarColetor"
                                             class=" btnEditarColetor form-control btn btn-primary i bi-archive">
                                             Salvar
                                         </button>
 
-                                        <button type="submit"
+                                        <button type="button" id="btnExcluirColetor"
                                             class=" btnExcluirColetor form-control btn btn-danger bi bi-trash3">
                                             Excluir
                                         </button>
@@ -171,6 +160,18 @@
         </div>
 
     </main>
+    
+    <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
     <!-- Rodapé -->
     <footer class="page-footer font-small blue">
@@ -198,6 +199,11 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
 <script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/listarColetor.js"></script>
+<script type="text/JavaScript" src="../assets/js/editarColetor.js"></script>
+<script type="text/JavaScript" src="../assets/js/excluirColetor.js"></script>
+
 
 </html>

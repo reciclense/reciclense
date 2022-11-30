@@ -58,14 +58,14 @@
         </div>
         <!-- Perfil -->
         <div class="dropdown" id="perfil">
-          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#"
+            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
               alt="Black and White Portrait of a Man" loading="lazy" />
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="pessoaFisicaPerfil.html">Meu Perfil</a></li>
-            <li><a class="dropdown-item" href="#">Sair</a></li>
+            <li><a class="dropdown-item" id="btnLogout">Sair</a></li>
           </ul>
         </div>
     </nav>
@@ -83,74 +83,112 @@
       <div class="row">
         <div class="col">
           <label for="inputName">Nome:</label>
-          <input type="text" class="form-control" placeholder="Digite seu Nome" />
+          <input type="text" id="nm_usuario" class="form-control inputsPerfil" placeholder="Digite seu Nome" disabled />
         </div>
         <div class="col">
           <label for="inputsobrenome">Sobrenome:</label>
-          <input type="text" class="form-control" placeholder="Digite seu Sobrenome" />
+          <input type="text" id="sobrenome_usuario" class="form-control inputsPerfil" placeholder="Digite seu Sobrenome"
+            disabled />
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <label for="inputEmail4">Email:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: usuário@gmail.com" />
+          <label for="inputEmail">Email:</label>
+          <input type="email" id="email" class="form-control inputsPerfil" placeholder="Ex: usuário@gmail.com"
+            disabled />
         </div>
         <div class="col">
-          <label for="inputPassword4">CPF:</label>
-          <input oninput="mascaraCpf(this)" type="text" class="form-control" id="formGerenciaUser"
-            aria-describedby="CPF" placeholder="000.000.000-00">
-        </div>
-      </div>
-    </form>
-
-    <!--Titulo 2 da página-->
-
-    <h2 class="headingPerfilPessoaFisica2">Endereço</h2>
-
-    <!--Formulário de Endereco-->
-
-    <form action="">
-      <div class="row">
-        <div class="col">
-          <label for="inputName">Rua:</label>
-          <input type="text" class="form-control" placeholder="Rua do Recife" />
+          <label for="inputEmail">Nascimento:</label>
+          <input type="date" id="nascimento" class="form-control inputsPerfil" placeholder="Ex: 2020-10-15"
+            disabled />
         </div>
         <div class="col">
-          <label for="inputsobrenome">Número:</label>
-          <input type="text" class="form-control" placeholder="Número 00" />
+          <label for="inputCPF">CPF:</label>
+          <input oninput="mascaraCpf(this)" type="text" id="documento_principal" class="form-control inputsPerfil"
+            id="formGerenciaUser" aria-describedby="CPF" placeholder="000.000.000-00" disabled>
+        </div>
+        <div class="spinner-border text-primary" id="preloader" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
       </div>
+
+
+      <!--Titulo 2 da página-->
+
+      <h2 class="headingPerfilPessoaFisica2">Endereço</h2>
+
+      <!--Formulário de Endereco-->
       <div class="row">
         <div class="col">
-          <label for="inputName">Complemento:</label>
-          <input type="text" class="form-control" placeholder="Apartamento, ponto de referência." />
+          <label for="inputCEP">CEP:</label>
+          <input type="text" oninput="mascaraCEP(this)" name="CEP" id="cep" class="form-control inputsPerfil"
+            placeholder="50000000" disabled />
+        </div>
+        <div class="spinner-border text-primary" id="preloaderCEP" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
         <div class="col">
-          <label for="inputPassword4">CEP:</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="50000000" />
+          <label for="inputRua">Rua:</label>
+          <input type="text" name="Rua" id="nm_logradouro" class="form-control inputsPerfil" placeholder="Rua do Recife"
+            disabled />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputNumero">Número:</label>
+          <input type="text" oninput="apenasNumeros(this)" name="Número" id="numero" class="form-control inputsPerfil"
+            placeholder="Número 00" disabled />
+        </div>
+        <div class="col">
+          <label for="inputComplemento">Complemento:</label>
+          <input type="text" name="Complemento" id="nm_complemento" class="form-control inputsPerfil"
+            placeholder="Apartamento, ponto de referência." disabled />
         </div>
       </div>
       <div class="row">
         <div class="col-sm">
-          <label for="inputEmail4">Cidade:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Recife" />
+          <label for="inputEstado">Estado:</label>
+          <select type="text" name="Estado" id="nm_estado" class="form-control inputsPerfil"
+            placeholder="Ex: Pernambuco" disabled>
+          </select>
         </div>
         <div class="col-sm">
-          <label for="inputEmail4">Estado:</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="Ex: Pernambuco" />
+          <label for="inputCidade">Cidade:</label>
+          <select type="text" name="Cidade" id="nm_cidade" class="form-control inputsPerfil" placeholder="Ex: Recife"
+            disabled>
+            <option value="" selected>Selecione sua cidade</option>
+          </select>
+        </div>
+        <div class="col-sm">
+          <label for="inputBairro">Bairro:</label>
+          <input type="text" name="Bairro" id="nm_bairro" class="form-control inputsPerfil" placeholder="Ex: Varzea"
+            disabled />
         </div>
       </div>
+
+      <!--Botoes-->
+
+      <div style="text-align: right">
+        <button type="button" id="btnSalvarPerfil" class="btn btn-primary i bi-archive botoesPerfil" hidden></i> Salvar
+        </button>
+        <button type="button" id="btnEditarPerfil" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
+        <button type="button" id="btnExcluirPerfil" class="btn btn-danger i bi-trash3"></i> Excluir </button>
+      </div>
+
     </form>
-
-    <!--Botoes-->
-
-    <div style="text-align: right">
-      <button type="button" class="btn btn-primary i bi-archive"></i> Salvar </button>
-      <button type="button" class="btn btn-secondary i bi-pencil-square"></i> Editar </button>
-      <button type="button" class="btn btn-danger i bi-trash3"></i> Excluir </button>
-    </div>
-
   </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
   <!-- Rodapé -->
 
@@ -175,5 +213,12 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
+<script type="text/JavaScript" src="../assets/js/editarPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/atualizarDadosPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
+<script type="text/JavaScript" src="../assets/js/excluirUsuario.js"></script>
+<script type="text/JavaScript" src="../assets/js/consultarCEP.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarDadosPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/consultarCPF.js"></script>
 
 </html>

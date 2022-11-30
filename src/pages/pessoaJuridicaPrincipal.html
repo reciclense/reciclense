@@ -58,12 +58,12 @@
           </li>
         </ul>
         <div id="btnDinamico" class="d-flex justify-content-center" data-bs-toggle="modal"
-          data-bs-target="#formCadastrarColetor"></div>
+          data-bs-target="#formCadastrarColetor" hidden></div>
 
         <!-- Perfil -->
         <div class="dropdown" id="perfil">
-          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="dropdown-toggle d-flex justify-content-center align-items-center hidden-arrow" href="#"
+            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../assets/icons/perfil.png" class="rounded-circle" height="40"
               alt="Black and White Portrait of a Man" loading="lazy" />
           </a>
@@ -72,16 +72,11 @@
             <li><a class="dropdown-item" id="btnLogout">Sair</a></li>
           </ul>
         </div>
-
-
       </div>
+    </nav>
   </div>
 
-
-  </nav>
-  </div>
   <main>
-
     <!-- Barra de Pesquisa -->
     <div id="pesquisar">
       <div class="container">
@@ -93,32 +88,22 @@
             <form class="form-inline d-flex form-pesquisa">
               <input id="ipt-pesquisa" class="form-control mr-sm-2 ipt-pesquisa" type="search"
                 placeholder="Pesquise aqui" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0 btn-pesquisa d-flex align-items-center"
-                type="submit"><span class="material-symbols-outlined">
-                </span></button>
-              <button type="button" class="btn btn-filtro d-flex align-items-center"><span
-                  class="material-symbols-outlined">
-                  tune</span></button>
+              <i class="my-2 my-sm-0 btn-pesquisa d-flex align-items-center bi bi-search"></i>
             </form>
-
           </div>
 
-
-          <table id="tbl-pesquisa" class="table tbl-pesquisa">
-
-          </table>
+          <table id="tbl-pesquisa" class="table tbl-pesquisa"></table>
 
           <div class="col-md-12 d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-relatorio">Gerar Relatório</button>
-            <a role="button" class="btn btn-primary btn-relatorio" href="/src/pages/gerenciaColetor.html">Buscar
+            <button type="button" class="btn btn-primary btn-relatorio" data-bs-toggle="modal"
+              data-bs-target="#formGerarRelatorio" id="btn-relatorio">Gerar Relatório</button>
+            <a role="button" class="btn btn-primary btn-buscar" id="btn-buscar"
+              href="/src/pages/gerenciaColetor.html">Buscar
               Coletor</a>
           </div>
         </div>
-
       </div>
-
     </div>
-
   </main>
 
   <!-- Modal Cadastrar Coletor -->
@@ -131,26 +116,159 @@
           <div class="modal-content">
             <div class="modal-body">
               <!--Formulário de Cadastro de coletor-->
-              <form>
+              <form id="form-coletor" class="needs-validation" novalidate>
                 <div class="form-group">
                   <div class="modal-footer">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <h4 class="headings">Cadastrar Coletor</h4>
-                  <label for="exampleInputNomeColetor" class="headerInput">Nome:</label>
-                  <input type="text" class="form-control" id="exampleInputData" placeholder="Coletor teste" required>
+                  <h3 class="headings">Cadastrar Coletor</h3>
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleInputNomeColetor" class="headerInput">Nome:</label>
+                      <input type="text" class="form-control inputsPerfil" id="nome-coletor" placeholder="Coletor teste"
+                        required>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputSobrenomeColetor" class="headerInput">Sobrenome:</label>
-                  <input type="text" class="form-control" id="exampleInputHorario" placeholder=" da Silva" required>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="exampleInputSobrenomeColetor" class="headerInput">Sobrenome:</label>
+                      <input type="text" class="form-control inputsPerfil" id="sobrenome-coletor"
+                        placeholder=" da Silva" required>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputDocumentoColetor" class="headerInput">CPF:</label>
-                  <input oninput="mascaraCpf(this)" type="text" class="form-control" id="exampleInputHorario"
-                    placeholder=" 000.000.000-00" required>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="exampleInputNascimentoColetor" class="headerInput">Data de Nascimento:</label>
+                      <input type="date" class="form-control inputsPerfil" id="nascimento" placeholder=" da Silva"
+                        required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="exampleInputDocumentoColetor" class="headerInput inputsPerfil">CPF:</label>
+                      <input oninput="mascaraCpf(this)" type="text" class="form-control inputsPerfil"
+                        id="documento_principal" placeholder=" 000.000.000-00" required>
+                    </div>
+                  </div>
+                  <div class="spinner-border text-primary" id="preloaderColetor" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <div class="campo-erro alert alert-danger d-none">
+                  Preencha o campo <span id="campo-erro"></span>!
                 </div>
                 <div>
-                  <button type="submit" class=" btnCadastrarColetor form-control btn btn-primary">Cadastrar</button>
+                  <button type="button" id="btnCadastrarColetor"
+                    class="btnCadastrarColetor form-control inputsPerfil btn btn-primary">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Gerar Relatório -->
+  <div id="gerarRelatorio">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formGerarRelatorio" tabindex="-1" role="dialog" aria-labelledby="formGerarRelatorio"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <!--Formulário de Cadastro de coletor-->
+              <form id="form-coletor" class="needs-validation" novalidate>
+                <div class="form-group">
+                  <div class="modal-footer">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <h3 class="headings">Gerar Relatório</h3>
+                  <div class="row">
+                    <div class="col">
+                      <label for="exampleInputNomeColetor" class="headerInput">Data Início:</label>
+                      <input type="date" class="form-control inputsPerfil" id="dataInicioRelatorio"
+                        placeholder=" da Silva" required>
+                    </div>
+                    <div class="col">
+                      <label for="exampleInputNomeColetor" class="headerInput">Data Fim:</label>
+                      <input type="date" class="form-control inputsPerfil" id="dataFimRelatorio" placeholder=" da Silva"
+                        required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Estado:</label>
+                        <select class="form-control" id="nm_estado">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Cidade:</label>
+                        <select class="form-control" id="nm_cidade">
+                          <option selected>Todas as cidades</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Bairro:</label>
+                        <select class="form-control" id="selectBairroRelatorio">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Material</label>
+                        <select class="form-control" id="selectMaterialRelatorio">
+                          <option>Todos os materiais</option>
+                          <option>Plástico</option>
+                          <option>Vidro</option>
+                          <option>Metal</option>
+                          <option>Papel</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="spinner-border text-primary" id="preloaderRelatorio" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputNascimentoColetor" class="headerInput">Turno:</label>
+                        <select class="form-control" id="selectTurnoRelatorio">
+                          <option>Todos os turnos</option>
+                          <option>Manha</option>
+                          <option>Tarde</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="spinner-border text-primary" id="preloaderRelatorio" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div> -->
+                  <div class="row">
+                    <div id="baixarRelatorio"></div>
+                    <div class="col">
+                      <div class="form-group">
+                        <button type="button" id="btnGerarRelatorio"
+                          class="btnCadastrarColetor form-control inputsPerfil btn btn-primary">Gerar
+                          Relatório</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
             </form>
@@ -159,18 +277,26 @@
       </div>
     </div>
   </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
   </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
   <!-- Rodapé -->
   <footer class="rodape">
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
       <a href="/"> reciclense.com.br</a>
     </div>
   </footer>
-
-
 </body>
 
 <!-- Optional JavaScript -->
@@ -185,7 +311,14 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="../assets/js/btnDinamico.js"></script>
-<script type="text/JavaScript" src="../assets/js/geral.js"></script>
+<script type="text/JavaScript" src="../assets/js/mascaras.js"></script>
 <script type="text/JavaScript" src="../assets/js/listarColetas.js"></script>
+<script type="text/JavaScript" src="../assets/js/cadastrarColetor.js"></script>
+<script type="text/JavaScript" src="../assets/js/validarDadosPerfil.js"></script>
+<script type="text/JavaScript" src="../assets/js/consultarCPF.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarEstados.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarCidades.js"></script>
+<script type="text/JavaScript" src="../assets/js/recuperarBairros.js"></script>
+<script type="text/JavaScript" src="../assets/js/gerarRelatorio.js"></script>
 
 </html>

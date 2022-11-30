@@ -1,5 +1,13 @@
 var url = window.location.pathname;
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true
+})
+
 document.addEventListener('DOMContentLoaded', function () {
 
     let button = document.createElement('button');
@@ -33,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem("contSessaoExpirada", 1);
 
                 //Caso esteja na tela inicial o nome do botão será : 'Área do usuário'
-                if (url == "/index.html" || url == "/") {
+                if (url == "/index.html" || url == "/" || url == '/src/pages/gerenciaColetor.html' || url == '/src/pages/pessoaFisicaPerfil.html' 
+                || url == '/src/pages/pessoaJuridicaPerfil.html' || url == '/src/pages/contato.html') {
 
                     button.type = 'button';
                     button.innerHTML = 'Área do usuário';
@@ -77,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(err => console.error(err));
 
-    var btnDinamico = document.getElementById('btnDinamico');
+    let btnDinamico = document.getElementById('btnDinamico');
     btnDinamico.appendChild(button);
 }, false);
 
@@ -86,18 +95,6 @@ document.getElementById('btnLogout')
     .addEventListener('click', async function () {
 
         localStorage.clear();
-
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
 
         await Toast.fire({
             icon: 'warning',
@@ -130,17 +127,7 @@ document.addEventListener('click', function () {
                 //Mostra mensagem de sessão expirada caso contador esteja igual a 1
                 if (localStorage.getItem("contSessaoExpirada") == 1) {
 
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 1500,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
+                    localStorage.clear();
 
                     await Toast.fire({
                         icon: 'error',
@@ -161,5 +148,4 @@ document.addEventListener('click', function () {
                 }
             }
         });
-
 });

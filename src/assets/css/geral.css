@@ -114,3 +114,41 @@ div#perfil .dropdown-item:hover{
   color: #ffffff;
 }
 
+.campo-erro{
+  margin-top: 20px;
+}
+
+#preloader, #preloaderCNPJ{
+  margin-top: 25px;
+  display: none;
+}
+
+#preloaderColetor{
+  margin-top: 65px;
+  display: none;
+}
+
+#preloaderCEP{
+  margin-top: 26px;
+  display: none;
+}
+
+#preloaderRecuperarSenha{
+  margin-top: 165px;
+  display: none;
+}
+
+#preloaderRelatorio{
+  margin-top: 65px;
+  display: none;
+}
+
+.btn-pesquisa {
+  border-radius: 0px 10px 10px 0px;
+  border-left: none;
+  background-color: #D9D9D9;
+  border: none;
+  color: var(--corBotao);
+  font-size: 18px;
+  padding: 10px;
+}

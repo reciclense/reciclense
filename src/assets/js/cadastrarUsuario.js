@@ -54,56 +54,31 @@ document.getElementById('btnCriarConta')
                             text: 'Usuário já cadastrado!'
                         });
                     } else {
+                        
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            timerProgressBar: true
+                        })
 
-                        //Configuração da rota
-                        const options = {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                email,
-                                senha
-                            })
-                        };
+                        await Toast.fire({
+                            icon: 'success',
+                            title: 'Cadastrado com sucesso'
+                        })
 
-                        //Fetch para redirecionar usuário de acordo com o tp_perfil ou apresentar alert 
-                        fetch('http://localhost:5500/valida-login', options)
-                            .then(response => response.json())
-                            .then(async response => {
-                                if (response.success == false) {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Oops...',
-                                        text: 'Usuário ou senha incorreta!'
-                                    });
-                                } else {
-                                    const Toast = Swal.mixin({
-                                        toast: true,
-                                        position: 'top-end',
-                                        showConfirmButton: false,
-                                        timer: 1500,
-                                        timerProgressBar: true,
-                                        didOpen: (toast) => {
-                                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                        }
-                                    })
+                        //Salvando token no localStorage
+                        localStorage.setItem("token", response.token);
+                        localStorage.setItem("id_usuario", response.id_usuario);
+                        localStorage.setItem("perfil", response.tp_perfil);
+                        localStorage.setItem("google", false);
 
-                                    await Toast.fire({
-                                        icon: 'success',
-                                        title: 'Cadastrado com sucesso'
-                                    })
-
-                                    //Salvando token no localStorage
-                                    localStorage.setItem("token", response.token);
-
-                                    if (response.tp_perfil == 'fisica') {
-                                        window.location.href = "src/pages/pessoaFisicaPrincipal.html";
-                                    } else {
-                                        window.location.href = "src/pages/pessoaJuridicaPrincipal.html";
-                                    }
-                                }
-                            })
-                            .catch(err => console.error(err));
+                        if (response.tp_perfil == 'fisica') {
+                            window.location.href = "src/pages/pessoaFisicaPrincipal.html";
+                        } else {
+                            window.location.href = "src/pages/pessoaJuridicaPrincipal.html";
+                        }
                     }
                 })
                 .catch(err => console.error(err));

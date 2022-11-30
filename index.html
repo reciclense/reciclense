@@ -283,6 +283,8 @@
                   <label for="exampleInputPassword1" class="headerInput">Senha:</label>
                   <input type="password" name="senha" class="form-control" id="exampleInputPassword1"
                     placeholder="Informe sua senha" required>
+                  <button class="btnRecuperarSenha" data-bs-toggle="modal"
+                    data-bs-target="#formRecuperarSenha">Recuperar senha</button>
                 </div>
                 <div>
                   <button type="button" id="btnEntrar"
@@ -297,6 +299,7 @@
                   </div>
                   <p class="btnTxt text-center">Ainda não possui cadastro?<button class="btnCadastrar"
                       data-bs-toggle="modal" data-bs-target="#formCadastro">Cadastre-se</button></p>
+
                 </div>
               </form>
             </div>
@@ -304,73 +307,131 @@
         </div>
       </div>
     </div>
+  </div>
+  
+  <!-- Modal Cadastro -->
+  <div id="cadastro">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
 
-    <!-- Modal Cadastro -->
-    <div id="cadastro">
-      <div class="col-md-6">
-        <!-- Modal -->
-        <div class="modal fade" id="formCadastro" tabindex="-1" role="dialog" aria-labelledby="formCadastro"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
+              <!--Formulário de cadastro-->
+              <form>
+                <div class="modal-footer">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-group">
+                  <h4 class=" headings">Cadastre-se</h4>
+                  <label for="cadEmail" class="headerInput">Email</label>
+                  <input type="email" class="form-control" name="cadEmail" id="cadEmail" aria-describedby="emailHelp"
+                    placeholder="Informe seu email..." required>
+                </div>
+                <div class="form-group">
+                  <label for="cadSenha" class="headerInput">Senha</label>
+                  <input type="password" class="form-control" name="cadSenha" id="cadSenha"
+                    placeholder="Informe sua senha..." required>
+                  <div id="divForcaSenha" class="progress"></div>
+                  <label class="headerInput">Tipo de Usuário</label>
+                </div>
 
-                <!--Formulário de cadastro-->
-                <form id="form-cadastro" class="needs-validation" novalidate>
-                  <div class="modal-footer">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="form-group">
-                    <h4 class=" headings">Cadastre-se</h4>
-                    <label for="cadEmail" class="headerInput">Email</label>
-                    <input type="email" class="form-control" name="cadEmail" id="cadEmail" aria-describedby="emailHelp"
-                      placeholder="Informe seu email..." required>
-                  </div>
-                  <div class="form-group">
-                    <label for="cadSenha" class="headerInput">Senha</label>
-                    <input type="password" class="form-control" name="cadSenha" id="cadSenha"
-                      placeholder="Informe sua senha..." required>
-                    <label class="headerInput">Tipo de de Usuário</label>
-                  </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cadTipo" id="cadFisica" value="fisica" checked>
-                    <label class="form-check-label" for="cadFisica">
-                      Pessoa Fisíca
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cadTipo" id="cadJuridica" value="juridica">
-                    <label class="form-check-label" for="cadJuridica">
-                      Pessoa Jurídica
-                    </label>
-                  </div>
-                  <div>
-                    <button type="button" id="btnCriarConta" class=" btnCriarConta  form-control btn btn-primary">Criar
-                      Conta</button><br>
-                    <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin"
-                        data-bs-toggle="modal" data-bs-target="#formLogin">Fazer Login</button></p>
-                  </div>
-                  <div class="alert alert-danger d-none">
-                    Preencha o campo <span id="campo-erro"></span>!
-                  </div>
-                </form>
-              </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="cadTipo" id="cadFisica" value="fisica" checked>
+                  <label class="form-check-label" for="cadFisica">
+                    Pessoa Fisíca
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="cadTipo" id="cadJuridica" value="juridica">
+                  <label class="form-check-label" for="cadJuridica">
+                    Pessoa Jurídica
+                  </label>
+                </div>
+                <div>
+                  <button type="button" id="btnCriarConta" class=" btnCriarConta  form-control btn btn-primary">Criar
+                    Conta</button><br>
+                  <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin" data-bs-toggle="modal"
+                      data-bs-target="#formLogin">Fazer Login</button></p>
+                </div>
+                <div class="campo-erro alert alert-danger d-none">
+                  Preencha o campo <span id="campo-erro"></span>!
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- Modal Recuperar Senha -->
+  <div id="recuperarSenha">
+    <div class="col-md-6">
+      <!-- Modal -->
+      <div class="modal fade" id="formRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="formRecuperarSenha"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
 
-    <!-- Rodapé -->
-    <footer class="rodape">
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
-        <a href="/"> reciclense.com.br</a>
+              <!--Formulário Enviar Email Para Recuperar Senha-->
+              <form>
+                <div class="modal-footer">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <h4 class=" headings">Recuperar Senha</h4>
+                      <label for="cadEmail" class="headerInput">Email</label>
+                      <input type="email" class="form-control" name="cadEmail" id="recuperarSenhaEmail"
+                        aria-describedby="emailHelp" placeholder="Informe seu email..." required>
+                    </div>
+                  </div>
+                  <div class="spinner-border text-primary" id="preloaderRecuperarSenha" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <div>
+                  <button type="button" id="btnRecuperarSenha"
+                    class=" btnCriarConta  form-control btn btn-primary">Enviar email</button><br>
+                  <p class="btnTxt text-center">Já possui cadastro?<button class="btnFazerLogin" data-bs-toggle="modal"
+                      data-bs-target="#formLogin">Fazer Login</button></p>
+                </div>
+                <div class="campo-erro alert alert-danger d-none">
+                  Preencha o campo <span id="campo-erro"></span>!
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
+  </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright: Todos os direitos reservados.
+      <a href="/"> reciclense.com.br</a>
+    </div>
+  </footer>
 </body>
 
 <!-- Optional JavaScript -->
@@ -386,10 +447,12 @@
 
 <!--Import Scripts-->
 <script type="text/JavaScript" src="src/assets/js/btnDinamico.js"></script>
-<script type="text/JavaScript" src="src/assets/js/geral.js"></script>
+<script type="text/JavaScript" src="src/assets/js/mascaras.js"></script>
 <script type="text/JavaScript" src="src/assets/js/validarLogin.js"></script>
 <script type="text/JavaScript" src="src/assets/js/cadastrarUsuario.js"></script>
 <script type="text/JavaScript" src="src/assets/js/loginGoogle.js"></script>
+<script type="text/JavaScript" src="src/assets/js/validarForcaSenha.js"></script>
+<script type="text/JavaScript" src="src/assets/js/recuperarSenha.js"></script>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 

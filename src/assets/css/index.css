@@ -166,7 +166,7 @@ div#comofunciona-slide .carousel-indicators [data-bs-target] {
 
 div#comofunciona-slide .carousel-control-next,
 .carousel-control-prev {
-    width: 30%;
+    width: 10%;
 }
 
 .card {
@@ -266,6 +266,16 @@ div#contato label {
     border: none;
     cursor: pointer;
     overflow: hidden;
+}
+
+.btnRecuperarSenha{
+    color: var(--corBotao);
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: 5px;
 }
 
 p {
@@ -524,4 +534,11 @@ footer {
         font-size: 0.9em;
     }
 
+
+
+}
+
+.progress {
+
+    margin-top: 15px;
 }

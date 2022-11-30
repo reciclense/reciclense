@@ -44,6 +44,15 @@ Instalar o jwt
 ### npm install --save bcrypt 
 Instalar o bcrypt
 
+### npm install node-cep-correios --save
+Instalar API dos correios
+
+### npm install html-pdf --save
+Instalar biblioteca para geração de pdf
+
+### npm install ejs --save
+Instalar biblioteca ejs
+
 ## Exemplo de criação de tabela através do Sequelize
 const Sequelize = require('sequelize');
 

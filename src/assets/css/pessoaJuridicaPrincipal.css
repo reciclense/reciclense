@@ -3,19 +3,6 @@
     margin-bottom: 20px;
 }
 
-.btn-pesquisa {
-    border-radius: 0px 10px 10px 0px;
-    border-left: none;
-    background-color: #D9D9D9;
-    border: none;
-    color: var(--corBotao);
-}
-
-.btn-pesquisa:hover {
-    background-color: var(--corBotao) !important;
-    color: #ffffff !important;
-}
-
 .ipt-pesquisa {
     border-radius: 10px 0px 0px 10px;
     background-color: #D9D9D9;
@@ -35,7 +22,7 @@
     box-shadow: 0 0 0 0 #D9D9D9;
 }
 
-.btn-relatorio {
+.btn-relatorio, .btn-buscar {
     margin-top: 10px;
     margin-right: 10px;
 }
@@ -73,3 +60,12 @@
     margin-bottom: 50px;
 }
 
+th {
+    padding: 5px;
+    text-align: center;
+}
+
+td {
+    padding: 5px;
+    text-align: center;
+}
