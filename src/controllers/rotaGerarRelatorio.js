@@ -26,7 +26,7 @@ var sec = today.getSeconds();
 const options = {
     format: 'Letter',
     orientation: "landscape",
-    border: "0.2in"
+    border: "0.1in"
 };
 
 /*Função para gerar o relatório*/
