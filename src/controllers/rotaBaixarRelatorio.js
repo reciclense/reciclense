@@ -1,7 +1,9 @@
-const fs = require('fs');
+async function baixarRelatorio(req, res) {
 
-async function baixarRelatorio(req,res) {
-    res.download('src/relatorios/COLETAS_29112022_19947.pdf');
+    let nomePDF = req.params.pdf
+
+    res.download('src/relatorios/' + nomePDF);
+
 }
 
 module.exports = baixarRelatorio;

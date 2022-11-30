@@ -44,14 +44,13 @@ document.getElementById('btnGerarRelatorio')
 
                         if (result.isConfirmed) {
 
-                            const options = {
-                                method: 'GET', 
-                                headers: {'Content-Type': 'application/json'}};
+                            let pdf = response.pdf.filename.split('\\');
+                            
+                            let iframe = document.createElement('iframe');
 
-                            fetch('http://localhost:5500/baixar-relatorio', options)
-                              .then(response => response.json())
-                              .then(response => console.log(response))
-                              .catch(err => console.error(err));
+                            iframe.setAttribute('src', 'http://localhost:5500/baixar-relatorio/' + pdf[5]);
+
+                            document.getElementById('baixarRelatorio').appendChild(iframe).setAttribute('style', 'display: none');
                         }
 
                     }).catch(err => console.error(err));

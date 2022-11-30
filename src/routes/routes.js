@@ -106,8 +106,8 @@ router.get('/recuperar-bairros', recuperarBairros);
 /*Rota que chamar a função gerarRelatorio*/
 router.post('/gerar-relatorio', gerarRelatorio);
 
-// /*Rota que chamar a função baixarRelatorio*/
-router.get('/baixar-relatorio', baixarRelatorio);
+/*Rota que chamar a função baixarRelatorio*/
+router.get('/baixar-relatorio/:pdf', baixarRelatorio);
 
 /*Rota que chamar a função editarColetas*/
 router.put ('/atualizar-coleta' , atualizarColeta ) ;
